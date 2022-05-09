@@ -4,4 +4,8 @@
  */
 
 // Стили для файла с примером HTML-фрагмента
-@import './example';
+@import './utills/variables';
+@import './basis/dedault';
+@import './components/page-header';
+@import './components/form';
+@import './components/gallery';
