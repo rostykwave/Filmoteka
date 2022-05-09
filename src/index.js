@@ -1,3 +1,3 @@
 import './sass/main.scss';
 
-import './js/form.js';
+import './js/form.js'

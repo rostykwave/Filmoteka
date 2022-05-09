@@ -1,3 +1,4 @@
+
 console.log('hello');
 
 const refs = {
@@ -10,7 +11,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 
 
 function onFormSubmit(evt){
-    evt.prevetDefault();
+    evt.preventDefault();
    
     const formElements = evt.currentTarget.elements;
 
