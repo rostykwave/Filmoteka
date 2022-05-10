@@ -9,6 +9,7 @@ import photoCardTpl from './templates/photo-card.hbs'
 ///BackEnd
 // import API from './js/api-service';
 import PhotoApiService from './js/api-service';
+import LoadButton from './js/load-more-button';
 
 
 //Refs
@@ -17,30 +18,55 @@ const refs = getRefs();
 
 ///копія класу
 const photoApiService = new PhotoApiService();
+    //передача об'єкту, який відповідає властивостям конструктору класа
+const loadMoreButton = new LoadButton(
+    {
+        selector: '.load-more',
+        hidden: true,
+    }
+);
+
+const searchQueryButton = new LoadButton({
+    selector: '.search-form__button',
+});
+
+
 
 refs.form.addEventListener('submit', onSearch);
+loadMoreButton.refs.button.addEventListener('click', fetchCards);
 
 
-
-// console.log(photoApiService.searchQuery);
-
-photoApiService.query = 'car';
 
 function onSearch(e) {
     e.preventDefault();
 
     photoApiService.query = e.currentTarget.elements.searchQuery.value;
 
-    console.log(photoApiService.query);
+    if (photoApiService.query === '') {
+        return Notify.info('Введть свій запит в поле пошуку');
+    }
+
+    photoApiService.resetPage();
+    clearCardsContainer();
+
+    searchQueryButton.disable();
 
     fetchCards();
+
+    loadMoreButton.show();
 
 }
 
 
 function fetchCards() {
+    loadMoreButton.disable();
+
     photoApiService.fetchCards()
-        .then(renderPhotoCard)
+        .then(cards => {
+            renderPhotoCards(cards);
+            loadMoreButton.enable();
+             searchQueryButton.enable();
+        })
         .catch(onFetchError)
         .finally(console.log('fetch done'));
 }
@@ -64,29 +90,42 @@ function fetchCards() {
 //     // refs.form.reset();
 // }
 
-function renderPhotoCard(photo) {
 
-    console.log(photo.hits[0]);
-    console.log(photo.hits.length);
-    console.log(photo.hits[0].webformatURL);
-    // const markup = photoCardTpl(photo);
+///Функція отримує масив з об'єктами, які містять дані кожної картрки
+function renderPhotoCards(photo) {
+//Варіант 1
+    console.log(photo);
 
-
-    ///Створення пустого масиву
-    const markup = [];
-
-    ////Ітерація по масиву стільки разів, скільки прийшло відповіді з бекенду
-    for (let i = 0; i < photo.hits.length; i += 1) {
-        //додавання згенерованого HTML-карток в масив
-    markup.push(photoCardTpl(photo.hits[i]));
+    ////Якщо відповідь - пустий масив, тобто нема вже чого завантажувати з бекенду -> повідомлення
+    if (photo.length === 0) {
+        return Notify.warning("We're sorry, but you've reached the end of search results.");
     }
 
-    ///Об'єднання масиву в один рядок
-    const markupList = markup.join('');
-    ///Вставлення списку HTML всіх згенерованих карток в галерею
-    refs.cardContainer.innerHTML = markupList;
+    refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(photo));
+
+    //   loadMoreButton.enable();
+    
+ //Варіант 2 
+    ///Цей варіант занадто накручений, конструкція each в шаблонах  не потрібна
+    // ///Створення пустого масиву
+    // const markup = [];
+
+    // ////Ітерація по масиву стільки разів, скільки прийшло відповіді з бекенду
+    // for (let i = 0; i < photo.hits.length; i += 1) {
+    //     //додавання згенерованого HTML-карток в масив
+    // markup.push(photoCardTpl(photo.hits[i]));
+    // }
+
+    // ///Об'єднання масиву в один рядок
+    // const markupList = markup.join('');
+    // ///Вставлення списку HTML всіх згенерованих карток в галерею
+    // refs.cardContainer.insertAdjacentHTML('beforeend', markupList);
 }
 
 function onFetchError(error) {
     Notify.failure("Sorry, there are no images matching your search query. Please try again.");
+}
+
+function clearCardsContainer() {
+    refs.cardContainer.innerHTML = '';
 }
