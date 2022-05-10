@@ -5,10 +5,35 @@ const ORIENTATION = 'horizontal';
 const SAFE_SEARCH = 'true';
 
 
-function fetchPhotoCards(photoName) {
-    return fetch(`${BASE_URL}/?key=${KEY}&q=${photoName}&image_type=${IMAGE_TYPE}&orientation=${ORIENTATION}&safesearch=${SAFE_SEARCH}`)
-        .then(reponse => reponse.json());
-}
+// function fetchPhotoCards(photoName) {
+//     return fetch(`${BASE_URL}/?key=${KEY}&q=${photoName}&image_type=${IMAGE_TYPE}&orientation=${ORIENTATION}&safesearch=${SAFE_SEARCH}`)
+//         .then(reponse => reponse.json());
+// }
 
-export default { fetchPhotoCards };
+// export default { fetchPhotoCards };
+
+export default class PhotoApiService{
+    constructor(){
+        this.searchQuery = '';
+    }
+
+
+    fetchCards() {
+        const url = `${BASE_URL}/?key=${KEY}&q=${this.searchQuery}&image_type=${IMAGE_TYPE}&orientation=${ORIENTATION}&safesearch=${SAFE_SEARCH}`;
+
+        return fetch(url)
+            .then(response => response.json())
+            .then((cards) => {
+                return cards;
+            });
+    }
+
+    get query() {
+        return this.searchQuery;
+    }
+
+    set query(newQuery) {
+        this.searchQuery = newQuery;
+    }
+}
 

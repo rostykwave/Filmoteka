@@ -7,32 +7,62 @@ import photoCardTpl from './templates/photo-card.hbs'
 
 
 ///BackEnd
-import API from './js/api-service';
+// import API from './js/api-service';
+import PhotoApiService from './js/api-service';
+
+
 //Refs
 import getRefs from './js/getRefs';
 const refs = getRefs();
 
-
+///копія класу
+const photoApiService = new PhotoApiService();
 
 refs.form.addEventListener('submit', onSearch);
 
 
-///Functions
-function onSearch(e){
+
+// console.log(photoApiService.searchQuery);
+
+photoApiService.query = 'car';
+
+function onSearch(e) {
     e.preventDefault();
 
-    const formElements = e.currentTarget.elements;
-    const searchQuery = formElements.searchQuery.value;
+    photoApiService.query = e.currentTarget.elements.searchQuery.value;
 
-    API.fetchPhotoCards(searchQuery)
+    console.log(photoApiService.query);
+
+    fetchCards();
+
+}
+
+
+function fetchCards() {
+    photoApiService.fetchCards()
         .then(renderPhotoCard)
         .catch(onFetchError)
         .finally(console.log('fetch done'));
-
-    console.log(searchQuery);
-
-    // refs.form.reset();
 }
+
+
+///without classes
+///Functions
+// function onSearch(e){
+//     e.preventDefault();
+
+//     const formElements = e.currentTarget.elements;
+//     const searchQuery = formElements.searchQuery.value;
+
+//     API.fetchPhotoCards(searchQuery)
+//         .then(renderPhotoCard)
+//         .catch(onFetchError)
+//         .finally(console.log('fetch done'));
+
+//     console.log(searchQuery);
+
+//     // refs.form.reset();
+// }
 
 function renderPhotoCard(photo) {
 
