@@ -1,11 +1,11 @@
 const axios = require('axios');
 
-// const BASE_URL = 'https://pixabay.com/api';
-// const KEY = '27289011-631f37c1ff3a5cbdb3c134909';
-// const IMAGE_TYPE = 'photo';
-// const ORIENTATION = 'horizontal';
-// const SAFE_SEARCH = 'true';
-// const PER_PAGE = 40;
+const BASE_URL = 'https://pixabay.com/api';
+const KEY = '27289011-631f37c1ff3a5cbdb3c134909';
+const IMAGE_TYPE = 'photo';
+const ORIENTATION = 'horizontal';
+const SAFE_SEARCH = 'true';
+const PER_PAGE = 40;
 
 export default class PhotoApiService{
     constructor(){
@@ -16,20 +16,22 @@ export default class PhotoApiService{
 
     async fetchCards() {
     
-        return await axios.get('https://pixabay.com/api/', {
+        return await axios.get(BASE_URL, {
             params: {
-                key: '27289011-631f37c1ff3a5cbdb3c134909',
+                key: KEY,
                 q: this.searchQuery,
-                image_type: 'photo',
-                orientation: 'horizontal',
-                safesearch: 'true',
+                image_type: IMAGE_TYPE,
+                orientation: ORIENTATION,
+                safesearch: SAFE_SEARCH,
                 page: this.page,
-                per_page: 40,
+                per_page: PER_PAGE,
         
             }
         }).then(({ data }) => {
+  
             this.incrementPage();
-            return data.hits;
+        
+            return { data, PER_PAGE };
         });
 
     }
