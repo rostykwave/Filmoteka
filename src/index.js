@@ -1,9 +1,10 @@
 import './sass/main.scss';
+//Axios
+// const axios = require('axios').default;
 //Notifix
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 //Templates
 import photoCardTpl from './templates/photo-card.hbs'
-
 
 
 ///BackEnd
@@ -129,3 +130,26 @@ function onFetchError(error) {
 function clearCardsContainer() {
     refs.cardContainer.innerHTML = '';
 }
+
+
+
+
+/////тест
+
+
+const axios = require('axios');
+
+axios.get('https://pixabay.com/api/', {
+    params: {
+        key: '27289011-631f37c1ff3a5cbdb3c134909',
+        q: 'car',
+        image_type: 'photo',
+        orientation: 'horizontal',
+        safesearch: 'true',
+        page: 1,
+        per_page: 40,
+        
+   }
+}).then((response) => {
+    console.log(response.data.hits);
+})
