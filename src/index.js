@@ -207,28 +207,7 @@ window.scrollBy({
 
 
 
-/////тест
-
-
-const axios = require('axios');
-
-axios.get('https://pixabay.com/api/', {
-    params: {
-        key: '27289011-631f37c1ff3a5cbdb3c134909',
-        q: 'lux',
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: 'true',
-        page: 4,
-        per_page: 40,
-        
-    }
-}).then((response) => {
-    console.log(response.data);
-    // console.log(response.data.totalHits);
-    // console.log(response.data.hits);
-}).catch((error) => {
-    console.log(error);
-});
+//1. Зробити, щоб повідомлення про "We're sorry, but you've reached the end of search results." показувалось тільки після прокручування до кінця сторіники
+//2.Нескінченний скрол
 
 
