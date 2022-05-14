@@ -13,18 +13,28 @@
   </head>
   <body>
    <header class="page-header">
-      <form class="search-form" id="search-form">
-        <input class="search-form__input" type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
-        <button class="search-form__button" type="submit">Search</button>
-      </form>
+     <div class="container">
+            <form class="search-form" id="search-form">
+              <input class="search-form__input" type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
+              <button class="search-form__button" type="submit">Search</button>
+            </form>
+     </div>
    </header>
 
    <main>
-    <div class="gallery">
-      <!-- Картки зображень -->
-    </div>
-    <button type="button" class="load-more">Load more</button>
+     <div class="container">
+          <div class="gallery">
+            <!-- Картки зображень -->
+          </div>
+          <button type="button" class="load-more">Load more</button>
+     </div>
+
+
    </main>
+
+   <footer>
+        <div class="container"></div>
+   </footer>
    
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
