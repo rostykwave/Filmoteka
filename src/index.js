@@ -122,6 +122,11 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
 
     refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(dataHits));
 
+    if (currentPage !== 1) {
+        smoothScroll();
+    }
+
+
     ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
     totalHitsOnSearchNotif({ currentPage, totalHits });
 
@@ -173,6 +178,18 @@ function totalHitsOnSearchNotif({currentPage, totalHits}) {
         "Hooray! We found totalHits images."
     }
 
+}
+
+//Додатково. Прокручування сторінки
+function smoothScroll() {
+    const { height: cardHeight } = document
+  .querySelector(".gallery")
+  .firstElementChild.getBoundingClientRect();
+
+window.scrollBy({
+  top: cardHeight * 2,
+  behavior: "smooth",
+});
 }
 
 
