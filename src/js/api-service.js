@@ -30,8 +30,12 @@ export default class PhotoApiService{
         }).then(({ data }) => {
   
             this.incrementPage();
+
+            const currentPage = this.page - 1;
+            const dataHits = data.hits;
+            const totalHits = data.totalHits;
         
-            return { data, PER_PAGE };
+            return { dataHits, totalHits, PER_PAGE, currentPage };
         });
 
     }

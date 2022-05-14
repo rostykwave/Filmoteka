@@ -1,6 +1,21 @@
 import './sass/main.scss';
-//Axios
-// const axios = require('axios').default;
+
+//Бібліотека SimpleLightbox
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+////Крок 2 
+///ініціація і модифікація підпису лайтбоксу 
+// var lightbox = new SimpleLightbox('.gallery a', {
+//     captions: true,
+//     captionSelector: 'img',
+//     captionType: 'attr',
+//     captionsData: 'alt',
+//     captionPosition: 'bottom',
+//     captionDelay: 250,
+// });
+
+
 //Notifix
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 //Templates
@@ -67,7 +82,8 @@ function fetchCards() {
         .then(cards => {
             renderPhotoCards(cards);
             loadMoreButton.enable();
-             searchQueryButton.enable();
+            searchQueryButton.enable();
+            
         })
         .catch(onFetchError)
         .finally(console.log('fetch done'));
@@ -94,24 +110,32 @@ function fetchCards() {
 
 
 ///Функція отримує масив з об'єктами, які містять дані кожної картрки
-function renderPhotoCards({ data, PER_PAGE }) {
+function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
 //Варіант 1
-    console.log(data);
+    const currentHits = dataHits.length;
 
-    console.log(PER_PAGE);
-
-    const currentHits = data.hits.length;
-
-   
+    console.log(dataHits);
 
     ////Якщо бекенд повертає порожній масив, значить нічого підходящого не було знайдено
     if (currentHits === 0) {
         return Notify.warning("Sorry, there are no images matching your search query. Please try again.");
     }
 
-    refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(data.hits));
+    refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(dataHits));
 
-    
+    //Додатково: SimpleLightbox
+    var lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionSelector: 'img',
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+});
+
+    ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
+    totalHitsOnSearchNotif({ currentPage, totalHits });
+
 
     // Якщо користувач дійшов до кінця колекції, ховай кнопку і виводь повідомлення з текстом
     
@@ -149,6 +173,20 @@ function onFetchError(error) {
 function clearCardsContainer() {
     refs.cardContainer.innerHTML = '';
 }
+
+
+///Додатково
+
+function totalHitsOnSearchNotif({currentPage, totalHits}) {
+
+      if (currentPage === 1) {
+        Notify.info(`Hooray! We found ${totalHits} images.`);
+        "Hooray! We found totalHits images."
+    }
+
+}
+
+
 
 /////addition
 // function endOfScroll() {
