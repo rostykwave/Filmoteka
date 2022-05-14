@@ -1,20 +1,18 @@
 import './sass/main.scss';
 
-//Бібліотека SimpleLightbox
+///////Бібліотека SimpleLightbox
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-
-////Крок 2 
-///ініціація і модифікація підпису лайтбоксу 
-// var lightbox = new SimpleLightbox('.gallery a', {
-//     captions: true,
-//     captionSelector: 'img',
-//     captionType: 'attr',
-//     captionsData: 'alt',
-//     captionPosition: 'bottom',
-//     captionDelay: 250,
-// });
-
+// Створення і налаштування нового LightBox
+let lightbox = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionSelector: 'img',
+    captionType: 'attr',
+    captionsData: 'alt',
+    captionPosition: 'bottom',
+    captionDelay: 250,
+});
+/////
 
 //Notifix
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -81,6 +79,7 @@ function fetchCards() {
     photoApiService.fetchCards()
         .then(cards => {
             renderPhotoCards(cards);
+            lightbox.refresh();
             loadMoreButton.enable();
             searchQueryButton.enable();
             
@@ -122,16 +121,6 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
     }
 
     refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(dataHits));
-
-    //Додатково: SimpleLightbox
-    var lightbox = new SimpleLightbox('.gallery a', {
-    captions: true,
-    captionSelector: 'img',
-    captionType: 'attr',
-    captionsData: 'alt',
-    captionPosition: 'bottom',
-    captionDelay: 250,
-});
 
     ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
     totalHitsOnSearchNotif({ currentPage, totalHits });
