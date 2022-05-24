@@ -31,19 +31,17 @@ import getRefs from './js/getRefs';
 const refs = getRefs();
 
 ///копія класу
-const photoApiService = new PhotoApiService();
-    //передача об'єкту, який відповідає властивостям конструктору класа
+const photoApiService = new PhotoApiService(); 
 const loadMoreButton = new LoadButton(
     {
         selector: '.load-more',
         hidden: true,
     }
 );
-
 const searchQueryButton = new LoadButton({
     selector: '.search-form__button',
 });
-
+////
 
 
 refs.form.addEventListener('submit', onSearch);
@@ -54,6 +52,8 @@ loadMoreButton.refs.button.addEventListener('click', fetchCards);
 
 function onSearch(e) {
     e.preventDefault();
+
+    loadMoreButton.hide();
 
     photoApiService.query = e.currentTarget.elements.searchQuery.value;
 
@@ -68,7 +68,7 @@ function onSearch(e) {
 
     fetchCards();
 
-    loadMoreButton.show();
+    // loadMoreButton.show();
 
 }
 
@@ -78,6 +78,7 @@ function fetchCards() {
 
     photoApiService.fetchCards()
         .then(cards => {
+            loadMoreButton.show();
             renderPhotoCards(cards);
             lightbox.refresh();
             loadMoreButton.enable();

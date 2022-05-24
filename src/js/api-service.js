@@ -13,9 +13,7 @@ export default class PhotoApiService{
         this.page = 1;
     }
 
-
     async fetchCards() {
-    
         return await axios.get(BASE_URL, {
             params: {
                 key: KEY,
