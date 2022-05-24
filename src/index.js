@@ -68,8 +68,6 @@ function onSearch(e) {
 
     fetchCards();
 
-    // loadMoreButton.show();
-
 }
 
 
@@ -81,32 +79,12 @@ function fetchCards() {
             loadMoreButton.show();
             renderPhotoCards(cards);
             lightbox.refresh();
-            loadMoreButton.enable();
             searchQueryButton.enable();
             
         })
         .catch(onFetchError)
         .finally(console.log('fetch done'));
 }
-
-
-///without classes
-///Functions
-// function onSearch(e){
-//     e.preventDefault();
-
-//     const formElements = e.currentTarget.elements;
-//     const searchQuery = formElements.searchQuery.value;
-
-//     API.fetchPhotoCards(searchQuery)
-//         .then(renderPhotoCard)
-//         .catch(onFetchError)
-//         .finally(console.log('fetch done'));
-
-//     console.log(searchQuery);
-
-//     // refs.form.reset();
-// }
 
 
 ///Функція отримує масив з об'єктами, які містять дані кожної картрки
@@ -131,20 +109,19 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
     ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
     totalHitsOnSearchNotif({ currentPage, totalHits });
 
+    loadMoreButton.enable();
+
 
     // Якщо користувач дійшов до кінця колекції, ховай кнопку і виводь повідомлення з текстом
-    
-
-     if (currentHits < PER_PAGE) {
+     if (currentPage === Math.ceil(totalHits / PER_PAGE)) {
          console.log('END');
          loadMoreButton.hide();
          
          return Notify.warning("We're sorry, but you've reached the end of search results.");
     }
 
-    //   loadMoreButton.enable();
     
- //Варіант 2 
+ //Варіант 2 для створення макету
     ///Цей варіант занадто накручений, конструкція each в шаблонах  не потрібна
     // ///Створення пустого масиву
     // const markup = [];
