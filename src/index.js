@@ -32,12 +32,12 @@ const refs = getRefs();
 
 ///копія класу
 const photoApiService = new PhotoApiService(); 
-const loadMoreButton = new LoadButton(
-    {
-        selector: '.load-more',
-        hidden: true,
-    }
-);
+// const loadMoreButton = new LoadButton(
+//     {
+//         selector: '.load-more',
+//         hidden: true,
+//     }
+// );
 const searchQueryButton = new LoadButton({
     selector: '.search-form__button',
 });
@@ -45,7 +45,27 @@ const searchQueryButton = new LoadButton({
 
 
 refs.form.addEventListener('submit', onSearch);
-loadMoreButton.refs.button.addEventListener('click', fetchCards);
+// loadMoreButton.refs.button.addEventListener('click', fetchCards);
+
+//////////Observer
+const callback = (entries, io) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log(`Спостергаю за id ="${entry.target.id}"`);
+        fetchCards();
+        // Notify.info('Loading...');
+    }
+  });
+};
+const options = {
+  rootMargin: '100px',
+  // threshold: 0.5,
+};
+const observer = new IntersectionObserver(callback, options);
+
+const sentinel = document.querySelector('#sentinel');
+// observer.observe(sentinel);
+/////////////////////////////////////////////////////////////////
 
 
 
@@ -53,7 +73,7 @@ loadMoreButton.refs.button.addEventListener('click', fetchCards);
 function onSearch(e) {
     e.preventDefault();
 
-    loadMoreButton.hide();
+    // loadMoreButton.hide();
 
     photoApiService.query = e.currentTarget.elements.searchQuery.value;
 
@@ -66,17 +86,19 @@ function onSearch(e) {
 
     searchQueryButton.disable();
 
-    fetchCards();
+    // fetchCards();
+
+    observer.observe(sentinel);
 
 }
 
 
 function fetchCards() {
-    loadMoreButton.disable();
+    // loadMoreButton.disable();
 
     photoApiService.fetchCards()
         .then(cards => {
-            loadMoreButton.show();
+            // loadMoreButton.show();
             renderPhotoCards(cards);
             lightbox.refresh();
             searchQueryButton.enable();
@@ -109,13 +131,13 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
     ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
     totalHitsOnSearchNotif({ currentPage, totalHits });
 
-    loadMoreButton.enable();
+    // loadMoreButton.enable();
 
 
     // Якщо користувач дійшов до кінця колекції, ховай кнопку і виводь повідомлення з текстом
      if (currentPage === Math.ceil(totalHits / PER_PAGE)) {
          console.log('END');
-         loadMoreButton.hide();
+        //  loadMoreButton.hide();
          
          return Notify.warning("We're sorry, but you've reached the end of search results.");
     }
@@ -169,19 +191,6 @@ window.scrollBy({
   behavior: "smooth",
 });
 }
-
-
-
-/////addition
-// function endOfScroll() {
-//     const myDiv = document.querySelector('.gallery');  
-//     myDiv.addEventListener('scroll', () => {
-//         if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
-//             console.log('scrolled to bottom')
-//         }
-//     });
-// }
-////
 
 
 
