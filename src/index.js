@@ -32,12 +32,12 @@ const refs = getRefs();
 
 ///копія класу
 const photoApiService = new PhotoApiService(); 
-// const loadMoreButton = new LoadButton(
-//     {
-//         selector: '.load-more',
-//         hidden: true,
-//     }
-// );
+const loadMoreButton = new LoadButton(
+    {
+        selector: '.load-more',
+        hidden: true,
+    }
+);
 const searchQueryButton = new LoadButton({
     selector: '.search-form__button',
 });
@@ -45,7 +45,7 @@ const searchQueryButton = new LoadButton({
 
 
 refs.form.addEventListener('submit', onSearch);
-// loadMoreButton.refs.button.addEventListener('click', fetchCards);
+loadMoreButton.refs.button.addEventListener('click', fetchCards);
 
 //////////Observer
 const callback = (entries, io) => {
@@ -85,8 +85,9 @@ function onSearch(e) {
     clearCardsContainer();
 
     searchQueryButton.disable();
+    loadMoreButton.show();
 
-    // fetchCards();
+    fetchCards();
 
     observer.observe(sentinel);
 
@@ -94,11 +95,11 @@ function onSearch(e) {
 
 
 function fetchCards() {
-    // loadMoreButton.disable();
+    loadMoreButton.disable();
 
     photoApiService.fetchCards()
         .then(cards => {
-            // loadMoreButton.show();
+            loadMoreButton.show();
             renderPhotoCards(cards);
             lightbox.refresh();
             searchQueryButton.enable();
@@ -118,6 +119,8 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
 
     ////Якщо бекенд повертає порожній масив, значить нічого підходящого не було знайдено
     if (currentHits === 0) {
+        loadMoreButton.hide();
+        observer.disconnect(sentinel)
         return Notify.warning("Sorry, there are no images matching your search query. Please try again.");
     }
 
@@ -131,13 +134,14 @@ function renderPhotoCards({ dataHits, totalHits, PER_PAGE, currentPage }) {
     ///Додатково: Після першого запиту з кожним новим пошуком отримувати повідомлення, в якому буде написано, скільки всього знайшли зображень (властивість totalHits). 
     totalHitsOnSearchNotif({ currentPage, totalHits });
 
-    // loadMoreButton.enable();
+    loadMoreButton.enable();
 
 
     // Якщо користувач дійшов до кінця колекції, ховай кнопку і виводь повідомлення з текстом
      if (currentPage === Math.ceil(totalHits / PER_PAGE)) {
          console.log('END');
-        //  loadMoreButton.hide();
+         loadMoreButton.hide();
+         observer.disconnect(sentinel)
          
          return Notify.warning("We're sorry, but you've reached the end of search results.");
     }
