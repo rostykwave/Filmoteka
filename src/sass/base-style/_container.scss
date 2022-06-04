@@ -1,5 +1,5 @@
 .container {
-    padding: 0 15px;
+    padding: 0 20px;
     margin: 0 auto;
     min-width: 320px;
 
@@ -9,9 +9,10 @@
 
     @media screen and (min-width: 768px) {
         width: 768px;
+        padding: 0 32px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1024px) {
         width: 1024px;
     }
 }
