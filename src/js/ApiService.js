@@ -1,3 +1,9 @@
+//метод filmApiService.fetchCards приймає два рядки: тип запиту (popular, searchQuerry, filmInfo) і пропси(відповідно day або week, рядок із запитом, id фільму)
+
+//На виході отримуємо Проміс, який треба перетворювати в json, обробити then і catch
+
+//При кожному запиті номер сторінки буде зростати на 1, тому не забуваємо метод resetPage() при "нових запитах"
+
 const BASE_URL = 'https://api.themoviedb.org/3';
 const KEY = '8f517ea939a3e5bbc59bc55f9e33cbf1';
 
@@ -48,11 +54,6 @@ export default class FilmApiService{
 
 }
 
-//метод filmApiService.fetchCards приймає два рядки: тип запиту (popular, searchQuerry, filmInfo) і пропси(відповідно day або week, рядок із запитом, id фільму)
-
-//На виході Проміс, який треба перетворювати в json, обробити then і catch
-
-//При кожному запиті номер сторінки буде зростати на 1, тому не забуваємо метод resetPage() при "нових запитах"
 
 
 
