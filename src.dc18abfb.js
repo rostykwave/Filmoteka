@@ -11,4 +11,4 @@ var e,t=arguments[3];!function(t,r){"object"==typeof exports&&"object"==typeof m
 },{}],"Focm":[function(require,module,exports) {
 "use strict";var e=n(require("./templates/film-card.hbs")),t=n(require("./js/ApiService")),r=n(require("./js/getRefs"));function n(e){return e&&e.__esModule?e:{default:e}}const l=new t.default,o=(0,r.default)();function a(){l.fetchCards("popularFilm","day").then(e=>{console.log(e)}).catch(e=>{console.log(e)}).finally(console.log("Fetched"))}l.resetPage(),a();const c=[{id:53633},{id:576655}];o.cardContainer.insertAdjacentHTML("beforeend",(0,e.default)(c));
 },{"./templates/film-card.hbs":"fFoL","./js/ApiService":"sjSB","./js/getRefs":"qJUB"}]},{},["Focm"], null)
-//# sourceMappingURL=/Filmoteka/src.25920a2d.js.map
+//# sourceMappingURL=/Filmoteka/src.dc18abfb.js.map
