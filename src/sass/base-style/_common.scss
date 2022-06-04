@@ -1,45 +1,52 @@
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    // font-family:
-    font-style: normal;
-    font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0em;
+
+  text-align: center;
+  color: $secondary-title-color;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
-    padding: 0px;
-    margin: 0;
+  list-style: none;
+  padding: 0px;
+  margin: 0;
 }
 
 h1,
 h2,
 h3,
 p {
-    margin: 0;
+  margin: 0;
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    height: auto;
+  max-width: 100%;
+  display: block;
+  height: auto;
 }
 
 button {
-    display: block;
-    padding: 0;
-    border: none;
-    cursor: pointer;
+  display: block;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
 
-
 .nooverlay {
-
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
