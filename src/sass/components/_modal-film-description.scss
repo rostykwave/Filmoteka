@@ -1,0 +1,267 @@
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 350ms, visibility 350ms;
+    pointer-events: visible;
+} */
+
+/* .backdrop.is-hidden .modal {
+    transform: scale(0.01) translate(100%, 20%);
+} */
+
+/* .is-hidden {
+    visibility: hidden;
+    opacity: 1;
+    pointer-events: none;
+} */
+
+.modal {
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: block;
+    background-color: #FFFFFF;
+    padding: 48px 20px 40px 20px;
+    border: 1px solid;
+}
+
+.film-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.15;
+    margin-top: 30px;
+}
+
+.lists-wrapper {
+    display: flex;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    }
+
+.properties-list {
+    list-style: none;
+    padding-right: 40px;
+}
+
+.properties-list__item {
+    padding-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    color: #8C8C8C;
+}
+.properties-list__item:last-child {
+    padding-bottom: 0;
+}
+
+.values-list {
+    display: block;
+    list-style: none;
+    list-style: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+.values-list__item {
+    padding-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+.values-list__item:last-child {
+    padding-bottom: 0;
+}
+
+.values-list__item-vote {
+    padding: 1px 10px;
+    background-color: #FF6B01;
+    border-radius: 5px;
+    margin-right: 3px;
+    color: #FFFFFF;
+}
+.vote-separator {
+    color:#8C8C8C;
+}
+.about-title {
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+.film-description {
+    margin-top: 10px;
+    margin-top: 20px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.66;
+}
+
+.modal-buttons__list {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.watched-btn {
+    display: block;
+    width: 112px;
+    padding: 3px 8px 4px 8px;
+    border-radius: 5px;
+    background-color: #FF6B01;
+    border: none;
+}
+
+.queue-btn {
+    display: block;
+    width: 112px;
+    padding: 12px 8px 12px 8px;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+.watched-btn__text {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+.queue-btn__text {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+            /* ----------- MOBILE ----------- */
+
+@media screen and (max-width: 319px) {
+.modal {
+    max-width: 240px;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.modal {
+    width: 240px;
+    height: auto;
+}
+}
+
+            /* ----------- TABLET ----------- */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+.modal {
+    display: flex;
+    width: 560px;
+    padding: 42px 30px 40px 28px;
+}
+.watched-btn {
+    width: 125px;
+    padding: 14px 10px 12px 10px;
+}
+.queue-btn {
+    width: 125px;
+    padding: 14px 8px 12px 8px;
+}
+.picture-wrapper {
+    flex: 1;
+}
+.info {
+    flex: 1;
+    margin-left: 14px;
+}
+.modal-buttons__list {
+    margin-top: 40px;
+}
+}
+
+            /* ----------- DESKTOP ----------- */
+
+@media screen and (min-width: 1024px) {
+.modal {
+    display: flex;
+    padding: 50px 30px 40px 30px;
+    width: 822px;
+}
+.picture-wrapper {
+    flex: 1;
+}
+.info {
+    flex: 1;
+    margin-left: 14px;
+}
+.film-title {
+    font-size: 30px;
+    line-height: 1.16;
+}
+.watched-btn {
+    width: 136px;
+    padding: 14px 10px 12px 10px;
+    margin-right: 15px;
+}
+.queue-btn {
+    width: 136px;
+    padding: 14px 8px 12px 8px;
+}
+.modal-buttons__list {
+    display: flex;
+    justify-content: flex-start;
+}
+}
