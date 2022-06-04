@@ -1,0 +1,14 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "index.scss",
+        "_buttons.scss",
+        "_form-input.scss",
+        "_modal-film-description.scss",
+        "_modal-footer-GoIT-Students.scss",
+        "_page-pagination.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}
