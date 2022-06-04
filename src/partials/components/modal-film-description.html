@@ -1,1 +1,60 @@
 <div>_modal-chosen-film</div>
+
+<div class="backdrop is-hidden" data-modal>
+
+    <div class="modal">
+        <div class="picture-wrapper">
+            <picture>
+                <source srcset="./img/test_img_desktop.jpg" media="(min-width: 1024px)">
+                <source srcset="./img/test_img_tablet.jpg" media="(min-width: 768px)">
+                <source srcset="./img/test_img_mobile.jpg" media="(max-width: 767px)">
+                <img src="./img/test_img_mobile.jpg alt="фото_з_бекенда">
+            </picture>
+        </div>
+        
+
+        <div class="info">
+
+            <h2 class="film-title">A FISTFUL OF LEAD</h2>
+
+            <div class="lists-wrapper">
+                <ul class="properties-list">
+                    <li class="properties-list__item">Vote / Votes</li>
+                    <li class="properties-list__item">Popularity</li>
+                    <li class="properties-list__item">Original Title</li>
+                    <li class="properties-list__item">Genre</li>
+                </ul>
+                <ul class="values-list">
+                    <li class="values-list__item"><span class="values-list__item-vote">7.3</span><span class="vote-separator">/</span> 1260</li>
+                    <li class="values-list__item">100.2</li>
+                    <li class="values-list__item">A FISTFUL OF LEAD</li>
+                    <li class="values-list__item">Western</li>
+                </ul > </div>
+
+                <h3 class="about-title">ABOUT</h3>
+
+<p class="film-description">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold from the most corrupt settlement of the
+gold rush towns. But not all goes to plan one is killed and the other three escapes with bags of gold hide out in the
+abandoned gold mine where they happen across another gang of three – who themselves were planning to hit the very same
+bank! As tensions rise, things go from bad to worse as they realise the bags of gold are filled with lead... they’ve
+been double crossed – but by who and how?</p>
+
+        <ul class="modal-buttons__list">
+            <li class="modal-buttons__item">
+                <button class="watched-btn"><span class="watched-btn__text">ADD TO WATCHED</span></button>
+            </li>
+            <li class="modal-buttons__item">
+                <button class="queue-btn"><span class="queue-btn__text">ADD TO QUEUE</span></button>
+            </li>
+        </ul> 
+        </div>
+
+<button type="button" class="modal-close">
+    <svg class="icon" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#000" stroke-width="2">
+            <path d="m8 8 14 14M8 22 22 8" />
+        </g>
+    </svg>
+        </button>
+    </div>
+</div>
