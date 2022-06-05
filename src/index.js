@@ -44,6 +44,7 @@ import modalFooterGoITStudents from './js/components/modal-footer-GoIT-Students'
 
 const car = 'Lexus';
 example(car);
+//
 
 //Виклики функцій
 whatTheme()
