@@ -1,5 +1,6 @@
 //Templates
-import photoCardTpl from './templates/film-card.hbs';
+import filmCardTpl from './templates/film-card.hbs';
+import modalFilmTpl from './templates/modal-film-description';
 
 ///BackEnd API///
 import FilmApiService from './js/functions/ApiService';
@@ -44,11 +45,16 @@ import modalFooterGoITStudents from './js/components/modal-footer-GoIT-Students'
 const car = 'Lexus';
 example(car);
 
+
+
 //Виклики функцій
-// whatTheme()
+whatTheme()
 onHomePageLoad();
-
-
+//
+// getStorrage();
+// setStorrage();
+// goItStudents();
+// onSearch();
 //Components
 loader();
 pageHeader();
@@ -61,6 +67,6 @@ pageFooter();
 modalFooterGoITStudents();
 
 ///////
-//В компонентів зроблений імпорт, тобто це ваша одиниця коду, де можна вільно писати
+//зроблений імпорт, тобто це ваша одиниця коду, де можна вільно писати
 //щоб використовувати функції їх потрібно заімпортувати в свій файл
 // Для використання змінних їх необхідно "передати " функції

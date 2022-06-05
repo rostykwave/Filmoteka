@@ -1,7 +1,10 @@
-console.log('onSearch');
 import getRefs from './getRefs';
 const refs = getRefs();
 
+
+export default function onSearch(){
+    console.log('HEllo frrm onSearch');
+}
 
 //Функція onSearch - приймає event,
 // перевіряє чи є вміст(повідомлення як ні Notifix) <

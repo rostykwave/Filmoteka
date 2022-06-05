@@ -2,6 +2,7 @@
 ///Refs
 import getRefs from './getRefs';
 const refs = getRefs();
+import filmCardTpl from '../../templates/film-card.hbs';
 
 
 export default function renderFilmCards() {
@@ -13,6 +14,6 @@ export default function renderFilmCards() {
 
 //     ///Зразок рендеру
 // const dataHits = [{ id: 53633 }, { id: 576655 }];
-// refs.cardContainer.insertAdjacentHTML('beforeend', photoCardTpl(dataHits));
+// refs.cardContainer.insertAdjacentHTML('beforeend', filmCardTpl(dataHits));
 // /////////////////////
 }
