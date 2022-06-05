@@ -15,7 +15,9 @@ export default function modalFilmDescription() {
 
     modalCloseButton.addEventListener('click', onCloseButtonClick)
     function onCloseButtonClick(e) {
-        e.preventDefault();
         modalCardDetail.classList.add('is-hidden');
     }
 }
+
+
+// movie_id="${data.id}"

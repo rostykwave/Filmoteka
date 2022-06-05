@@ -32,10 +32,10 @@ export default function renderFilmDetails(data) {
                     <p class="film-description">${data.overview}</p>
             <ul class="modal-buttons__list">
                 <li class="modal-buttons__item">
-                    <button class="watched-btn"><span class="watched-btn__text">ADD TO WATCHED</span></button>
+                    <button class="watched-btn"><span class="modal-btn__text">ADD TO WATCHED</span></button>
                 </li>
                 <li class="modal-buttons__item">
-                    <button class="queue-btn"><span class="queue-btn__text">ADD TO QUEUE</span></button>
+                    <button class="queue-btn"><span class="modal-btn__text">ADD TO QUEUE</span></button>
                 </li>
             </ul> 
         </div>

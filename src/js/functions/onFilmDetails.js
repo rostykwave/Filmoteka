@@ -10,7 +10,7 @@ const refs = getRefs();
 
 export default function onFilmDetails() { 
     filmApiService.resetPage();
-    filmApiService.fetchCards('filmInfo', '738229')
+    filmApiService.fetchCards('filmInfo', '744')
         .then(data => {
             console.log(data);
         renderFilmDetails(data);
