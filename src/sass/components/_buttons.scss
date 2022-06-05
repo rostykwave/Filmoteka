@@ -1,0 +1,63 @@
+.btn {
+  // display: flex;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+
+  height: 42px; //??44
+  width: 147px; // ??
+  // padding-left: 41.07px; //??
+  // padding-right: 41.07px;
+
+  border-radius: 5px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.invisible {
+  display: none;
+}
+.main-btn {
+  background-color: $main-accent-color;
+  color: $main-title-color;
+  border: 1px solid $main-accent-color;
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $header-background-color;
+    color: $main-title-color;
+    border: 1px solid $main-title-color;
+  }
+}
+
+.header-second-btn {
+  background-color: $header-background-color;
+  color: $main-title-color;
+  border: 1px solid $main-title-color;
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $main-accent-color;
+    color: $main-title-color;
+    border: 1px solid $main-accent-color;
+  }
+}
+
+.modal-second-btn {
+  background-color: $body-background-color;
+  color: $secondary-title-color;
+  border: 1px solid $secondary-title-color;
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $main-accent-color;
+    color: $main-title-color;
+    border: 1px solid $main-accent-color;
+  }
+}
