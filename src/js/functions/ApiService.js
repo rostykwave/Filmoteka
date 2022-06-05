@@ -1,3 +1,4 @@
+
 //метод filmApiService.fetchCards приймає два рядки: тип запиту (popular, searchQuerry, filmInfo) і пропси(відповідно day або week, рядок із запитом, id фільму)
 
 //На виході отримуємо Проміс, який треба перетворювати в json, обробити then і catch
