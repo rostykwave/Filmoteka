@@ -2,7 +2,7 @@
     width: 100%;
     position: absolute;
     top: 0;
-    background-color: black;
+    background-color: rgb(80, 62, 62);
     padding-top: 40px;
     padding-bottom: 40px;
 
@@ -10,71 +10,72 @@
         min-width: 768px;
         padding-top: 45px;
     }
+    &__wrap {
+        display: flex;
+        align-items: center;
+    }
 }
 
-.header__wrap {
-    display: flex;
-    align-items: center;
-    // height: 24px;
-
-}
 
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
-}
-
-.logo__text {
-    display: none;
-
-    @media screen and (min-width: 768px) {
-        display: inline-block;
-        margin-left: 8px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 0.857;
-        color: #FFFFFF;
+    &__text {
+        display: none;
+        @media screen and (min-width: 768px) {
+            display: inline-block;
+            margin-left: 8px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 0.857;
+            color: #FFFFFF;
+        }
     }
 }
 
+
 .menu {
     margin-left: auto;
+    &__list {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        align-items: center;
+    }
+    &__item:not(:last-child) {
+        margin-right: 39px;
+    }
+    &__btn {
+        position: relative;
+        padding: 0;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 0.85;
+        display: flex;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
 }
 
-.menu__list {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    align-items: center;
-}
-
-.menu__item:not(:last-child) {
-    margin-right: 39px;
-}
-
-.menu__btn {
-    padding: 0;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 0.85;
-    display: flex;
-    text-align: center;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.menu__btn:hover {
-    border-bottom: 3px solid #FF6B08;
-}
-
-.menu__btn:active {
-    border-bottom: 3px solid #FF6B08;
+.current-page {
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        background-color: #FF6B08;
+        border: 3px solid #FF6B08;
+        border-radius: 2px;
+    }
 }
