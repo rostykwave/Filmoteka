@@ -1,27 +1,3 @@
-h1, h2, h3, h4, h5, h6, p, ul {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-
-img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-}
-
-button {
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-}
-
 /* .backdrop {
     position: fixed;
     top: 0;
@@ -60,6 +36,7 @@ button {
     font-weight: 500;
     line-height: 1.15;
     margin-top: 30px;
+    text-align: start;
 }
 
 .lists-wrapper {
@@ -67,6 +44,7 @@ button {
     margin-top: 20px;
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
+    text-align: start;
     }
 
 .properties-list {
@@ -82,6 +60,7 @@ button {
     font-size: 12px;
     line-height: 1.33;
     color: #8C8C8C;
+    text-align: start;
 }
 .properties-list__item:last-child {
     padding-bottom: 0;
@@ -96,6 +75,7 @@ button {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
+    text-align: start;
 }
 
 .values-list__item {
@@ -127,6 +107,7 @@ button {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
+    text-align: start;
 }
 
 .film-description {
@@ -137,6 +118,7 @@ button {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.66;
+    text-align: start;
 }
 
 .modal-buttons__list {
@@ -179,7 +161,7 @@ button {
     line-height: 1.33;
 }
 
-.modal-close {
+.modal-close_button {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -223,7 +205,7 @@ button {
 .picture-wrapper {
     flex: 1;
 }
-.info {
+.info-modal-card {
     flex: 1;
     margin-left: 32px;
 }
@@ -243,7 +225,7 @@ button {
 .picture-wrapper {
     flex: 1;
 }
-.info {
+.info-modal-card {
     flex: 1;
     margin-left: 30px;
 }
