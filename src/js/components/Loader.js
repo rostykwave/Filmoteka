@@ -1,3 +1,3 @@
-export default function Loader(){
+export default function loader(){
      console.log('HEllo frrm example');
 }

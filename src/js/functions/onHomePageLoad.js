@@ -23,7 +23,7 @@ filmApiService.resetPage();
         console.log(data);
         // console.log(data.dataResults);
         /////Рендеримо розмітку тут///////////
-         renderFilmCards()
+         renderFilmCards(data)
     })
     .catch(error => {
         console.log(error);

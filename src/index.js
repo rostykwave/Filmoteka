@@ -32,7 +32,7 @@ import onFilmDetails from './js/functions/onFilmDetails';
 
 ///Components import
 import example from './js/components/example';
-import loader from './js/components/Loader';
+import loader from './js/components/loader';
 import pageHeader from './js/components/page-header';
 import hero from './js/components/hero';
 import cardsContainer from './js/components/cards-container';
@@ -44,8 +44,6 @@ import modalFooterGoITStudents from './js/components/modal-footer-GoIT-Students'
 
 const car = 'Lexus';
 example(car);
-
-
 
 //Виклики функцій
 whatTheme()
