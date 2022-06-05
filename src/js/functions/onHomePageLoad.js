@@ -14,6 +14,7 @@ export default function onHomePageLoad() {
 //filmInfo(movie_id)
 //В залежності від першого параметра всередині класу вибиратиметься потрібний конструктор url
 filmApiService.resetPage();
+filmApiService.setPage(4);
 // 'popularFilm', 'day'
 // 'searchQuerry', 'inter'
 // 'filmInfo', '738229'

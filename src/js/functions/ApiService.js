@@ -53,6 +53,10 @@ export default class FilmApiService{
         this.page = 1;
     }
 
+    setPage(newPage) {
+      this.page = newPage;  
+    }
+
 }
 
 
