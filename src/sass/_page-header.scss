@@ -1,16 +1,21 @@
 .header {
     width: 100%;
+    margin: 0 auto;
     position: absolute;
     top: 0;
-    background-color: rgb(80, 62, 62);
-    // padding-top: 40px;
-    // padding-bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
 
     @media screen and (min-width: 768px) {
-        min-width: 768px;
-        // padding-top: 45px;
+        width: 768px;
     }
+
+        @media screen and (min-width: 1024px) {
+            width: 1024px;
+        }
     &__wrap {
+        width: 100%;
+        margin: 0 auto;
         display: flex;
         align-items: center;
     }
@@ -52,8 +57,6 @@
         padding: 0;
         padding-bottom: 50px;
         padding-top: 50px;
-        // padding-bottom: 5px;
-        // padding-top: 5px;
         font-style: normal;
         font-weight: 500;
         font-size: 12px;
@@ -79,6 +82,5 @@
         width: 100%;
         background-color: #FF6B08;
         border: 2px solid #FF6B08;
-        // border-radius: 2px;
     }
 }
