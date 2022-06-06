@@ -12,16 +12,34 @@ export default function modalFilmDescription() {
     refs.filmTesList.addEventListener('click', onCardClick)
     function onCardClick(e) {
         e.preventDefault();
-        refs.backdrop.classList.toggle('is-hidden');
         onFilmDetails();
-    }
-
-    refs.modalCloseButton.addEventListener('click', onCloseButtonClick)
-    function onCloseButtonClick(e) {
-        e.preventDefault();
         refs.backdrop.classList.toggle('is-hidden');
+        refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
+        refs.backdrop.addEventListener('click', onEmptySpaceClick);
+        addEventListener('keydown', onEscClose);
     }
-}
 
+    function onCloseButtonClick(e) {
+        onModalClose();
+    }
 
+    function onEmptySpaceClick(e) {
+        if (e.target === e.currentTarget) {
+                onModalClose();
+            }
+        }
+
+    function onEscClose(event) {
+        if (event.key === "Escape" & !refs.backdrop.classList.contains('is-hidden')) { 
+                onModalClose();
+            }      
+        }
+    
+    function onModalClose() {
+        refs.backdrop.classList.toggle('is-hidden');
+        refs.modalCloseButton.removeEventListener('click', onCloseButtonClick);
+        refs.backdrop.removeEventListener('click', onEmptySpaceClick);
+        removeEventListener('keydown', onEscClose);
+    }
+} 
 // movie_id="${data.id}"
