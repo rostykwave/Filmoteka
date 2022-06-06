@@ -2,20 +2,24 @@ import onFilmDetails from "../functions/onFilmDetails";
 import renderFilmDetails from '../functions/renderFilmDetails';
 
 export default function modalFilmDescription() {
-    const filmItem = document.querySelector('.film-test');
-    const modalCloseButton = document.querySelector('.modal-close_button');
-    const modalCardDetail = document.querySelector('.film-detail-modal');
+    const refs = {
+        filmTesList: document.querySelector('.film-test-list'),
+        modalCloseButton: document.querySelector('.modal-close_button'),
+        modalCardDetail: document.querySelector('.film-detail-modal'),
+        backdrop: document.querySelector('.backdrop')
+    };
 
-    filmItem.addEventListener('click', onCardClick)
+    refs.filmTesList.addEventListener('click', onCardClick)
     function onCardClick(e) {
         e.preventDefault();
-        modalCardDetail.classList.remove('is-hidden');
+        refs.backdrop.classList.toggle('is-hidden');
         onFilmDetails();
     }
 
-    modalCloseButton.addEventListener('click', onCloseButtonClick)
+    refs.modalCloseButton.addEventListener('click', onCloseButtonClick)
     function onCloseButtonClick(e) {
-        modalCardDetail.classList.add('is-hidden');
+        e.preventDefault();
+        refs.backdrop.classList.toggle('is-hidden');
     }
 }
 

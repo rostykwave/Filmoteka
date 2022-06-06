@@ -1,5 +1,5 @@
-/* .backdrop {
-    position: fixed;
+.backdrop {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
@@ -7,19 +7,36 @@
     background-color: rgba(0, 0, 0, 0.2);
     transition: opacity 350ms, visibility 350ms;
     pointer-events: visible;
-} */
-
-/* .backdrop.is-hidden .modal {
-    transform: scale(0.01) translate(100%, 20%);
-} */
-
-.film-test-1 {
-    background-color: $main-accent-color;
-    margin-bottom: 30px;
-    
 }
-.film-test-1:first-child {
-margin-top: 200px;
+// .backdrop.is-hidden .film-detail-modal {
+//     transform: scale(0.01) translate(100%, 20%);
+// } 
+
+.film-test-list {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: baseline;
+}
+.film-test-item {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 275px;
+    height: 400px;
+    margin-right: 30px;
+    background-color: $secondary-accent-color;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.film-test {
+    display: block;
+    justify-content: center;
+    align-content: center;
 }
 
 .is-hidden {
@@ -29,7 +46,9 @@ margin-top: 200px;
 }
 
 .film-detail-modal {
-    height: auto;
+    top: 12%;
+    left: 0%;
+    width: 95%;
     margin-right: auto;
     margin-left: auto;
     position: relative;
@@ -220,7 +239,7 @@ margin-top: 200px;
 .film-detail-modal {
     display: flex;
     padding: 50px 30px 40px 30px;
-    width: 882px;
+    width: 885px;
 }
 .picture-wrapper {
     flex: 1;
