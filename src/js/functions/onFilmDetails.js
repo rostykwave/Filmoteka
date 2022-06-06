@@ -4,10 +4,8 @@ const filmApiService = new FilmApiService();
 
 export default function onFilmDetails() { 
     filmApiService.resetPage();
-    filmApiService.fetchCards('filmInfo', '32478')
+    filmApiService.fetchCards('filmInfo', '744')
         .then(data => {
-            console.log(data);
-            console.log(data.poster_path);
         renderFilmDetails(data);
     })
     .catch(error => {
