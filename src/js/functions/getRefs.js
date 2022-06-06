@@ -1,6 +1,9 @@
 export default function getRefs() {
     return {
         // cardContainer: document.querySelector('#container'),
+        btnHome: document.querySelector('[data-home]'),
+        btnLibrary: document.querySelector('[data-library]'),
+        hero: document.querySelector('.hero-home'),
     }
 }
 
