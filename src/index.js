@@ -18,7 +18,6 @@ checkDarkMode()//якщо є об'єкт в local storeage то застосов
 filmApiService.resetPage();
 getPopularFilms();
 
-// let paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
 
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
@@ -34,10 +33,10 @@ function homePageLoader(){
 console.log('homePageLoader');
     homeHeroVisible();
     loaderSpinner();
-    // paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
+   
     filmApiService.resetPage();
     getPopularFilms();
-    // console.log(paginationGetFunction );
+  
 }
 
 
@@ -45,7 +44,7 @@ function myLibraryPageLoader(){
     console.log('myLibrary');
     myLibraryHeroVisible();
     loaderSpinner();
-//     paginationGetFunction = getWatchedFilms();//для pagination посилання на функцію, котра бере запит в конкретний час
+
     getWatchedFilms();//from local storage
 
 }
@@ -56,7 +55,7 @@ export function onSearch(e) {
     e.preventDefault();
 
     const query = e.currentTarget.elements.searchQuery.value;
-    // paginationGetFunction = getFilmsOnSearchQuery;//для pagination посилання на функцію, котра бере запит в конкретний час
+  
 
     filmApiService.resetPage();
     getFilmsOnSearchQuery(query);
