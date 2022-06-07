@@ -1,6 +1,9 @@
-footer{
-    background-color: #F7F7F7;
-}
+// body {
+//     background-image: url(../images/hero-film/pattern/pattern_2/pattern_2.svg);
+//     background-repeat: repeat;
+//     background-size: 250px 250px;
+// }
+
 
 .footer-wrap {
     height: 100px;
@@ -8,6 +11,7 @@ footer{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #F7F7F7;
 
     @media screen and (min-width: 480px) {
         
@@ -22,8 +26,6 @@ footer{
         height: 77px;
         
     }
-
-
 }
 
 .footer-developed {
@@ -32,22 +34,20 @@ footer{
     align-items: center;
     @media screen and (min-width: 768px) {
         margin-top: 0;
-        
     }
-    
-    
 }
 
-.heart-icon {
+.footer-heart-icon {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.team-popup {
+.footer-team-popup {
     text-decoration:underline;
-    
     cursor: pointer;
-    
-    
-    
 }
+
+
+
+
+
