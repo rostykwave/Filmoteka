@@ -44,9 +44,9 @@ console.log('homePageLoader');
 function myLibraryPageLoader(){
     console.log('myLibrary');
     myLibraryHeroVisible();
-    loaderSpinner()
+    loaderSpinner();
 //     paginationGetFunction = getWatchedFilms();//для pagination посилання на функцію, котра бере запит в конкретний час
-   getWatchedFilms()//from local storage
+    getWatchedFilms();//from local storage
 
 }
 
