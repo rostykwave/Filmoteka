@@ -1,32 +1,15 @@
 //Пишіть свій код всередині функції
-//Якщо потрібно взяти якусь змінну з оточення передайте її
-export default function hero() {
-  console.log('HEllo frrm hero');
 
-  const refs = {
-    hero: document.querySelector('.hero-home'),
-    homeButton: document.querySelector('.header-home-button'),
-    libraryButton: document.querySelector('.header-library-button'),
-  };
+import getRefs from "../functions/getRefs";
 
-  refs.homeButton.addEventListener('click', onHomePage);
-  refs.libraryButton.addEventListener('click', onLibraryPage);
+export { renderHomeHero, renderLibraryHero};
 
-  onHomeRenderHeroPage();
 
-  function onHomePage() {
-    console.log('клик по кнопке HOME');
-    onHomeRenderHeroPage();
-  }
-
-  function onLibraryPage() {
-    console.log('клик по кнопке Library');
-    renderLibraryPage();
-  }
-
-  function onHomeRenderHeroPage() {
+  const refs = getRefs();
+  
+  
+  function renderHomeHero() {
     clearHero();
-    console.log('нарисовали home');
     const heroHomeMarcup = `<div class="hero-home-container">
         <form class="search-form" id="search-form">
           <div class="input-wrap">
@@ -53,9 +36,8 @@ export default function hero() {
   //   refs.hero.insertAdjacentHTML('beforeend', heroHome);
   // }
 
-  function renderLibraryPage() {
+  function renderLibraryHero() {
     //   clearHero();
-    console.log('нарисовали library');
     refs.hero.innerHTML = `<div class="hero-library-container">
         <div class="library-btn-wrap">
           <button class="hero-watched-button hero-library-btn" type="button">WATCHED</button>
@@ -65,7 +47,6 @@ export default function hero() {
   }
 
   function clearHero() {
-    console.log('страница очистилась');
     refs.hero.innerHTML = '';
   }
-}
+
