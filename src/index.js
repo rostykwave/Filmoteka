@@ -17,14 +17,14 @@ checkDarkMode()//якщо є об'єкт в local storeage то застосов
 filmApiService.resetPage();
 getPopularFilms();
 
-let paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
+// let paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
 
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
 refs.myLibraryButton.addEventListener('click', myLibraryPageLoader);
 refs.searchInput.addEventListener('submit', onSearch);
 // refs.themeToggle.addEventListener('click', onThemeModeToggle);
-refs.pagination.addEventListener('click', onPaginationClick);
+// refs.pagination.addEventListener('click', onPaginationClick);
 
 
 ///Main functions///Do not touch//
@@ -33,7 +33,7 @@ function homePageLoader(){
 console.log('homePageLoader');
     homeHeroVisible();
     loaderSpinner();
-    paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
+    // paginationGetFunction = getPopularFilms;//для pagination посилання на функцію, котра бере запит в конкретний час
     filmApiService.resetPage();
     getPopularFilms();
     // console.log(paginationGetFunction );
@@ -55,24 +55,24 @@ export function onSearch(e) {
     e.preventDefault();
 
     const query = e.currentTarget.elements.searchQuery.value;
-    paginationGetFunction = getFilmsOnSearchQuery;//для pagination посилання на функцію, котра бере запит в конкретний час
+    // paginationGetFunction = getFilmsOnSearchQuery;//для pagination посилання на функцію, котра бере запит в конкретний час
 
     filmApiService.resetPage();
     getFilmsOnSearchQuery(query);
 }
 
 
-function onPaginationClick(e) {
+// function onPaginationClick(e) {
 
-    let queryPageNumber = null;
+//     let queryPageNumber = null;
 
-    if (e.target.id) {
-        queryPageNumber = Number(e.target.id);
-        console.log(queryPageNumber);
-        filmApiService.setPage(queryPageNumber);   
-        paginationGetFunction();
-    } 
-}
+//     if (e.target.id) {
+//         queryPageNumber = Number(e.target.id);
+//         console.log(queryPageNumber);
+//         filmApiService.setPage(queryPageNumber);   
+//         paginationGetFunction();
+//     } 
+// }
 
 
 
