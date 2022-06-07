@@ -5,6 +5,7 @@ export const refs = {
     searchInput:document.querySelector('#search-form'),
     filmGallery: document.querySelector('#filmGallery'),
 //     filmCard: document.querySelector('#ffilmCard'),
+    filmCardModalWrap:document.querySelector('#filmCardModalWrap'),
 //     themeToggle: document.querySelector('#themeToggle'),
     pagination: document.querySelector('#pagination'),
 //     watched: document.querySelector('#watched'),
@@ -21,6 +22,11 @@ export const refs = {
   heroLibraryContainer: document.querySelector('.hero-library-container'),
   header: document.querySelector('#header'),
       homeCurrentPage: document.querySelector('#home-current-page'),
-  libraryCurrentPage: document.querySelector('#library-current-page'),
+    libraryCurrentPage: document.querySelector('#library-current-page'),
+  //
+            filmTesList: document.querySelector('.film-test-list'),
+        modalCloseButton: document.querySelector('.modal-close_button'),
+        modalCardDetail: document.querySelector('.film-detail-modal'),
+        backdrop: document.querySelector('.backdrop'),
   
 }

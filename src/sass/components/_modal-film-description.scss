@@ -11,6 +11,18 @@
 //     transform: scale(0.01) translate(100%, 20%);
 // } 
 
+////Rostyslav added
+.filmCardModal-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 600px;
+    background-color: aqua;
+}
+/////
+
 .film-test-list {
     display: flex;
     align-content: center;

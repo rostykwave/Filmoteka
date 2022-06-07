@@ -8,6 +8,8 @@ import { getFilmsOnSearchQuery } from './js/getFilmsOnSearchQuery';
 import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
 import { checkDarkMode } from './js/checkDarkMode';
 import { loaderSpinner } from './js/loaderSpinner';
+import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
+import { getWatchedFilms } from './js/getWatchedFilms';
 
 
 checkDarkMode()//якщо є об'єкт в local storeage то застосовує клас темної теми
@@ -21,29 +23,11 @@ refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
 refs.myLibraryButton.addEventListener('click', myLibraryPageLoader);
 refs.searchInput.addEventListener('submit', onSearch);
-// refs.filmGallery.addEventListener('click', onFilmCardClick);///???додам слухача на предків при рендері галереї
 // refs.themeToggle.addEventListener('click', onThemeModeToggle);
 refs.pagination.addEventListener('click', onPaginationClick);
 
-// //Модалки///////
-// // refs.openFilmCardModalBtn.addEventListener("click",  toggleFilmCardModal);
-// // refs.closeFilmCardModalBtn.addEventListener("click",  toggleFilmCardModal);
-// refs.openFooterModalBtn.addEventListener("click", toggleFooterModal);
-// refs.closeFooterModalBtn.addEventListener("click", toggleFooterModal);
 
-// /// toggle Об'єднати дві в одну?
-//   function toggleFooterModal() {
-//     document.body.classList.toggle("modal-open")///no-body-scrolling while modal open
-//     refs.footerModal.classList.toggle("is-hidden");
-// }
-// //
-//   function toggleFilmCardModal() {
-//       document.body.classList.toggle("modal-open")///no-body-scrolling while modal open
-//     refs.filmCard.classList.toggle("is-hidden");
-// }
-// //////Модалки
-
-///Main functions
+///Main functions///Do not touch//
 function homePageLoader(){
 
 console.log('homePageLoader');

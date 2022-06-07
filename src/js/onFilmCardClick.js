@@ -1,3 +1,6 @@
+import { getFilmInfo } from "./getFilmInfo";
+
+
 export function onFilmCardClick(e) {
     e.preventDefault();
 
@@ -10,7 +13,11 @@ export function onFilmCardClick(e) {
         console.log(e.currentTarget);
         const filmId = e.currentTarget.id;
         console.log(filmId);
+        getFilmInfo(filmId);
+  
     }
+
+
    
 //     getFilmInfo(id)
 //     //кнопка Escape...
