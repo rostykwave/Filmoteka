@@ -1,13 +1,16 @@
+.del {
+  height: 300px;
+}
+
 .anime-wrap {
   position: absolute;
-  transform: translateX(35px);
+  transform: translateX(60px);
+  // transform: translate(35px, 170px);
   z-index: 1;
-  // position: relative;
   width: 120px;
   display: flex;
   flex-wrap: wrap;
-  // background-color: red;
-
+  
  }
 
 .anime {

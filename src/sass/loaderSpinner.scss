@@ -1,0 +1,24 @@
+.loader-wrapper {
+    position: relative;
+    transform: translateX(47vw);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 1px;
+    height: 100vh;
+  }
+  
+  .loader-el {
+    
+    position: absolute;
+    opacity: 1;
+    width: 1px;
+    height: 9vh;
+    margin-top: -12vh;
+    transform-origin: 50% 100%;
+    background: white;
+  }
+  
+  .loader-hidden {
+    display: none;
+  }
