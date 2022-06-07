@@ -10,6 +10,7 @@ import { checkDarkMode } from './js/checkDarkMode';
 import { loaderSpinner } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
+import pagination from './js/components/pagination';
 
 
 checkDarkMode()//якщо є об'єкт в local storeage то застосовує клас темної теми
@@ -24,7 +25,7 @@ refs.logo.addEventListener('click', homePageLoader);
 refs.myLibraryButton.addEventListener('click', myLibraryPageLoader);
 refs.searchInput.addEventListener('submit', onSearch);
 // refs.themeToggle.addEventListener('click', onThemeModeToggle);
-// refs.pagination.addEventListener('click', onPaginationClick);
+
 
 
 ///Main functions///Do not touch//
@@ -60,40 +61,6 @@ export function onSearch(e) {
     filmApiService.resetPage();
     getFilmsOnSearchQuery(query);
 }
-
-
-// function onPaginationClick(e) {
-
-//     let queryPageNumber = null;
-
-//     if (e.target.id) {
-//         queryPageNumber = Number(e.target.id);
-//         console.log(queryPageNumber);
-//         filmApiService.setPage(queryPageNumber);   
-//         paginationGetFunction();
-//     } 
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
