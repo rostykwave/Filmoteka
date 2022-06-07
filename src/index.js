@@ -60,7 +60,7 @@ pageHeader();
 hero();
 cardsContainer();
 localStorage();
-pagination();
+// pagination();
 modalFilmDescription();
 pageFooter();
 modalFooterGoITStudents();
