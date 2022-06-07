@@ -4,69 +4,56 @@ import { filmApiService } from './js/ApiService';
 
 import { getPopularFilms } from './js/getPopularFilms';
 import { getFilmsOnSearchQuery } from './js/getFilmsOnSearchQuery';
-
-import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
+import { onLibraryPage, onHomePage } from './js/header';
+// import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
 import { checkDarkMode } from './js/checkDarkMode';
 import { loaderSpinner } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
 import pagination from './js/components/pagination';
 
-
-checkDarkMode()//якщо є об'єкт в local storeage то застосовує клас темної теми
+checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
 filmApiService.resetPage();
 getPopularFilms();
 
-
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
-refs.myLibraryButton.addEventListener('click', myLibraryPageLoader);
-refs.searchInput.addEventListener('submit', onSearch);
+refs.libraryButton.addEventListener('click', myLibraryPageLoader);
+refs.searchForm.addEventListener('submit', onSearch);
 // refs.themeToggle.addEventListener('click', onThemeModeToggle);
 
-
-
 ///Main functions///Do not touch//
-function homePageLoader(){
+function homePageLoader() {
+  console.log('homePageLoader');
+  //   homeHeroVisible();
+  onHomePage();
+  loaderSpinner();
 
-console.log('homePageLoader');
-    homeHeroVisible();
-    loaderSpinner();
-   
-    filmApiService.resetPage();
-    getPopularFilms();
-  
+  filmApiService.resetPage();
+  getPopularFilms();
 }
 
-
-function myLibraryPageLoader(){
-    console.log('myLibrary');
-    myLibraryHeroVisible();
-    loaderSpinner();
-
-    getWatchedFilms();//from local storage
-
+function myLibraryPageLoader() {
+  console.log('myLibrary');
+  //   myLibraryHeroVisible();
+  onLibraryPage();
+  loaderSpinner();
+  getWatchedFilms(); //from local storage
 }
-
-
 
 export function onSearch(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const query = e.currentTarget.elements.searchQuery.value;
-  
+  const query = e.currentTarget.elements.searchQuery.value;
 
-    filmApiService.resetPage();
-    getFilmsOnSearchQuery(query);
+  filmApiService.resetPage();
+  getFilmsOnSearchQuery(query);
 }
-
-
 
 // import getRefs from './js/js/functions/getRefs';
 // import currentPage from './js/js/functions/currentPage';
 // import { renderHomeHero, renderLibraryHero } from './js/js/components/hero';
-
 
 // const refs = getRefs();
 // const newCurrentPage = new currentPage();
