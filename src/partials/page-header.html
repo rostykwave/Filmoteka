@@ -1,4 +1,4 @@
-<header class="header">
+<!-- <header class="header">
     <div class="container">
         <div class="header__wrap">
             <a href="index.html" class="logo">
@@ -19,4 +19,54 @@
             </nav>
         </div>
     </div>
-</header>
+</header> -->
+
+    <header id="header" class="home">
+        <div class="container">
+            <div class="header-nav">
+                <div class="header__wrap">
+                    <a href="#" class="logo" id="header-logo">
+                        <svg class="menu-icon" width="24" height="24">
+                            <use href="./images/icons.svg#icon-film"></use>
+                        </svg>
+                        <span class="logo__text">Filmoteka</span>
+                    </a>
+                </div>
+                <nav class="menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <button id="homeButton" class="menu__btn">
+                                <span class="menu__btn__text current-page" id="home-current-page">Home</span>
+                            </button>
+                        </li>
+                        <li class="menu__item">
+                            <button id="myLibraryButton" class="menu__btn">
+                                <span class="menu__btn__text" id="library-current-page">my library</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+    
+            <div class="hero-home-container">
+                <form class="search-form" id="search-form">
+                    <div class="input-wrap">
+                        <input class="input" type="text" name="searchQuery" autocomplete="off"
+                            placeholder="Search films..." />
+                        <button class="button" type="submit">
+                            <svg class="search" width="15" height="15">
+                                <use href="./images/icons.svg#icon-search-2"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+    
+            <div class="hero-library-container is-hidden">
+                <div class="library-btn-wrap">
+                    <button class="hero-watched-button hero-library-btn" type="button">WATCHED</button>
+                    <button class="hero-queue-button hero-library-btn" type="button">QUEUE</button>
+                </div>
+            </div>
+        </div>
+    </header>

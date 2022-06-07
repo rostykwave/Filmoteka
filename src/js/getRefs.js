@@ -1,0 +1,26 @@
+export const refs = {
+    homeButton: document.querySelector('#homeButton') ,
+    logo: document.querySelector('#header-logo'),
+    myLibraryButton:document.querySelector('#myLibraryButton'),
+    searchInput:document.querySelector('#search-form'),
+    filmGallery: document.querySelector('#filmGallery'),
+//     filmCard: document.querySelector('#ffilmCard'),
+//     themeToggle: document.querySelector('#themeToggle'),
+    pagination: document.querySelector('#pagination'),
+//     watched: document.querySelector('#watched'),
+//     queue: document.querySelector('#queue'),
+//     addToWatched: document.querySelector('#addToWatched'),
+//     addToQueue: document.querySelector('#addToQueue'),
+//     openFilmCardModalBtn: document.querySelector("[data-filmCardModal-open]"),
+//     closeFilmCardModalBtn: document.querySelector("[data-filmCardModal-close]"),
+//     filmCardModal: document.querySelector("[data-filmCardModal]"),
+//     openFooterModalBtn: document.querySelector("[data-footerModal-open]"),
+//     closeFooterModalBtn: document.querySelector("[data-footerModal-close]"),
+//     footerModal: document.querySelector("[data-footerModal]"),
+    
+  heroLibraryContainer: document.querySelector('.hero-library-container'),
+  header: document.querySelector('#header'),
+      homeCurrentPage: document.querySelector('#home-current-page'),
+  libraryCurrentPage: document.querySelector('#library-current-page'),
+  
+}
