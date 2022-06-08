@@ -1,11 +1,12 @@
 const wrapperEl = document.querySelector('.loader-wrapper');
     const numberOfEls = 90;
-    const duration = 5000;
+    const duration = 4000;
     const delay = duration / numberOfEls;
 
     let tl = anime.timeline({
       duration: delay,
       autoplay: false,
+      // autoplay: true,
       complete: function() { tl.restart(); }
     });
 
@@ -39,22 +40,17 @@ const wrapperEl = document.querySelector('.loader-wrapper');
     };
 
 
-    //Запуск лоадера. Вместо этого setTimeout поставить addEventListener кнопки поиска фильмов
-    setTimeout(() => {
-        const elem = document.querySelectorAll('.loader-el');
-        console.log('elem :>> ', elem);
-        elem.forEach((element, i) => {
-            const hue = Math.round(360 / numberOfEls * i);
-            element.style.backgroundColor = 'hsl(' + hue + ', 40%, 80%)'
-            
-        });
-        wrapperEl.classList.remove('loader-hidden')
+
+    function startLoader() {
+      wrapperEl.classList.remove('loader-hidden')
         tl.restart();
-        
-    }, 0);
+    }
+
+    function stopLoader() {
+      wrapperEl.classList.add('loader-hidden')
+        tl.pause();
+    }
     
-    //Остановка лоадера. Вместо этого setTimeout поставить на finaly когда отрисовалась разметка.
-    // setTimeout(() => {
-    //     wrapperEl.classList.add('loader-hidden')
-    //     tl.pause();
-    // }, 1700);
+
+
+    export {startLoader, stopLoader}
