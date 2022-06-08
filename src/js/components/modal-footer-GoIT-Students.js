@@ -1,4 +1,4 @@
-export default function modalFooterGoITStudents(){
+export function modalFooterGoITStudents(){
     console.log('HEllo frrm modalFooterGoITStudents');
 }
 

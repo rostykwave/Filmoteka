@@ -1,25 +1,25 @@
-import onFilmDetails from "../functions/onFilmDetails";
-import renderFilmDetails from '../functions/renderFilmDetails';
+import { filmApiService } from "./ApiService";
+import { refs } from "./getRefs";
+import { onFetchError } from "./onFetchError";
+import { renderFilmCardModal } from "./renderFilmCardModal";
 
-export default function modalFilmDescription() {
-    const refs = {
-        filmTesList: document.querySelector('.film-test-list'),
-        modalCloseButton: document.querySelector('.modal-close_button'),
-        modalCardDetail: document.querySelector('.film-detail-modal'),
-        backdrop: document.querySelector('.backdrop')
-    };
+export function getFilmInfo(id) {
 
-    refs.filmTesList.addEventListener('click', onCardClick)
-    function onCardClick(e) {
-        e.preventDefault();
-        onFilmDetails();
-        refs.backdrop.classList.toggle('is-hidden');
+    filmApiService.setProps(id);
+
+    filmApiService.fetchCards('filmInfo')
+        .then(data => {
+            renderFilmCardModal(data);
+                  refs.backdrop.classList.toggle('is-hidden');
         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
         refs.backdrop.addEventListener('click', onEmptySpaceClick);
         addEventListener('keydown', onEscClose);
-    }
+    })
+        .catch(onFetchError)
+        .finally(console.log('fetch getFilmInfo done'));
+};
 
-    function onCloseButtonClick(e) {
+        function onCloseButtonClick(e) {
         onModalClose();
     }
 
@@ -41,5 +41,3 @@ export default function modalFilmDescription() {
         refs.backdrop.removeEventListener('click', onEmptySpaceClick);
         removeEventListener('keydown', onEscClose);
     }
-} 
-// movie_id="${data.id}"

@@ -1,71 +1,93 @@
-//Templates
-import filmCardTpl from './templates/film-card.hbs';
-import modalFilmTpl from './templates/modal-film-description';
-
+import { refs } from './js/getRefs';
 ///BackEnd API///
-import FilmApiService from './js/functions/ApiService';
-const filmApiService = new FilmApiService();
+import { filmApiService } from './js/ApiService';
 
-///Refs
-import getRefs from './js/functions/getRefs';
-const refs = getRefs();
-/////////////
-
-//
-import whatTheme from './js/functions/whatTheme';
-import setStorrage from './js/functions/setStorrage';
-import getStorrage from './js/functions/getStorrage';
-import goItStudents from './js/functions/goItStudents';
-//
-import renderFilmCards from './js/functions/renderFilmCards';
-import renderFilmDetails from './js/functions/renderFilmDetails'
-
-///Функції, які покладаються на API, всередині вони передають методу filmApiService.fetchCards потрібні запити на популярні фільми, інфо (пошук по id) та пошук фільмів по ключовому слову(query)
-import onHomePageLoad from './js/functions/onHomePageLoad';
-import onSearch from './js/functions/onSearch';
-import onFilmDetails from './js/functions/onFilmDetails';
-//Кожний fetch огортаємо в функцію
-//onSearch(e) передавтиме 'searchQuerry' і рядок запиту
-//onHomePageLoad передавтиме 'popularFilm' і рядок day або week
-//onFilmDetails передавтиме filmInfo' і рядок з id фільму у форматі '738229'
-
-
-///Components import
-import example from './js/components/example';
-import loader from './js/components/loader';
-import pageHeader from './js/components/page-header';
-import hero from './js/components/hero';
-import cardsContainer from './js/components/cards-container';
-import localStorage from './js/components/local-storage';
+import { getPopularFilms } from './js/getPopularFilms';
+import { getFilmsOnSearchQuery } from './js/getFilmsOnSearchQuery';
+import { onLibraryPage, onHomePage } from './js/header';
+// import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
+import { checkDarkMode } from './js/checkDarkMode';
+import { loaderSpinner } from './js/loaderSpinner';
+import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
+import { getWatchedFilms } from './js/getWatchedFilms';
 import pagination from './js/components/pagination';
-import modalFilmDescription from './js/components/modal-film-description';
-import pageFooter from './js/components/page-footer';
-import modalFooterGoITStudents from './js/components/modal-footer-GoIT-Students';
 
-const car = 'Lexus';
-example(car);
-//
+checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
-//Виклики функцій
-whatTheme()
-onHomePageLoad();
-//
-// getStorrage();
-// setStorrage();
-// goItStudents();
-// onSearch();
-//Components
-loader();
-pageHeader();
-hero();
-cardsContainer();
-localStorage();
-// pagination();
-modalFilmDescription();
-pageFooter();
-modalFooterGoITStudents();
 
-///////
-//зроблений імпорт, тобто це ваша одиниця коду, де можна вільно писати
-//щоб використовувати функції їх потрібно заімпортувати в свій файл
-// Для використання змінних їх необхідно "передати " функції
+filmApiService.resetPage();
+getPopularFilms();
+
+refs.homeButton.addEventListener('click', homePageLoader);
+refs.logo.addEventListener('click', homePageLoader);
+refs.libraryButton.addEventListener('click', myLibraryPageLoader);
+refs.searchForm.addEventListener('submit', onSearch);
+// refs.themeToggle.addEventListener('click', onThemeModeToggle);
+
+///Main functions///Do not touch//
+function homePageLoader() {
+  console.log('homePageLoader');
+  //   homeHeroVisible();
+  onHomePage();
+  loaderSpinner();
+
+  filmApiService.resetPage();
+  getPopularFilms();
+}
+
+function myLibraryPageLoader() {
+  console.log('myLibrary');
+  //   myLibraryHeroVisible();
+  onLibraryPage();
+  loaderSpinner();
+  getWatchedFilms(); //from local storage
+}
+
+export function onSearch(e) {
+  e.preventDefault();
+
+  const query = e.currentTarget.elements.searchQuery.value;
+
+  filmApiService.resetPage();
+  getFilmsOnSearchQuery(query);
+}
+
+// import getRefs from './js/js/functions/getRefs';
+// import currentPage from './js/js/functions/currentPage';
+// import { renderHomeHero, renderLibraryHero } from './js/js/components/hero';
+
+// const refs = getRefs();
+// const newCurrentPage = new currentPage();
+
+// ///______ Первая загрузка страницы ______///
+
+// indexPageLoading();
+
+// ///________ Слушатели событий ________///
+
+// refs.btnHome.addEventListener('click', indexPageLoading);
+// refs.btnLibrary.addEventListener('click', LibraryPageLoading);
+
+// ///________ Загрузка index.html по нажатию на Home ______///
+
+// function indexPageLoading() {
+//     newCurrentPage.currentHome();
+//     renderHomeHero()
+//     //// функция которая рендерит main секцию для основной страницы//////
+//     //// функция которая открывает модалку по нажатию на карточку в Home ////
+// }
+
+// ///________ Загрузка страницы по нажатию на Library ______///
+
+// function LibraryPageLoading() {
+//     newCurrentPage.currentLibrary();
+//     renderLibraryHero()
+//     //// функция которая рендерит main секцию  для Library по нажатию на кнопки Watched и queue//////
+//     //// функция которая открывает модалку по нажатию на карточку в Library ////
+// }
+
+// ////______ Открытие модалки в Footer ______////
+
+// function modalFooter() {
+//     //// функции для открытия модалки Footer /////
+// }

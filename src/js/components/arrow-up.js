@@ -3,10 +3,10 @@ const sttElem = document.querySelector('.stt'),
   screanHeight = window.innerHeight,
   sttScroll = function () {
     document.addEventListener('scroll', function (t) {
-      console.log('screanHeight:>> ', screanHeight);
-      console.log(' window.scrollY :>> ', window.scrollY);
+    //   console.log('screanHeight:>> ', screanHeight);
+    //   console.log(' window.scrollY :>> ', window.scrollY);
       const scrollValue = screanHeight + window.scrollY - 200;
-      console.log('scrollValue :>> ', scrollValue);
+    //   console.log('scrollValue :>> ', scrollValue);
       screanHeight <= scrollValue
         ? sttElem.classList.add('stt__active')
         : t.target.scrollingElement.scrollTop <= screanHeight &&

@@ -1,4 +1,4 @@
-import {Pagination} from '../functions/pagination-api'
+import { Pagination } from './pagination-api';
 
 const allPages = 15;
 const step = 5;
