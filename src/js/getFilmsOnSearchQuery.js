@@ -2,11 +2,13 @@ import { onFetchError } from "./onFetchError";
 import { filmApiService } from "./ApiService";
 import { renderFilmGallery } from './renderFilmGallery';
 import {startLoader, stopLoader} from './loaderSpinner'
+import { refs } from "./getRefs";
 
 export function getFilmsOnSearchQuery(query) {
 
     filmApiService.setProps(query);
 
+     refs.filmGallery.innerHTML = '';
        //Loader start
        startLoader();
     
