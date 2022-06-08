@@ -10,6 +10,7 @@ refs.searchForm.addEventListener('submit', onSearch);
 export function onSearch(e) {
   e.preventDefault();
 
+refs.filmGallery.innerHTML = '';
   const query = e.currentTarget.elements.searchQuery.value.trim();
   console.log(query);
 
