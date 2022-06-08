@@ -14,6 +14,7 @@ import pagination from './js/components/pagination';
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
+
 filmApiService.resetPage();
 getPopularFilms();
 
