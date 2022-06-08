@@ -12,23 +12,6 @@
 .overflow-hidden {
     overflow: hidden;
 }
-// .backdrop.is-hidden .film-detail-modal {
-//     transform: scale(0.01) translate(100%, 20%);
-// } 
-
-////Rostyslav added
-// .filmCardModal-container{
-//     position: absolute;
-//     top: 50%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     width: 500px;
-//     height: 600px;
-//     background-color: aqua;
-// }
-/////
-
-// overflow-hidden 
 
 .is-hidden {
     visibility: hidden;
@@ -39,13 +22,17 @@
 .filmCardModal-container {
     top: 5%;
     left: 0%;
-    width: 100%;
     margin-right: auto;
     margin-left: auto;
     position: relative;
     display: block;
     background-color: $body-background-color;
     padding: 48px 20px 40px 20px;
+}
+
+.picture-wrapper {
+    width: 240px;
+    cursor: pointer;
 }
 
 .film-title {
@@ -133,16 +120,18 @@
     width: 112px;
     padding: 3px 8px 4px 8px;
     border-radius: 5px;
+    color: $secondary-title-color;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
     background-color: $body-background-color;
     border: 1px solid;
         &:hover,
         &:focus,
         &:active {
         background-color: $main-accent-color;
+        color: $main-title-color;
         border: none;
-        .modal-btn__text {
-            color: $main-title-color;
-        }
         }
 }
 .queue-btn {
@@ -150,22 +139,18 @@
     width: 112px;
     padding: 12px 8px 12px 8px;
     border-radius: 5px;
+    color: $secondary-title-color;
+    font-size: 12px;
+    line-height: 1.33;
+    text-transform: uppercase;
     border: 1px solid;
         &:hover,
         &:focus,
         &:active {
         background-color: $main-accent-color;
+        color: $main-title-color;
         border: none;
-        .modal-btn__text {
-            color: $main-title-color;
         }
-        }
-}
-
-.modal-btn__text {
-    color: $secondary-title-color;
-    font-size: 12px;
-    line-height: 1.33;
 }
 
 .modal-close_button {
@@ -177,6 +162,39 @@
     align-items: center;
     justify-content: center;
     }
+
+
+    .movie-trailer-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    pointer-events: visible;
+    overflow-y: auto;
+}
+.modal-movie-trailer-is-active {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 20%;
+        left: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+    margin-right: auto;
+    margin-left: auto;
+}
+.modal-movie-trailer-is-hidden {
+    position: absolute;
+    visibility: hidden;
+    opacity: 1;
+    pointer-events: none;
+}
+.iframe {
+width: 280px;
+height: 150px;
+}
 
             /* ----------- MOBILE ----------- */
 
@@ -197,9 +215,17 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
 .filmCardModal-container {
     display: flex;
-    top: 15%;
+    top: 20%;
     width: 618px;
     padding: 42px 30px 40px 28px;
+}
+.modal-movie-trailer-is-active {
+    top: 20%;
+    left: 0;
+}
+.iframe {
+width: 500px;
+height: 300px;
 }
 .watched-btn {
     width: 125px;
@@ -232,6 +258,14 @@
     top: 9%;
     padding: 50px 30px 40px 30px;
     width: 885px;
+}
+.modal-movie-trailer-active {
+    top: 25%;
+    left: 0%;
+}
+.iframe {
+width: 700px;
+height: 400px;
 }
 .picture-wrapper {
     flex: 1;

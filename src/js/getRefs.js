@@ -29,7 +29,6 @@ export const refs = {
   libraryCurrentPage: document.querySelector('#library-current-page'),
   hederLibraryPage: document.querySelector('#header-library'),
 
-  filmTesList: document.querySelector('.film-test-list'),
   modalCloseButton: document.querySelector('.modal-close_button'),
   modalCardDetail: document.querySelector('.film-detail-modal'),
   backdrop: document.querySelector('.backdrop'),
