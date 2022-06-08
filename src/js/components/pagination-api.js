@@ -27,7 +27,7 @@ export const Pagination = class {
   addPaginationEvent(event) {   
     this.event = event;
   }
-
+  
   create({ prelink, totalPages, step = 5, arrows = true, dots = true }) {
     const savePage = sessionStorage.getItem(`${this.name}Page`);
     if (savePage) {
@@ -53,7 +53,7 @@ export const Pagination = class {
               this.incrementPage()
             };
             break;
-
+            
           case 'prev':
             if (this.page > 1) {
               this.decrementPage();
@@ -107,7 +107,7 @@ export const Pagination = class {
       startSlice = -step - 1;
       endSlice = this.buttonsList.length;
     }
-
+    
     const numBtns = this.buttonsList.slice(startSlice, endSlice);
     const firstNumBtn = dots ? startSlice !== 0 ? [...this.buttonsList.slice(0, 1), paginationDots] : [] : [];
     const lastNumBtn = dots ? endSlice !== this.buttonsList.length ? [paginationDots, ...this.buttonsList.slice(-1)] : [] : [];
@@ -117,7 +117,7 @@ export const Pagination = class {
 
     const currentActiveBtn = document.querySelector('.pagination-btn--active')
     currentActiveBtn?.classList.remove('pagination-btn--active');
-
+  
     const activeBtn = document.querySelector(`.pagination-btn[data-pagination='${this.page}']`);
     activeBtn.classList.add('pagination-btn--active');
   }

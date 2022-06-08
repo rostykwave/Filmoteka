@@ -6,7 +6,7 @@ export const refs = {
   libraryButton: document.querySelector('#library_btn'),
   //   searchInput: document.querySelector('#search-form'),
   searchForm: document.querySelector('#search-form'),
-  filmGallery: document.querySelector('#filmGallery'),
+  filmGallery: document.querySelector('.gallery__list'),
   filmCardModalWrap: document.querySelector('#filmCardModalWrap'),
   //     themeToggle: document.querySelector('#themeToggle'),
   pagination: document.querySelector('#pagination'),

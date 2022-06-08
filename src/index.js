@@ -14,6 +14,7 @@ import pagination from './js/components/pagination';
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
+
 filmApiService.resetPage();
 getPopularFilms();
 
@@ -28,7 +29,7 @@ function homePageLoader() {
   console.log('homePageLoader');
   //   homeHeroVisible();
   onHomePage();
-  loaderSpinner();
+  // loaderSpinner();
 
   filmApiService.resetPage();
   getPopularFilms();
@@ -38,7 +39,7 @@ function myLibraryPageLoader() {
   console.log('myLibrary');
   //   myLibraryHeroVisible();
   onLibraryPage();
-  loaderSpinner();
+  // loaderSpinner();
   getWatchedFilms(); //from local storage
 }
 

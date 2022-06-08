@@ -9,8 +9,8 @@ export function getFilmInfo(id) {
 
     filmApiService.fetchCards('filmInfo')
         .then(data => {
-            renderFilmCardModal(data);
-                  refs.backdrop.classList.toggle('is-hidden');
+        renderFilmCardModal(data);
+        refs.backdrop.classList.toggle('is-hidden');
         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
         refs.backdrop.addEventListener('click', onEmptySpaceClick);
         addEventListener('keydown', onEscClose);
