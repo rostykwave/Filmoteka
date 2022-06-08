@@ -3,14 +3,14 @@ import { refs } from './js/getRefs';
 import { filmApiService } from './js/ApiService';
 
 import { getPopularFilms } from './js/getPopularFilms';
-import { getFilmsOnSearchQuery } from './js/getFilmsOnSearchQuery';
+import { onSearch } from './js/onSearch';
 import { onLibraryPage, onHomePage } from './js/header';
-// import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
 import { checkDarkMode } from './js/checkDarkMode';
 import { loaderSpinner } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
 import pagination from './js/components/pagination';
+
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
@@ -21,15 +21,14 @@ getPopularFilms();
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
-refs.searchForm.addEventListener('submit', onSearch);
 // refs.themeToggle.addEventListener('click', onThemeModeToggle);
 
 ///Main functions///Do not touch//
 function homePageLoader() {
   console.log('homePageLoader');
-  //   homeHeroVisible();
+  
   onHomePage();
-  // loaderSpinner();
+
 
   filmApiService.resetPage();
   getPopularFilms();
@@ -37,20 +36,14 @@ function homePageLoader() {
 
 function myLibraryPageLoader() {
   console.log('myLibrary');
-  //   myLibraryHeroVisible();
+ 
   onLibraryPage();
-  // loaderSpinner();
+ 
   getWatchedFilms(); //from local storage
 }
 
-export function onSearch(e) {
-  e.preventDefault();
+///
 
-  const query = e.currentTarget.elements.searchQuery.value;
-
-  filmApiService.resetPage();
-  getFilmsOnSearchQuery(query);
-}
 
 // import getRefs from './js/js/functions/getRefs';
 // import currentPage from './js/js/functions/currentPage';
