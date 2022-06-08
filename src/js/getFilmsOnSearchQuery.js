@@ -1,26 +1,26 @@
-import { onFetchError } from "./onFetchError";
-import { filmApiService } from "./ApiService";
-import { renderFilmGallery } from './renderFilmGallery';
-import {startLoader, stopLoader} from './loaderSpinner'
-import { refs } from "./getRefs";
+// import { onFetchError } from "./onFetchError";
+// import { filmApiService } from "./ApiService";
+// import { renderFilmGallery } from './renderFilmGallery';
+// import {startLoader, stopLoader} from './loaderSpinner'
+// import { refs } from "./getRefs";
 
-export function getFilmsOnSearchQuery(query) {
+// export function getFilmsOnSearchQuery(query) {
 
-    filmApiService.setProps(query);
+//     filmApiService.setProps(query);
 
-     refs.filmGallery.innerHTML = '';
-       //Loader start
-       startLoader();
+//      refs.filmGallery.innerHTML = '';
+//        //Loader start
+//        startLoader();
     
-    filmApiService.fetchCards('searchQuery')
-        .then(data => {
-            console.log('searchQuery', data);
+//     filmApiService.fetchCards('searchQuery')
+//         .then(data => {
+//             console.log('searchQuery', data);
 
-            //Loader stop
-            stopLoader();
+//             //Loader stop
+//             stopLoader();
 
-        renderFilmGallery(data);
-    })
-        .catch(onFetchError)
-        .finally(console.log('fetch searchQuery done'));
-};
+//         renderFilmGallery(data);
+//     })
+//         .catch(onFetchError)
+//         .finally(console.log('fetch searchQuery done'));
+// };
