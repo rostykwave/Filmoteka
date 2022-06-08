@@ -72,8 +72,8 @@ export const Pagination = class {
           if (this.name) {
           sessionStorage.setItem(`${this.name}Page`, JSON.stringify(this.page));
         }
-        this.event();
-        this.render(arrows, step, dots);
+          this.event();
+          this.render(arrows, step, dots);
         }
       }
     }
