@@ -47,6 +47,7 @@ export const Pagination = class {
 
     function onButtonClick(e) {
       if (e.target.hasAttribute('data-pagination')) {
+        const oldCurrentPage = this.page;
         switch (e.target.dataset.pagination) {
           case 'next':
             if (this.page < totalPages) {
@@ -65,11 +66,15 @@ export const Pagination = class {
             break;
         }
 
-        if (this.name) {
+        const newCurrentPage = this.page;
+
+        if (oldCurrentPage !== newCurrentPage) {
+          if (this.name) {
           sessionStorage.setItem(`${this.name}Page`, JSON.stringify(this.page));
         }
         this.event();
         this.render(arrows, step, dots);
+        }
       }
     }
 
@@ -101,10 +106,10 @@ export const Pagination = class {
     }
     else if (this.page < step) {
       startSlice = 0;
-      endSlice = step + 1;
+      endSlice = step + (dots ? 1 : 0);
     }
     else if (this.buttonsList.length - currentIdx < step) {
-      startSlice = -step - 1;
+      startSlice = -step - (dots ? 1 : 0);
       endSlice = this.buttonsList.length;
     }
     
