@@ -27,10 +27,6 @@
   }
 }
 
-.gallery__img {
-  margin-bottom: 10px;
-  
-}
 
 .gallery__item-info-wrap {
   display: flex;
@@ -40,6 +36,7 @@
 // }
 
 .gallery__item-name {
+  margin-top: 10px;
   font-weight: 500;
   font-size: 12px;
   margin-bottom: 3px;
