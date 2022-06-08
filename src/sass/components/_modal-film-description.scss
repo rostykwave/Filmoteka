@@ -1,0 +1,282 @@
+.backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: visible;
+}
+// .backdrop.is-hidden .film-detail-modal {
+//     transform: scale(0.01) translate(100%, 20%);
+// } 
+
+////Rostyslav added
+.filmCardModal-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 600px;
+    background-color: aqua;
+}
+/////
+
+.film-test-list {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: baseline;
+}
+.film-test-item {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 70px;
+    height: 90px;
+    margin-right: 30px;
+    background-color: $secondary-accent-color;
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.film-test {
+    display: block;
+    justify-content: center;
+    align-content: center;
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.film-detail-modal {
+    top: 12%;
+    left: 0%;
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    display: block;
+    background-color: $body-background-color;
+    padding: 48px 20px 40px 20px;
+    border: 1px solid;
+}
+
+.film-title {
+    font-size: 20px;
+    line-height: 1.15;
+    margin-top: 30px;
+    text-align: start;
+}
+
+.lists-wrapper {
+    display: flex;
+    margin-top: 20px;
+    font-size: 12px;
+    text-align: start;
+    }
+
+.properties-list {
+    list-style: none;
+    padding-right: 40px;
+}
+
+.properties-list__item {
+    padding-bottom: 10px;
+    font-style: normal;
+    font-size: 12px;
+    line-height: 1.33;
+    color: $modal-window-accent-color;
+    text-align: start;
+}
+.properties-list__item:last-child {
+    padding-bottom: 0;
+}
+
+.values-list {
+    display: block;
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: start;
+}
+
+.values-list__item {
+    padding-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.33;
+}
+.values-list__item:last-child {
+    padding-bottom: 0;
+}
+
+.values-list__item-vote {
+    padding: 1px 10px;
+    background-color: $main-accent-color;
+    border-radius: 5px;
+    margin-right: 3px;
+    color: $main-title-color;
+}
+.vote-separator {
+    color: $modal-window-accent-color;
+}
+.about-title {
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: start;
+}
+
+.film-description {
+    margin-top: 10px;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 1.66;
+    text-align: start;
+}
+
+.modal-buttons__list {
+    list-style: none;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.watched-btn {
+    display: block;
+    width: 112px;
+    padding: 3px 8px 4px 8px;
+    border-radius: 5px;
+    background-color: $body-background-color;
+    border: 1px solid;
+        &:hover,
+        &:focus,
+        &:active {
+        background-color: $main-accent-color;
+        border: none;
+        .modal-btn__text {
+            color: $main-title-color;
+        }
+        }
+}
+.queue-btn {
+    display: block;
+    width: 112px;
+    padding: 12px 8px 12px 8px;
+    border-radius: 5px;
+    border: 1px solid;
+        &:hover,
+        &:focus,
+        &:active {
+        background-color: $main-accent-color;
+        border: none;
+        .modal-btn__text {
+            color: $main-title-color;
+        }
+        }
+}
+
+.modal-btn__text {
+    color: $secondary-title-color;
+    font-size: 12px;
+    line-height: 1.33;
+}
+
+.modal-close_button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+            /* ----------- MOBILE ----------- */
+
+@media screen and (max-width: 319px) {
+.film-detail-modal {
+    max-width: 280px;
+}
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+.film-detail-modal {
+    width: 280px;
+    height: auto;
+}
+}
+
+            /* ----------- TABLET ----------- */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+.film-detail-modal {
+    display: flex;
+    width: 618px;
+    padding: 42px 30px 40px 28px;
+}
+.watched-btn {
+    width: 125px;
+    padding: 14px 10px 12px 10px;
+}
+.queue-btn {
+    width: 125px;
+    padding: 14px 8px 12px 8px;
+}
+.picture-wrapper {
+    flex: 1;
+}
+.info-modal-card {
+    flex: 1;
+    margin-left: 32px;
+}
+.modal-buttons__list {
+    margin-top: 40px;
+}
+.film-detail-modal-wrapper {
+    display: flex;
+}
+}
+
+            /* ----------- DESKTOP ----------- */
+
+@media screen and (min-width: 1024px) {
+.film-detail-modal {
+    display: flex;
+    padding: 50px 30px 40px 30px;
+    width: 885px;
+}
+.picture-wrapper {
+    flex: 1;
+}
+.info-modal-card {
+    flex: 1;
+    margin-left: 30px;
+}
+.film-title {
+    font-size: 30px;
+    line-height: 1.16;
+}
+.watched-btn {
+    width: 136px;
+    padding: 14px 10px 12px 10px;
+    margin-right: 15px;
+}
+.queue-btn {
+    width: 136px;
+    padding: 14px 8px 12px 8px;
+}
+.modal-buttons__list {
+    display: flex;
+    justify-content: flex-start;
+}
+.film-detail-modal-wrapper {
+    display: flex;
+}
+}

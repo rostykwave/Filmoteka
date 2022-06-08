@@ -1,1 +1,56 @@
-<header class="page-header">Header</header>
+<header id="header" class="home">
+  <div class="container">
+    <div class="header-logo">
+      <div class="header-logo__wrap">
+        <a href="index.html" class="header-logo_link" id="header-logo">
+          <svg class="header-logo-icon" width="24" height="24">
+            <use href="./images/icons.svg#icon-film"></use>
+          </svg>
+          <span class="header-logo__text">Filmoteka</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul class="header-list">
+          <li class="header-list__item">
+            <button id="home_btn" class="header-list__btn">
+              <span class="header-list__btn__text current-page" id="home-current-page">Home</span>
+            </button>
+          </li>
+          <li class="header-list__item">
+            <button id="library_btn" class="header-list__btn">
+              <span class="header-list__btn__text" id="library-current-page">my library</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header-form__wrap">
+      <form class="header-form" id="search-form">
+        <div class="header-input__wrap">
+          <input
+            class="header-input"
+            type="text"
+            name="searchQuery"
+            autocomplete="off"
+            placeholder="Search films..."
+          />
+          <button id="form-button" class="header-form__button" type="submit">
+            <svg class="header-search-icon" width="15" height="15">
+              <use href="./images/icons.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="header-library" class="library-btn__wrap is-hidden">
+      <ul class="library-list">
+        <li class="library-item">
+          <button id="library-watched__button" class="library-btn" type="button">WATCHED</button>
+        </li>
+        <li class="library-item">
+          <button id="library-queue__button" class="library-btn" type="button">QUEUE</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
