@@ -21,8 +21,8 @@
     margin-left: 32px;
     margin-top: 32px;
   }
-  @media screen and(min-width: 1200px) {
-    flex-basis: calc(100% / 3 - 32px);
+  @media screen and(min-width: 1024px) {
+    flex-basis: calc(100% / 3 - 16px);
     margin-left: 16px;
   }
 }
@@ -40,6 +40,7 @@
   font-weight: 500;
   font-size: 12px;
   margin-bottom: 3px;
+  text-align: left;
 }
 
 .gallery__item-genres,
