@@ -20,21 +20,16 @@ body.dark-theme {
   align-items: center;
 }
 
-.theme-switch__icon1 {
-  color: currentColor;
-  // height: 24px;
-  // width: 24px;
-  margin-right: 4px;
-  margin-left: 4px;
-}
 
-.theme-switch__icon2 {
-  fill: $main-title-color;
-  // height: 24px;
-  // width: 24px;
-  margin-right: 4px;
-  margin-left: 4px;
-}
+
+// .theme-switch__icon2 {
+//   fill: $main-title-color;
+//   height: 100%;
+//   // height: 24px;
+//   // width: 24px;
+//   margin-right: 4px;
+//   margin-left: 4px;
+// }
 
 .theme-switch__control {
   display: flex;
@@ -66,36 +61,66 @@ body.dark-theme {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  width: 36px;
+  height: 14px;
   color: transparent;
   user-select: none;
   background-color: $header-background-color;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
+  transition: background-color 250ms $timing-function;
 }
 
-.theme-switch__marker {
+
+
+
+.theme-switch__icon1 {
   position: relative;
-  background-color: $main-accent-color;
-
-  width: 23.5px;
-  height: 23.5px;
-  border-radius: 50%;
-  z-index: 2;
+  color: currentColor;
+  // height: 80%;
+  height: 12px;
+  width: 12px;
+  top: -4px;
+  // height: 24px;
+  // width: 24px;
+  margin-right: 4px;
+  margin-left: 4px;
+    z-index: 3;
+  transform: translateX(-3px);
+  transition: transform 250ms $timing-function, fill 250ms $timing-function;
+  fill: white;
   pointer-events: none;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
-  transition: transform 250ms $timing-function;
 }
 
-.theme-switch__toggle:checked + .theme-switch__track {
+
+
+// .theme-switch__marker {
+  
+//   position: relative;
+//   background-color: $main-accent-color;
+
+//   width: 23.5px;
+//   height: 23.5px;
+//   border-radius: 50%;
+//   z-index: 2;
+//   pointer-events: none;
+//   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+//   transform: translateX(-5px);
+//   transition: transform 250ms $timing-function;
+// }
+
+.theme-switch__toggle:checked ~ .theme-switch__track {
   background-color: #d3d3d4;
 }
 
-.theme-switch__toggle:checked ~ .theme-switch__marker {
-  transform: translateX(18px);
+// .theme-switch__toggle:checked ~ .theme-switch__marker {
+//   transform: translateX(18px);
+// }
+
+.theme-switch__toggle:checked ~ .theme-switch__icon1 {
+  transform: translateX(19px);
+  fill: black;
 }
 
 .theme-switch__toggle:focus + .theme-switch__track,
