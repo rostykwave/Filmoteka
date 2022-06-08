@@ -29,7 +29,7 @@ function homePageLoader() {
   console.log('homePageLoader');
   //   homeHeroVisible();
   onHomePage();
-  loaderSpinner();
+  // loaderSpinner();
 
   filmApiService.resetPage();
   getPopularFilms();
@@ -39,7 +39,7 @@ function myLibraryPageLoader() {
   console.log('myLibrary');
   //   myLibraryHeroVisible();
   onLibraryPage();
-  loaderSpinner();
+  // loaderSpinner();
   getWatchedFilms(); //from local storage
 }
 
