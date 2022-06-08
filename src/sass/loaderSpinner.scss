@@ -1,11 +1,15 @@
 .loader-wrapper {
     position: relative;
-    transform: translateX(47vw);
+    left: 50%;
+    top:180px;
+
+    // transform: translateX(50vw);
+    // transform: translate(-50%, 50%);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     width: 1px;
-    height: 100vh;
+    // height: 100vh;
   }
   
   .loader-el {

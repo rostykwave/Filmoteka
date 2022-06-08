@@ -10,12 +10,16 @@ export function getPopularFilms() {
     console.log('getPopularFilms');
 
     filmApiService.setProps('day');
-
+//setTimeout start
 
     filmApiService.fetchCards('popularFilm')
         .then(data => {
             console.log(data);
-        renderFilmGallery(data);
+
+            //setTimeout stop
+            
+            renderFilmGallery(data);
+            
         
     })
         .catch(onFetchError)

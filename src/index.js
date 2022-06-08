@@ -7,7 +7,7 @@ import { getFilmsOnSearchQuery } from './js/getFilmsOnSearchQuery';
 import { onLibraryPage, onHomePage } from './js/header';
 // import { homeHeroVisible, myLibraryHeroVisible } from './js/header-hero-visibility';
 import { checkDarkMode } from './js/checkDarkMode';
-import { loaderSpinner } from './js/loaderSpinner';
+// import { loaderSpinner } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
 import pagination from './js/components/pagination';
@@ -29,7 +29,7 @@ function homePageLoader() {
   console.log('homePageLoader');
   //   homeHeroVisible();
   onHomePage();
-  loaderSpinner();
+  // loaderSpinner();
 
   filmApiService.resetPage();
   getPopularFilms();
@@ -39,7 +39,7 @@ function myLibraryPageLoader() {
   console.log('myLibrary');
   //   myLibraryHeroVisible();
   onLibraryPage();
-  loaderSpinner();
+  // loaderSpinner();
   getWatchedFilms(); //from local storage
 }
 
