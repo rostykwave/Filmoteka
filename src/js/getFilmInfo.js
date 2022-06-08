@@ -11,6 +11,7 @@ export function getFilmInfo(id) {
         .then(data => {
         renderFilmCardModal(data);
         refs.backdrop.classList.toggle('is-hidden');
+        refs.body.classList.toggle('overflow-hidden');
         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
         refs.backdrop.addEventListener('click', onEmptySpaceClick);
         addEventListener('keydown', onEscClose);
@@ -19,9 +20,9 @@ export function getFilmInfo(id) {
         .finally(console.log('fetch getFilmInfo done'));
 };
 
-        function onCloseButtonClick(e) {
-        onModalClose();
-    }
+    function onCloseButtonClick(e) {
+            onModalClose();
+        }
 
     function onEmptySpaceClick(e) {
         if (e.target === e.currentTarget) {
@@ -31,11 +32,12 @@ export function getFilmInfo(id) {
 
     function onEscClose(event) {
         if (event.key === "Escape" & !refs.backdrop.classList.contains('is-hidden')) { 
-                onModalClose();
+            onModalClose();
             }      
         }
     
     function onModalClose() {
+        refs.body.classList.remove('overflow-hidden');
         refs.backdrop.classList.toggle('is-hidden');
         refs.modalCloseButton.removeEventListener('click', onCloseButtonClick);
         refs.backdrop.removeEventListener('click', onEmptySpaceClick);

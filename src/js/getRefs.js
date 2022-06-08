@@ -1,5 +1,7 @@
 export const refs = {
   //   homeButton: document.querySelector('#homeButton'),
+  body: document.querySelector('body'),
+
   homeButton: document.querySelector('#home_btn'),
   logo: document.querySelector('#header-logo'),
   //   myLibraryButton: document.querySelector('#myLibraryButton'),

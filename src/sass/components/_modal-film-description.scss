@@ -6,6 +6,11 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     pointer-events: visible;
+    overflow-y: auto;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 // .backdrop.is-hidden .film-detail-modal {
 //     transform: scale(0.01) translate(100%, 20%);
@@ -32,16 +37,15 @@
 }
 
 .filmCardModal-container {
-    top: 12%;
+    top: 5%;
     left: 0%;
-    width: 95%;
+    width: 100%;
     margin-right: auto;
     margin-left: auto;
     position: relative;
     display: block;
     background-color: $body-background-color;
     padding: 48px 20px 40px 20px;
-    border: 1px solid;
 }
 
 .film-title {
@@ -193,6 +197,7 @@
 @media screen and (min-width: 768px) and (max-width: 1023px) {
 .filmCardModal-container {
     display: flex;
+    top: 15%;
     width: 618px;
     padding: 42px 30px 40px 28px;
 }
@@ -224,6 +229,7 @@
 @media screen and (min-width: 1024px) {
 .filmCardModal-container {
     display: flex;
+    top: 9%;
     padding: 50px 30px 40px 30px;
     width: 885px;
 }
