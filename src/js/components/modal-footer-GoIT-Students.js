@@ -26,7 +26,7 @@ const animation = anime({
   }],
 
   scale: [0, 1.2],
-  autoplay: true,
+  autoplay: false,
   opacity: 1,
 
   translateX: [0, function(el) {
