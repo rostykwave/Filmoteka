@@ -1,10 +1,10 @@
 .backdrop {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.6);
     pointer-events: visible;
 }
 // .backdrop.is-hidden .film-detail-modal {
@@ -12,43 +12,18 @@
 // } 
 
 ////Rostyslav added
-.filmCardModal-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 600px;
-    background-color: aqua;
-}
+// .filmCardModal-container{
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 500px;
+//     height: 600px;
+//     background-color: aqua;
+// }
 /////
 
-.film-test-list {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
-    align-items: baseline;
-}
-.film-test-item {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    width: 70px;
-    height: 90px;
-    margin-right: 30px;
-    background-color: $secondary-accent-color;
-    &:last-child {
-        margin-right: 0;
-    }
-}
-.film-test {
-    display: block;
-    justify-content: center;
-    align-content: center;
-}
+// overflow-hidden 
 
 .is-hidden {
     visibility: hidden;
@@ -56,7 +31,7 @@
     pointer-events: none;
 }
 
-.film-detail-modal {
+.filmCardModal-container {
     top: 12%;
     left: 0%;
     width: 95%;
@@ -202,12 +177,12 @@
             /* ----------- MOBILE ----------- */
 
 @media screen and (max-width: 319px) {
-.film-detail-modal {
+.filmCardModal-container {
     max-width: 280px;
 }
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {
-.film-detail-modal {
+.filmCardModal-container {
     width: 280px;
     height: auto;
 }
@@ -216,7 +191,7 @@
             /* ----------- TABLET ----------- */
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-.film-detail-modal {
+.filmCardModal-container {
     display: flex;
     width: 618px;
     padding: 42px 30px 40px 28px;
@@ -247,7 +222,7 @@
             /* ----------- DESKTOP ----------- */
 
 @media screen and (min-width: 1024px) {
-.film-detail-modal {
+.filmCardModal-container {
     display: flex;
     padding: 50px 30px 40px 30px;
     width: 885px;
