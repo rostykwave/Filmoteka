@@ -1,3 +1,6 @@
+.gallery {
+  min-height: 200px;
+}
 .gallery__list {
   margin-top: -20px;
   margin-left: -20px;
@@ -30,10 +33,12 @@
 
 .gallery__item-info-wrap {
   display: flex;
+  align-items: baseline;
 }
 
-// .gallery__item-name {
-// }
+.gallery__item-name {
+  text-transform: uppercase;
+}
 
 .gallery__item-name {
   margin-top: 10px;
@@ -41,6 +46,18 @@
   font-size: 12px;
   margin-bottom: 3px;
   text-align: left;
+}
+
+.gallery__img {
+  width: 280px;
+  height: 420px;
+  @media screen and(min-width: 768px) {
+    width: 330px;
+    
+  }
+  @media screen and(min-width: 1024px){
+    width: 310px;
+  }
 }
 
 .gallery__item-genres,
@@ -52,6 +69,9 @@
 
 .gallery__item-year {
   margin-left: 5px;
+    white-space: nowrap;
+    width: 33px;
+    overflow: hidden;
 }
 
 .gallery_item-rating {
@@ -59,6 +79,7 @@
   height: 16px;
   border-radius: 5px;
   font-size: 12px;
+  line-height: (16 / 12);
   color: #ffffff;
   background-color: #ff6b01;
   margin-left: 5px;

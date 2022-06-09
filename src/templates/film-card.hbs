@@ -1,18 +1,21 @@
 {{#each this}}
 <li class="gallery__item">
-           <a href="" id="{{id}}">
-            <img class="gallery__img" src="https://i.ibb.co/smrvz1b/Rectangle-5.png" alt="">
+           <a href="" id={{id}}>
+            <img class="gallery__img" src="https://image.tmdb.org/t/p/w500/{{poster_path
+
+}}" onerror="this.src='https://i.ibb.co/bJXM76s/poster-plug12.jpg '" alt="">
             <div class="gallery__item-info">
                 <h3 class="gallery__item-name">
                 {{title}} </h3>
                 <div class="gallery__item-info-wrap">
                 <p class="gallery__item-genres">
-                    Drama, actions
+                    {{genre_ids}}
                 </p>
-                <span class="gallery__item-year">|2020</span>
-                <span class="gallery_item-rating">10</span>
+                <span class="gallery__item-year">| {{release_date}}</span>
+                <span class="gallery_item-rating">{{vote_average}}</span>
                 </div>
             </div>
            </a>
         </li>
 {{/each}}
+
