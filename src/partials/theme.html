@@ -1,0 +1,23 @@
+<div class="toolbar">
+  <!-- Разметка переключателя темы -->
+  <div class="theme-switch">
+    <div class="theme-switch__control">
+      <input
+        class="theme-switch__toggle"
+        type="checkbox"
+        name="theme"
+        id="theme-switch-toggle"
+        aria-label="Переключить между тёмной и светлой темой"
+      />
+      <label aria-hidden="true" class="theme-switch__track" for="theme-switch-toggle">
+        <svg class="theme-switch__icon1" role="img" aria-label="Иконка закрытого объектива">
+          <use href="./images/icons.svg#icon-camera-close"></use>
+        </svg>
+        <svg class="theme-switch__icon2" aria-label="Иконка открытого объектива">
+          <use href="./images/icons.svg#icon-camera-open"></use>
+        </svg>
+      </label>
+      <div aria-hidden="true" class="theme-switch__marker"></div>
+    </div>
+  </div>
+</div>
