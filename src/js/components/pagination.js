@@ -6,12 +6,12 @@
 
 // const homepagePagination = new Pagination('home');
 
-homepagePagination.create({
-  prelink: homePaginationEl,
-  totalPages: allPages,
-  currentEvent: getMovies,
-});
+// homepagePagination.create({
+//   prelink: homePaginationEl,
+//   totalPages: allPages,
+//   currentEvent: getMovies,
+// });
 
-function getMovies() {
-  console.log(`Здесь могла быть ваша функция, страница ${homepagePagination.page}.`);
-}
+// function getMovies() {
+//   console.log(`Здесь могла быть ваша функция, страница ${homepagePagination.page}.`);
+// }

@@ -9,7 +9,6 @@ import { checkDarkMode } from './js/checkDarkMode';
 import { loaderSpinner, startLoader, stopLoader } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
-import pagination from './js/components/pagination';
 import { Pagination } from './js/components/pagination-api';
 import { renderFilmGallery } from './js/renderFilmGallery';
 

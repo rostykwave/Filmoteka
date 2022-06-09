@@ -20,11 +20,11 @@ fetchPopularFilms({page:popularFilmPagination.page}).then(data => {
   renderFilmGallery(data);
   popularFilmPagination.create({
       prelink: homePaginationEl,
-  totalPages: data.total_pages,
+    totalPages: data.total_pages,
+  currentEvent: getPopularMovie,
   })
 });
-    
-    popularFilmPagination.addPaginationEvent(getPopularMovie);
+
 }
 
 
