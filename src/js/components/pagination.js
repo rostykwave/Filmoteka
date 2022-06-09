@@ -9,12 +9,8 @@ const homepagePagination = new Pagination('home');
 homepagePagination.create({
   prelink: homePaginationEl,
   totalPages: allPages,
-  step: step,
-  arrows: true,
-  dots: true,
+  currentEvent: getMovies,
 });
-
-homepagePagination.addPaginationEvent(getMovies);
 
 function getMovies() {
   console.log(`Здесь могла быть ваша функция, страница ${homepagePagination.page}.`);
