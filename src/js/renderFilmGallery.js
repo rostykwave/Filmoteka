@@ -2,12 +2,13 @@ import { refs } from './getRefs';
 import filmCardTpl from '../templates/film-card.hbs';
 import { onFilmCardClick } from './onFilmCardClick';
 
+
 export function renderFilmGallery(data) {
 //     //
     console.log(data.results);
     const dataHits = data.results;
 
-    refs.filmGallery.innerHTML = '';
+    // refs.filmGallery.innerHTML = '';
     refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTpl(dataHits));
 
     // refs.filmGallery.addEventListener('click', onFilmCardClick);
