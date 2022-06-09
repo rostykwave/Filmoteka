@@ -1,14 +1,30 @@
+import  genres  from '../json/genres.json'
 import { refs } from './getRefs';
 import filmCardTpl from '../templates/film-card.hbs';
 import { onFilmCardClick } from './onFilmCardClick';
 
 export function renderFilmGallery(data) {
 //     //
-    console.log(data.results);
     const dataHits = data.results;
-
-    refs.filmGallery.innerHTML = '';
-    refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTpl(dataHits));
+    function getGalleryCardsData() {
+        const movieGenresIds = genres.map(genre => {
+            return genre.id
+        })
+        const movieGenres = genres.map(genre => {
+            return genre.name
+        })
+        console.log(movieGenresIds);
+        console.log(movieGenres);
+        const film = dataHits.map(hit => {
+            const newDate = new Date(hit.release_date);
+            const filmYear = newDate.getFullYear(); 
+            hit.release_date = filmYear;
+                return hit
+        })
+        refs.filmGallery.innerHTML = '';
+        refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTpl(film));
+    }
+    getGalleryCardsData(dataHits)
 
     // refs.filmGallery.addEventListener('click', onFilmCardClick);
     const refsfilmGallery = refs.filmGallery.querySelectorAll('li');
