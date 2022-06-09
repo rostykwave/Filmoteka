@@ -1,7 +1,7 @@
 .anime-wrap {
   position: absolute;
-  transform: translateX(60px);
-  // transform: translate(35px, 170px);
+  
+  transform: scale(0.1) translate(565px, 0);
   z-index: 1;
   width: 120px;
   display: flex;
@@ -10,14 +10,23 @@
  }
 
 .anime {
-    width: 2rem;
-    height: 2rem;
+  
+    position: absolute;
+    width: 32px;
+    height: 32px;
     opacity: 0;
     margin-top: auto;
     margin-bottom: auto;
     mix-blend-mode: lighten;
+    
+    transition: width 250ms $timing-function, height 250ms $timing-function;
+    
   }
 
+  .anime:hover {
+    width: 38px;
+    height: 38px;
+  }
 
 .anime-blue {
   background-color: blue;
