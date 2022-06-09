@@ -1,3 +1,25 @@
+//3 окремі функції для fetch популярних, пошуку, розширеної інформації про фільм//
+export async function fetchPopularFilms({ page, props = 'day' }) {
+    const url = `${BASE_URL}/trending/movie/${props}?api_key=${KEY}&page=${page}`;
+    return await fetch(url)
+        .then(response => response.json());
+}
+
+export async function fetchFilmsOnSearch({page, query}) {
+    const url = `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${query}&page=${page}`;
+    
+    return await fetch(url)
+        .then(response => response.json());
+}
+export async function fetchFilmInfo({page, filmId}) {
+    const url = `${BASE_URL}/trending/movie/${filmId}?api_key=${KEY}&page=${page}`;
+    
+    return await fetch(url)
+        .then(response => response.json());
+}
+
+
+
 
 //метод filmApiService.fetchCards приймає два рядки: тип запиту (popular, searchQuery, filmInfo) і пропси(відповідно day або week, рядок із запитом, id фільму)
 
@@ -64,9 +86,6 @@ class FilmApiService{
 }
 
 export const filmApiService = new FilmApiService();
-
-
-
 
 
 
