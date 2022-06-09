@@ -1,11 +1,20 @@
+body {
+  background-repeat: repeat;
+  background-size: 250px 250px;
+}
+
 body.light-theme {
+  background-image: url(../images/hero-film/bg_pattern_light.svg);
   background-color: $body-background-color;
   color: $secondary-title-color;
 }
 
 body.dark-theme {
+  background-image: url(../images/hero-film/bg_pattern_dark.svg);
   background-color: $header-background-color;
+  
   color: $main-title-color;
+  
 }
 
 .toolbar {
@@ -62,35 +71,37 @@ body.dark-theme {
   left: 0;
   top: 0;
   width: 36px;
-  height: 14px;
+  height: 18px;
   color: transparent;
   user-select: none;
-  background-color: $header-background-color;
+  background-color: $toggle-mode-color;
   border-radius: inherit;
   z-index: 1;
   cursor: pointer;
-  transition: background-color 250ms $timing-function;
+  // transition: background-color 250ms $timing-function;
 }
-
-
 
 
 .theme-switch__icon1 {
   position: relative;
   color: currentColor;
   // height: 80%;
-  height: 12px;
-  width: 12px;
-  top: -4px;
+  height: 16px;
+  width: 16px;
+  top: -2px;
   // height: 24px;
   // width: 24px;
   margin-right: 4px;
   margin-left: 4px;
-    z-index: 3;
-  transform: translateX(-3px);
-  transition: transform 250ms $timing-function, fill 250ms $timing-function;
+  z-index: 3;
+  transform: translateX(-2px);
+  // transition: transform 250ms $timing-function, fill 250ms $timing-function;
   fill: white;
-  pointer-events: none;
+    pointer-events: none;
+}
+
+.transition-icon {
+  transition: transform 250ms $timing-function, fill 250ms $timing-function;
 }
 
 
@@ -110,18 +121,33 @@ body.dark-theme {
 //   transition: transform 250ms $timing-function;
 // }
 
-.theme-switch__toggle:checked ~ .theme-switch__track {
-  background-color: #d3d3d4;
-}
+// .theme-switch__toggle:checked ~ .theme-switch__track {
+//   background-color: #d3d3d4;
+
+// }
 
 // .theme-switch__toggle:checked ~ .theme-switch__marker {
 //   transform: translateX(18px);
 // }
 
-.theme-switch__toggle:checked ~ .theme-switch__icon1 {
-  transform: translateX(19px);
-  fill: black;
+body.dark-theme {
+
+  .theme-switch__track {
+    background-color: #d3d3d4;
+  }
+
+  .theme-switch__icon1 {
+    transform: translateX(14px);
+    fill: black;
+  }
 }
+
+// .theme-switch__toggle:checked ~ .theme-switch__icon1 {
+  // transform: translateX(14px);
+  // fill: black;
+
+// } 
+
 
 .theme-switch__toggle:focus + .theme-switch__track,
 .theme-switch__toggle:active + .theme-switch__track {

@@ -32,13 +32,12 @@ export function checkDarkMode() {
     localStorage.setItem(THEME_KEY, bodyEl.classList);
 
 
-
+    
     
 
     if (inputEl.checked) {
-      console.log("LIGHT!!!!!!!!!!!!");
-      //light theme
-
+        //toggle on light theme
+      svgUse.classList.add('transition-icon');
 
       const svgArray = Array.from(svgUse.children);
 
@@ -48,16 +47,14 @@ export function checkDarkMode() {
           if (i+1 != svgUse.children.length){
             setTimeout(() => {
               element.classList.add('loader-hidden');
-            }, 50);
+            }, 60);
           }
-        }, i*50);
-
+        }, i*60);
       })
 
-
-
     } else {
-      console.log("DARK!!!!!!!!!!!!");
+      //toggle on dark theme
+      svgUse.classList.add('transition-icon');
 
       const svgArray = Array.from(svgUse.children);
       const reversedSvgArray = svgArray.reverse();
@@ -68,18 +65,13 @@ export function checkDarkMode() {
           if (i+1 != svgUse.children.length){
             setTimeout(() => {
               element.classList.add('loader-hidden');
-            }, 50);
+            }, 60);
           }
-        }, i*50);
+        }, i*60);
 
       })
 
     }
-    
-
-
-
-
   }
 
 
