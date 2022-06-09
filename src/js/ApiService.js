@@ -1,3 +1,16 @@
+export async function fetchPopularFilms({page, props='day'}) {
+    const url = `${BASE_URL}/trending/movie/${props}?api_key=${KEY}&page=${page}`;
+    return await fetch(url)
+            .then(response => response.json()).then((data) => {
+            
+                // console.log(data);
+  
+                return data;            ;
+        });
+}
+
+
+
 
 //метод filmApiService.fetchCards приймає два рядки: тип запиту (popular, searchQuery, filmInfo) і пропси(відповідно day або week, рядок із запитом, id фільму)
 
@@ -64,9 +77,6 @@ class FilmApiService{
 }
 
 export const filmApiService = new FilmApiService();
-
-
-
 
 
 

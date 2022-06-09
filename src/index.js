@@ -1,27 +1,30 @@
 import { refs } from './js/getRefs';
 ///BackEnd API///
-import { filmApiService } from './js/ApiService';
+import { fetchPopularFilms, filmApiService } from './js/ApiService';
 
 import { getPopularFilms } from './js/getPopularFilms';
 import { onSearch } from './js/onSearch';
 import { onLibraryPage, onHomePage } from './js/header';
 import { checkDarkMode } from './js/checkDarkMode';
-import { loaderSpinner } from './js/loaderSpinner';
+import { loaderSpinner, startLoader, stopLoader } from './js/loaderSpinner';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { getWatchedFilms } from './js/getWatchedFilms';
 import pagination from './js/components/pagination';
+import { Pagination } from './js/components/pagination-api';
+import { renderFilmGallery } from './js/renderFilmGallery';
+
 
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
 
-filmApiService.resetPage();
+// filmApiService.resetPage();
 getPopularFilms();
+
 
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', homePageLoader);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
-// refs.themeToggle.addEventListener('click', onThemeModeToggle);
 
 ///Main functions///Do not touch//
 function homePageLoader() {
@@ -30,8 +33,9 @@ function homePageLoader() {
   onHomePage();
 
 
-  filmApiService.resetPage();
+  // filmApiService.resetPage();
   getPopularFilms();
+ 
 }
 
 function myLibraryPageLoader() {
