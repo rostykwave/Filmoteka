@@ -1,5 +1,7 @@
 export const refs = {
   //   homeButton: document.querySelector('#homeButton'),
+  body: document.querySelector('body'),
+
   homeButton: document.querySelector('#home_btn'),
   logo: document.querySelector('#header-logo'),
   //   myLibraryButton: document.querySelector('#myLibraryButton'),
@@ -27,7 +29,6 @@ export const refs = {
   libraryCurrentPage: document.querySelector('#library-current-page'),
   hederLibraryPage: document.querySelector('#header-library'),
 
-  filmTesList: document.querySelector('.film-test-list'),
   modalCloseButton: document.querySelector('.modal-close_button'),
   modalCardDetail: document.querySelector('.film-detail-modal'),
   backdrop: document.querySelector('.backdrop'),

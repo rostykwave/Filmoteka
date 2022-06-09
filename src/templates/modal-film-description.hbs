@@ -1,6 +1,6 @@
 <div class="picture-wrapper">
-  <img class="modal-poster-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}">
-        </div>
+    <img class="modal-poster-img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{original_title}}">
+</div>
             <div class="info-modal-card">
                 <h2 class="film-title">{{original_title}}</h2>
                 <div class="lists-wrapper">
@@ -14,53 +14,21 @@
                         <li class="values-list__item"><span class="values-list__item-vote">{{vote_average}}</span><span class="vote-separator"> /  </span>{{vote_count}}</li>
                         <li class="values-list__item">{{popularity}}</li>
                         <li class="values-list__item">{{original_title}}</li>
-                        <li class="values-list__item">{{genre}}</li>
+                        <li class="values-list__item">{{genres}}</li>
                     </ul > </div>
                     <h3 class="about-title">ABOUT</h3>
                         <p class="film-description">{{overview}}</p>
                 <ul class="modal-buttons__list">
                     <li class="modal-buttons__item">
-                        <button class="watched-btn"><span class="modal-btn__text">ADD TO WATCHED</span></button>
+                        <button class="watched-btn">Add to watched</button>
                     </li>
                     <li class="modal-buttons__item">
-                        <button class="queue-btn"><span class="modal-btn__text">ADD TO QUEUE</span></button>
+                        <button class="queue-btn">Add to queue</button>
                     </li>
-                </ul> 
+                </ul>
             </div>
-
-
-{{!-- {{#each this}}
-  <div class="film-card">
-      <p>Hello from Handlebars id:{{id}}</p>
-</div>
-{{/each}} --}}
-
-{{!-- <div class="picture-wrapper">
-  <img class="modal-poster-img" src="{{'https://image.tmdb.org/t/p/w500'+data.poster_path}}" alt="{{data.original_title}}">
+        <div class="movie-trailer-backdrop is-hidden">
+            <div class="modal-movie-trailer-is-hidden">
+                <iframe class="iframe" src="https://www.youtube.com/embed/{{youtube_video_id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
-            <div class="info-modal-card">
-                <h2 class="film-title">{{data.original_title}}</h2>
-                <div class="lists-wrapper">
-                    <ul class="properties-list">
-                        <li class="properties-list__item">Vote / Votes</li>
-                        <li class="properties-list__item">Popularity</li>
-                        <li class="properties-list__item">Original Title</li>
-                        <li class="properties-list__item">Genre</li>
-                    </ul>
-                    <ul class="values-list">
-                        <li class="values-list__item"><span class="values-list__item-vote">{{data.vote_average}}</span><span class="vote-separator"> /  </span>{{data.vote_count}}</li>
-                        <li class="values-list__item">{{data.popularity}}</li>
-                        <li class="values-list__item">{{data.original_title}}</li>
-                        <li class="values-list__item">{{genres}}</li>
-                    </ul > </div>
-                    <h3 class="about-title">ABOUT</h3>
-                        <p class="film-description">{{data.overview}}</p>
-                <ul class="modal-buttons__list">
-                    <li class="modal-buttons__item">
-                        <button class="watched-btn"><span class="modal-btn__text">ADD TO WATCHED</span></button>
-                    </li>
-                    <li class="modal-buttons__item">
-                        <button class="queue-btn"><span class="modal-btn__text">ADD TO QUEUE</span></button>
-                    </li>
-                </ul> 
-            </div> --}}
