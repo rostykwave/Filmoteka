@@ -7,6 +7,7 @@ export function checkDarkMode() {
 
   const inputEl = document.querySelector('.theme-switch__toggle');
   const bodyEl = document.querySelector('body');
+  const svgUse = document.querySelector('.theme-switch__icon1');
   inputEl.addEventListener('change', onInputChange);
 
   const THEME_KEY = 'theme-color';
@@ -29,5 +30,72 @@ export function checkDarkMode() {
       bodyEl.classList.add(Theme.LIGHT);
     }
     localStorage.setItem(THEME_KEY, bodyEl.classList);
+
+
+    
+    
+
+    if (inputEl.checked) {
+        //toggle on light theme
+      svgUse.classList.add('transition-icon');
+
+      const svgArray = Array.from(svgUse.children);
+
+      svgArray.map((element, i) => {
+        setTimeout(() => {
+          element.classList.remove('loader-hidden');
+          if (i+1 != svgUse.children.length){
+            setTimeout(() => {
+              element.classList.add('loader-hidden');
+            }, 60);
+          }
+        }, i*60);
+      })
+
+    } else {
+      //toggle on dark theme
+      svgUse.classList.add('transition-icon');
+
+      const svgArray = Array.from(svgUse.children);
+      const reversedSvgArray = svgArray.reverse();
+
+      reversedSvgArray.map((element, i) => {
+        setTimeout(() => {
+          element.classList.remove('loader-hidden');
+          if (i+1 != svgUse.children.length){
+            setTimeout(() => {
+              element.classList.add('loader-hidden');
+            }, 60);
+          }
+        }, i*60);
+
+      })
+
+    }
   }
+
+
+  
+
+
+  
+
+  if (inputEl.checked) {
+      svgUse.children[3].classList.remove('loader-hidden');
+  } else {
+    svgUse.children[0].classList.remove('loader-hidden');
+  }
+
 }
+
+
+
+
+
+
+
+// svgUse.addEventListener('click', () => {
+
+// })
+
+

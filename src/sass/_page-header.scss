@@ -87,6 +87,7 @@
 // ================ форма ===============================
 
 .header-form {
+  position: relative;
   display: flex;
   justify-content: center;
   padding-bottom: 92px;
@@ -107,6 +108,14 @@
   @media screen and (min-width: 768px) {
     width: 336px;
   }
+}
+
+.form-alert{
+  color: #FF001B;
+  position: absolute;
+  top: 42px;
+  background: transparent;
+  font-weight: 400;
 }
 .header-input {
   border: none;
