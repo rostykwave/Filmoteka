@@ -2,7 +2,10 @@ import { filmApiService } from "./ApiService";
 import { refs } from "./getRefs";
 import { onFetchError } from "./onFetchError";
 import { renderFilmCardModal } from "./renderFilmCardModal";
-import movieTrailer  from 'movie-trailer';
+import movieTrailer from 'movie-trailer';
+
+
+// import modalQueueStorage from "./components/setStorageQueue";
 
 export function getFilmInfo(id) {
 
