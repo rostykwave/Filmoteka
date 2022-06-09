@@ -2,6 +2,8 @@ import { filmApiService } from "./ApiService";
 import { refs } from "./getRefs";
 import { onFetchError } from "./onFetchError";
 import { renderFilmCardModal } from "./renderFilmCardModal";
+import defaultPoster from '../images/poster-plug.jpg';
+import playerLogo from '../images/youtube-img.png';
 import movieTrailer  from 'movie-trailer';
 
 export function getFilmInfo(id) {
@@ -10,11 +12,17 @@ export function getFilmInfo(id) {
 
     filmApiService.fetchCards('filmInfo')
         .then(data => {
+            
             data.genres = data.genres.map((g) => g["name"]).join(", ");
             data.trailer = movieTrailer(data.original_title, { id: true })
                 .then(result => {
                     data.youtube_video_id = result;
-                        console.log(result);
+                    data.player_logo = playerLogo;
+                    if (data.poster_path === null) {
+                        data.new_poster_path = defaultPoster;
+                    } else {
+                        data.new_poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`
+                    }
                         renderFilmCardModal(data);
                         refs.backdrop.classList.toggle('is-hidden');
                         refs.body.classList.toggle('overflow-hidden');
@@ -22,7 +30,6 @@ export function getFilmInfo(id) {
                         refs.backdrop.addEventListener('click', onEmptySpaceClick);
                         addEventListener('keydown', onEscClose);
                         
-                    
                     // YOUTUBE TRAILER
                     const pictureWrapper = document.querySelector('.picture-wrapper');
                     const iframeWrapper = document.querySelector('.modal-movie-trailer-is-hidden');
