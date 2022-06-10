@@ -5,7 +5,7 @@ import { renderFilmGallery } from "./renderFilmGallery";
 
 const homePaginationEl = document.querySelector('.pagination-wrap');
 
-const popularFilmPagination = new Pagination('popular');
+export const popularFilmPagination = new Pagination('popular');
 
 
 export function getPopularFilms() {

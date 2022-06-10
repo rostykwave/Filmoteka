@@ -2,7 +2,7 @@ import { refs } from './js/getRefs';
 ///BackEnd API///
 import { fetchPopularFilms, filmApiService } from './js/ApiService';
 
-import { getPopularFilms } from './js/getPopularFilms';
+import { getPopularFilms, popularFilmPagination } from './js/getPopularFilms';
 import { onSearch } from './js/onSearch';
 import { onLibraryPage, onHomePage } from './js/header';
 import { checkDarkMode } from './js/checkDarkMode';
@@ -16,13 +16,12 @@ import { renderFilmGallery } from './js/renderFilmGallery';
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
 
-
 // filmApiService.resetPage();
 getPopularFilms();
 
 
 refs.homeButton.addEventListener('click', homePageLoader);
-refs.logo.addEventListener('click', homePageLoader);
+refs.logo.addEventListener('click', onLogoResetPageNumber);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
 
 ///Main functions///Do not touch//
@@ -30,7 +29,6 @@ function homePageLoader() {
   console.log('homePageLoader');
   
   onHomePage();
-
 
   // filmApiService.resetPage();
   getPopularFilms();
@@ -45,6 +43,10 @@ function myLibraryPageLoader() {
   getWatchedFilms(); //from local storage
 }
 
+function onLogoResetPageNumber() {
+  popularFilmPagination.resetPage();
+  homePageLoader();
+}
 ///
 
 
