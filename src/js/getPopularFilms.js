@@ -1,44 +1,40 @@
-import { fetchPopularFilms } from "./ApiService";
-import { Pagination } from "./components/pagination-api";
-import { startLoader, stopLoader } from "./loaderSpinner";
-import { renderFilmGallery } from "./renderFilmGallery";
+import { fetchPopularFilms } from './ApiService';
+import { Pagination } from './components/pagination-api';
+import { startLoader, stopLoader } from './loaderSpinner';
+import { renderFilmGallery } from './renderFilmGallery';
+import { onPageUp } from './components/arrow-up';
 
 const homePaginationEl = document.querySelector('.pagination-wrap');
 
 export const popularFilmPagination = new Pagination('popular');
 
-
 export function getPopularFilms() {
-    startLoader();
-   
-fetchPopularFilms({page:popularFilmPagination.page}).then(data => {
-  console.log(data);
-  stopLoader();
-  
-  console.log('fetchPopularFilms');
-  // console.log(data.total_pages);
-  renderFilmGallery(data);
-  popularFilmPagination.create({
+  startLoader();
+
+  fetchPopularFilms({ page: popularFilmPagination.page }).then(data => {
+    console.log(data);
+    stopLoader();
+
+    console.log('fetchPopularFilms');
+    // console.log(data.total_pages);
+    renderFilmGallery(data);
+    popularFilmPagination.create({
       prelink: homePaginationEl,
-    totalPages: data.total_pages,
-  currentEvent: getPopularMovie,
-  })
-});
-
+      totalPages: data.total_pages,
+      currentEvent: getPopularMovie,
+    });
+  });
 }
-
-
-
-
 
 function getPopularMovie() {
   startLoader();
-  fetchPopularFilms({page:popularFilmPagination.page}).then(data => {
+  fetchPopularFilms({ page: popularFilmPagination.page }).then(data => {
     console.log(data);
-     stopLoader();
+    stopLoader();
     console.log('getPopularMovie');
-  renderFilmGallery(data);
-  })
+    renderFilmGallery(data);
+    onPageUp();
+  });
 }
 // import { filmApiService } from './ApiService';
 // import { onFetchError } from './onFetchError';
@@ -62,10 +58,9 @@ function getPopularMovie() {
 
 //             //Loader stop
 //             stopLoader();
-            
+
 //             renderFilmGallery(data);
-            
-        
+
 //     })
 //         .catch(onFetchError)
 //         .finally(console.log('fetch popularFilm done'));
