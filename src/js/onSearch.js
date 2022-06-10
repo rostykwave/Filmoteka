@@ -14,32 +14,21 @@ let resultTotalPages = 0;
 export function onSearch(e) {
   e.preventDefault();
 
-refs.searchForm.insertAdjacentHTML('beforeend', '<p class="form-alert is-hidden"></p>');
-const formAlert = document.querySelector('.form-alert');
-
 searchPagination.resetPage();
 
   const query = e.currentTarget.elements.searchQuery.value.trim();
   console.log(query);
 
   if(query === ''){
-formAlert.textContent = 'Please, fill the search query and try again.';
-formAlert.classList.toggle('is-hidden');
-setTimeout(() => {
-  formAlert.classList.toggle('is-hidden');
-}, 3000);
+    errNotificationShow('Please, fill the search query and try again.', 3000)
     return;   
   }
-  let pattern = /[-a-zA-Z0-9]/ig;
+  let pattern = /^[a-z0-9-\s]+$/i;
   if (!pattern.test(query)){
-    formAlert.textContent = 'Please, enter the correct movie name and try again.';
-formAlert.classList.toggle('is-hidden');
-setTimeout(() => {
-  formAlert.classList.toggle('is-hidden');
-}, 3000);
+    errNotificationShow('Please, enter the correct movie name and try again.', 3000)
     return; 
   } 
-  console.log(query);
+console.log(query);
 const page = 1;
 
   startLoader();
@@ -49,14 +38,9 @@ const page = 1;
             console.log('searchQuery', films);
 
             if (films.total_results === 0){
-              formAlert.textContent = 'Search result not successful. Enter the correct movie name and try again.';
-              formAlert.classList.toggle('is-hidden');
-              setTimeout(() => {
-                formAlert.classList.toggle('is-hidden');
-              }, 5000);
-                  return;
+              errNotificationShow('Search result not successful. Enter the correct movie name and try again.', 5000)
+              return;
               }
-        
                 resultTotalPages = films.total_pages;
  
                 searchPagination.create({ 
@@ -73,7 +57,15 @@ const page = 1;
           console.log('fetch searchQuery done');});
   }
  
-
+function errNotificationShow (message, showTime){
+refs.searchForm.insertAdjacentHTML('beforeend', '<p class="form-alert is-hidden"></p>');
+const formAlert = document.querySelector('.form-alert');
+formAlert.textContent = `${message}`;
+formAlert.classList.toggle('is-hidden');
+setTimeout(() => {
+  formAlert.classList.toggle('is-hidden');
+}, showTime);
+}
   function getSearchMovies() {
     filmApiService.setPage(searchPagination.page)
     startLoader();
