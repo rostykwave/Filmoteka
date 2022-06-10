@@ -1,3 +1,5 @@
+import svgfile from '../../images/icons.svg';
+
 export const Pagination = class {
   constructor(name) {
     this.page = 1;
@@ -29,7 +31,15 @@ export const Pagination = class {
     }
   }
 
-  create({ prelink, totalPages, currentEvent, step = 5, arrows = true, dots = true }) {
+  create({
+    prelink,
+    totalPages,
+    currentEvent,
+    step = 5,
+    arrows = true,
+    dots = true,
+    scrollPage = false,
+  }) {
     const oldPaginationList = document.querySelector('.pagination-list');
     if (oldPaginationList) {
       oldPaginationList.remove();
@@ -73,6 +83,11 @@ export const Pagination = class {
           }
           currentEvent();
           this.render(arrows, step, dots);
+          if (scrollPage) {
+            setTimeout(() => {
+              window.scrollTo(0, 0);
+            }, 150);
+          }
         }
       }
     }
@@ -102,10 +117,13 @@ export const Pagination = class {
   render(arrows, step, dots) {
     const paginationList = document.querySelector('.pagination-list');
     const buttonNext = arrows
-      ? `<li><button type='button' class='pagination-btn pagination-btn--arrow' data-pagination='next'>Next</button></li>`
+      ? `<li><button type='button' class='pagination-btn pagination-btn--arrow' data-pagination='next'><svg class="pagination-btn--icon" transform='rotate(180)' width="16" height="16">
+      <use href="${svgfile}#icon-arrow"></button></li>`
       : null;
     const buttonPrev = arrows
-      ? `<li><button type='button' class='pagination-btn pagination-btn--arrow' data-pagination='prev'>Prev</button></li>`
+      ? `<li><button type='button' class='pagination-btn pagination-btn--arrow' data-pagination='prev'><svg class="pagination-btn--icon" width="16" height="16">
+                <use href="${svgfile}#icon-arrow"></use>
+            </svg></button></li>`
       : null;
     const paginationDots = '<li><span class="pagination-btn--dots">...</span></li>';
 

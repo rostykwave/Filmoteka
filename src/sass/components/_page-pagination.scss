@@ -1,8 +1,9 @@
-.pagination-wrap{
-  margin: 40px;
+.pagination-wrap {
+  min-width: 320px;
+  margin: 40px 0;
 
   @media screen and (min-width: 768px) {
-    margin: 60px;
+    margin: 60px 0;
   }
 }
 
@@ -14,41 +15,76 @@
 }
 
 .pagination-btn {
-  // font-family: 'Roboto';
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-weight: 500;
   font-size: 12px;
-  line-height: 1.33;
-  color: rgb(0, 0, 0);
-  padding: 13px;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
-  border: none;
-  background-color: transparent;
+  padding: 5px;
   border-radius: 5px;
+  color: $secondary-title-color;
+  stroke: $secondary-title-color;
+  background-color: transparent;
   cursor: pointer;
-  transition: .3s;
+  transition: all 0.3s $timing-function;
 
-  &:hover {
-  background-color: #ff6b08;
-    color: #ffffff;
+  &:hover,
+  &:focus {
+    background-color: $main-accent-color;
+    color: $main-title-color;
+    stroke: $main-title-color;
   }
 }
 
 .pagination-btn--active {
-  background-color: #FF6B08;
-  color: rgb(255, 255, 255);
+  background-color: $main-accent-color;
+  color: $main-title-color;
 }
 
 .pagination-btn--arrow {
-  min-width: 80px;
-  background-color: #F7F7F7;
+  background-color: $footer-background-color;
+  stroke: $secondary-title-color;
 }
 
 .pagination-btn--dots {
-   display: block;
-   height: 40px;
-   line-height: 2.78;
-  font-family: 'Roboto';
-  font-weight: 500;
+  display: block;
+  height: 40px;
   font-size: 12px;
+  line-height: 2.78;
+  font-weight: 500;
+  color: $secondary-title-color;
+}
+
+.pagination-btn--icon {
+  pointer-events: none;
+}
+
+body.dark-theme {
+  & .pagination-btn {
+    background-color: #f7f7f734;
+    color: $main-title-color;
+
+    &:hover,
+    &:focus {
+      background-color: $main-accent-color;
+      color: $main-title-color;
+      stroke: $main-title-color;
+    }
+  }
+
+  & .pagination-btn--active {
+    background-color: $main-accent-color;
+    color: $main-title-color;
+  }
+
+  & .pagination-btn--arrow {
+    background-color: $footer-background-color;
+    stroke: $secondary-title-color;
+  }
+
+  & .pagination-btn--dots {
+    color: $main-title-color;
+  }
 }
