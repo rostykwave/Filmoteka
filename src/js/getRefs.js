@@ -14,6 +14,7 @@ export const refs = {
   pagination: document.querySelector('#pagination'),
   watched: document.querySelector('#watched'),
   queue: document.querySelector('#queue'),
+  spanToggle: document.querySelector('.footer-team-popup'),
   //     addToWatched: document.querySelector('#addToWatched'),
   //     addToQueue: document.querySelector('#addToQueue'),
   //     openFilmCardModalBtn: document.querySelector("[data-filmCardModal-open]"),
