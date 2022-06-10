@@ -36,6 +36,15 @@
     padding: 48px 20px 40px 20px;
 }
 
+// dark theme 
+body.dark-theme {
+    .filmCardModal-container{
+        background-color: $header-background-color;
+        color:$main-title-color
+    }
+}
+// 
+
 .modal-close_button {
     position: absolute;
     background: transparent;
