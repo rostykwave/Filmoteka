@@ -1,7 +1,8 @@
+
 {{#each this}}
 <li class="gallery__item">
            <a href="" id="{{id}}">
-            <img class="gallery__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="">
+            <img class="gallery__img" src="https://image.tmdb.org/t/p/w500{{poster_path}}" onerror="this.src='poster-plug.fe52d189.jpg'" alt="">
             <div class="gallery__item-info">
                 <h3 class="gallery__item-name">
                 {{title}} </h3>
@@ -9,8 +10,8 @@
                 <p class="gallery__item-genres">
                  {{genres}}   
                 </p>
-                <span class="gallery__item-year">|{{vote_average}}</span>
-                <span class="gallery_item-rating">{{release_date}}</span>
+                <span class="gallery__item-year">| {{release_date}}</span>
+                <span class="gallery_item-rating"> {{vote_average}}</span>
                 </div>
             </div>
            </a>
