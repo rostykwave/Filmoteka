@@ -3,6 +3,7 @@ import { refs } from "./getRefs";
 import { onFetchError } from "./onFetchError";
 import { renderFilmCardModal } from "./renderFilmCardModal";
 import movieTrailer from 'movie-trailer';
+import { watchedStorage, queueStorage } from "./components/setLocalStorage";
 
 
 // import modalQueueStorage from "./components/setStorageQueue";
@@ -18,12 +19,16 @@ export function getFilmInfo(id) {
                 .then(result => {
                     data.youtube_video_id = result;
                         console.log(result);
-                        renderFilmCardModal(data);
+                    renderFilmCardModal(data);
+                    const modalBtnWatched = document.querySelector('[name="watched"]');
+                    const modalBtnQueue = document.querySelector('[name="queue"]')
+                    watchedStorage(data, modalBtnWatched);
+                    queueStorage(data, modalBtnQueue);
                         refs.backdrop.classList.toggle('is-hidden');
                         refs.body.classList.toggle('overflow-hidden');
                         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
                         refs.backdrop.addEventListener('click', onEmptySpaceClick);
-                        addEventListener('keydown', onEscClose);
+                    addEventListener('keydown', onEscClose);
                         
                     
                     // YOUTUBE TRAILER
@@ -74,8 +79,9 @@ export function getFilmInfo(id) {
         refs.backdrop.removeEventListener('click', onEmptySpaceClick);
         removeEventListener('keydown', onEscClose);
     }
-            })
+            } )
         })
         .catch(onFetchError)
         .finally(console.log('fetch getFilmInfo done'));
 };
+
