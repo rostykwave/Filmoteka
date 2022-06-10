@@ -4,22 +4,25 @@ import filmCardTpl from '../templates/film-card.hbs';
 import { onFilmCardClick } from './onFilmCardClick';
 
 export function renderFilmGallery(data) {
-//     //
+
     const dataHits = data.results;
     function getGalleryCardsData() {
-        const movieGenresIds = genres.map(genre => {
-            return genre.id
-        })
-        const movieGenres = genres.map(genre => {
-            return genre.name
-        })
-        console.log(movieGenresIds);
-        console.log(movieGenres);
+
         const film = dataHits.map(hit => {
             const newDate = new Date(hit.release_date);
             const filmYear = newDate.getFullYear(); 
             hit.release_date = filmYear;
-                return hit
+
+            let genresContent = hit.genre_ids.map(genreId => 
+            {let genreToFind = genreId; 
+                return genres.find(genre => genre.id === genreToFind).name;
+            });
+            if(genresContent.length>2){
+                genresContent = [genresContent[0], genresContent[1], 'Other'];
+            }
+            hit.genres = genresContent.join(', ');
+            
+                return hit;
         })
         refs.filmGallery.innerHTML = '';
         refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTpl(film));
