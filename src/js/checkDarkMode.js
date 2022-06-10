@@ -8,6 +8,7 @@ export function checkDarkMode() {
   const inputEl = document.querySelector('.theme-switch__toggle');
   const bodyEl = document.querySelector('body');
   const svgUse = document.querySelector('.theme-switch__icon1');
+
   inputEl.addEventListener('change', onInputChange);
 
   const THEME_KEY = 'theme-color';
