@@ -1,4 +1,6 @@
 import { refs } from './getRefs';
+import {hideAnimationStudents} from './components/modal-footer-GoIT-Students';
+
 
 // refs.homeButton.addEventListener('click', onHomePage);
 // refs.libraryButton.addEventListener('click', onLibraryPage);
@@ -11,6 +13,8 @@ function onHomePage() {
   refs.header.classList.add('home');
   refs.homeCurrentPage.classList.add('current-page');
   refs.libraryCurrentPage.classList.remove('current-page');
+
+  hideAnimationStudents();
 }
 
 function onLibraryPage() {
@@ -22,6 +26,10 @@ function onLibraryPage() {
   refs.hederLibraryPage.classList.add('hero-library-container');
   refs.homeCurrentPage.classList.remove('current-page');
   refs.libraryCurrentPage.classList.add('current-page');
+
+  hideAnimationStudents();
 }
+
+
 
 export { onLibraryPage, onHomePage };
