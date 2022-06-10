@@ -1,16 +1,18 @@
-import { filmApiService } from "./ApiService";
+// import { filmApiService } from "./ApiService";
 import { refs } from "./getRefs";
 import { onFetchError } from "./onFetchError";
 import { renderFilmCardModal } from "./renderFilmCardModal";
 import defaultPoster from '../images/poster-plug.jpg';
 import playerLogo from '../images/youtube-img.png';
 import movieTrailer  from 'movie-trailer';
+import { fetchFilmInfo } from "./ApiService";
 
 export function getFilmInfo(id) {
 
-    filmApiService.setProps(id);
+    // filmApiService.setProps(id);
 
-    filmApiService.fetchCards('filmInfo')
+    // filmApiService.fetchCards('filmInfo')
+        fetchFilmInfo(id)
         .then(data => {
             
             data.genres = data.genres.map((g) => g["name"]).join(", ");

@@ -11,8 +11,8 @@ export async function fetchFilmsOnSearch({page, query}) {
     return await fetch(url)
         .then(response => response.json());
 }
-export async function fetchFilmInfo({page, filmId}) {
-    const url = `${BASE_URL}/trending/movie/${filmId}?api_key=${KEY}&page=${page}`;
+export async function fetchFilmInfo(filmId) {
+    const url = `${BASE_URL}/movie/${filmId}?api_key=${KEY}&language=en-US`;
     
     return await fetch(url)
         .then(response => response.json());
