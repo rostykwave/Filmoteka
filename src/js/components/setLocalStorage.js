@@ -14,7 +14,7 @@ let queueFilmId = "";
 
 export function watchedStorage(data, modalBtnWatched) {
     
-    watchedFilmId = data.id
+    watchedFilmId = data
 
     if (localStorage.getItem("filmWatched") === null) {
         localStorage.setItem("filmWatched", JSON.stringify(filmWatched));
