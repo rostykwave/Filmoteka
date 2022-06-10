@@ -14,8 +14,7 @@ export function renderFilmGallery(data) {
             hit.release_date = filmYear;
 
             let genresContent = hit.genre_ids.map(genreId => 
-            {let genreToFind = genreId; 
-                return genres.find(genre => genre.id === genreToFind).name;
+            {return genres.find(genre => genre.id === genreId).name;
             });
             if(genresContent.length>2){
                 genresContent = [genresContent[0], genresContent[1], 'Other'];
