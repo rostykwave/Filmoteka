@@ -33,4 +33,8 @@ export const refs = {
   modalCloseButton: document.querySelector('.modal-close_button'),
   modalCardDetail: document.querySelector('.film-detail-modal'),
   backdrop: document.querySelector('.backdrop'),
+
+  libraryQueueButton: document.querySelector('#library-queue__button'),
+  libraryWatchedButton: document.querySelector('#library-watched__button'),
+
 };

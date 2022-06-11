@@ -11,6 +11,8 @@ import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Stude
 import { getWatchedFilms } from './js/getWatchedFilms';
 import { Pagination } from './js/components/pagination-api';
 import { renderFilmGallery } from './js/renderFilmGallery';
+import { onQueueBtnClick } from './js/onQueueBtnClick';
+import { onWatchedBtnClick } from './js/onWatchedBtnClick';
 
 
 
@@ -23,6 +25,8 @@ getPopularFilms();
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', onLogoResetPageNumber);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
+refs.libraryQueueButton.addEventListener('click', onQueueBtnClick)
+refs.libraryWatchedButton.addEventListener('click', onWatchedBtnClick)
 
 ///Main functions///Do not touch//
 function homePageLoader() {
