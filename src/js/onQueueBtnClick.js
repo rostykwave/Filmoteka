@@ -1,4 +1,4 @@
-export function onQueueBtnClick(); {
+export function onQueueBtnClick(){
     //
     console.log(onQueueBtnClick);
 }
