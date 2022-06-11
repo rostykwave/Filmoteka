@@ -8,6 +8,7 @@ export function modalWatchedStorage(e) {
 
   //Формуєм новий об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
+  console.log(filmObject);
   
 //зразок записаного в локал файлу(його структура)
   let watched = {
