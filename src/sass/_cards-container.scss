@@ -43,6 +43,14 @@
   text-transform: uppercase;
   color: #000;
 }
+// dark theme styles 
+body.dark-theme {
+
+  .gallery__item-name {
+      color: $main-title-color;
+  }
+}
+// 
 
 .gallery__item-name {
   margin-top: 10px;
