@@ -19,6 +19,7 @@ export function modalQueueStorage(e) {
 
 };
 
+//Функція, яка додає в локал за ключем
 function addToLocal(localStorrageKey) {
   const filmInfo = document.querySelector('.filmCardModal-container');
       const id = filmInfo.querySelector('.movie-id-inModal').textContent;
