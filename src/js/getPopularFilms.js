@@ -2,7 +2,6 @@ import { fetchPopularFilms } from './ApiService';
 import { Pagination } from './components/pagination-api';
 import { startLoader, stopLoader } from './loaderSpinner';
 import { renderFilmGallery } from './renderFilmGallery';
-import { onPageUp } from './components/arrow-up';
 
 const homePaginationEl = document.querySelector('.pagination-wrap');
 
@@ -33,7 +32,6 @@ function getPopularMovie() {
     stopLoader();
     console.log('getPopularMovie');
     renderFilmGallery(data);
-    onPageUp();
   });
 }
 // import { filmApiService } from './ApiService';
