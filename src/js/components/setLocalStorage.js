@@ -38,13 +38,13 @@ export function modalWatchedStorage(e) {
   //   localStorage.getItem(`${e.target.textContent}`, JSON.stringify(textBtn));
   //   const textContent = e.target.textContent;
 
-  //   if (e.target.textContent === 'Add to watched') {
-  //     localStorage.removeItem(`${e.target.textContent}`, JSON.stringify(textBtn));
-  //     e.target.textContent = 'Added';
-  //     localStorage.setItem(`${e.target.textContent}`, JSON.stringify(textBtn));
-  //     console.log(textContent);
-  //     setWWatchedStorage(idFilm);
-  //   }
+    // if (e.target.textContent === 'Add to watched') {
+    //   localStorage.removeItem(`${e.target.textContent}`, JSON.stringify(textBtn));
+    //   e.target.textContent = 'Added';
+    //   localStorage.setItem(`${e.target.textContent}`, JSON.stringify(textBtn));
+    //   console.log(textContent);
+    //   setWWatchedStorage(idFilm);
+    // }
   //   if (textContent === 'Added') {
   //     localStorage.removeItem(`${e.target.textContent}`, JSON.stringify(textBtn));
   //     e.target.textContent = 'Add to watched';
@@ -82,13 +82,14 @@ function getAllInfoFromCard() {
   //Дані фільму беремо з розмітки Модалки без Fetch запросів
   const filmInfo = document.querySelector('.filmCardModal-container');
   // console.log(filmInfo);
+  const id = filmInfo.querySelector('.movie-id-inModal').textContent;
   const title = filmInfo.querySelector('.film-title').textContent;
   const img = filmInfo.querySelector('.modal-poster-img').src.replace('https://image.tmdb.org/t/p/w500', '');//підганяємо посилання на зображення до такого яку дає API
   const releaseDate = filmInfo.querySelector('.movie-release-date-inModal').textContent;
   const voteAverage = filmInfo.querySelector('.values-list__item-vote').textContent;
   const genresName = filmInfo.querySelector('#genres').textContent.split(', ');
   // console.log(genresName);
-  
+
   //Перетворення назв жанрів в ID
   let genresIDS = [];
   genresName.map(genreName => {
@@ -98,6 +99,7 @@ function getAllInfoFromCard() {
 
   //Записуємо всі дані фільму в один об'єкт
   const filmObject = {
+    id:id,
     title: title,
     genre_ids: genresIDS,
     poster_path: img,
