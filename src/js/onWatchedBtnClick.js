@@ -1,3 +1,4 @@
+import { refs } from "./getRefs";
 import { renderFilmGallery } from "./renderFilmGallery";
 
 export function onWatchedBtnClick(){
@@ -6,6 +7,10 @@ export function onWatchedBtnClick(){
     const watchedJSON = localStorage.getItem('watched');
     const watched = JSON.parse(watchedJSON);
 
-    console.log(watched);
-    renderFilmGallery(watched);
+    if (watched) {
+        renderFilmGallery(watched);
+    } else {
+        refs.filmGallery.innerHTML = "Відсутні збережені фільми";
+    }
+    
 }
