@@ -2,37 +2,7 @@ import genres from '../../json/genres.json';
 
 
 export function modalWatchedStorage(e) {
-    const filmInfo = document.querySelector('.filmCardModal-container');
-    const id = filmInfo.querySelector('.movie-id-inModal').textContent;
-    
-    if (checkIfFilmIsSaved(id, 'watched')) {
-        return;
-    }
-
-        console.log('Adding');
-         //Формуєм новий об'єкт з інфо фільму
-  const filmObject = getAllInfoFromCard();
-  console.log(filmObject);
-  
-//зразок записаного в локал файлу(його структура)
-  let watched = {
-    results: [],
-  }
-  //Дістаєм збережений об'єкт з масивом резудьтатів
-  const watchedJSONLocal = localStorage.getItem('watched');
-
-  //Якщо є - перезаписуєм
-  if (watchedJSONLocal) {
-    console.log('Local storage available');
-    watched = JSON.parse(watchedJSONLocal);
-  } 
-  
-//Записуємо в його масив новий об'єкт з фільмом
-  watched.results.push(filmObject);
-
-  //Записуєм файл зі всім масивом watched фільмів в Local
-  const watchedJSON = JSON.stringify(watched)
-  localStorage.setItem('watched', watchedJSON);
+  addToLocal('watched');
 
     //Зміна тексту кнопки після додавання
     const modalBtnWatched = document.querySelector('.watched-btn');
@@ -41,42 +11,46 @@ export function modalWatchedStorage(e) {
 
 
 export function modalQueueStorage(e) {
-    const filmInfo = document.querySelector('.filmCardModal-container');
-    const id = filmInfo.querySelector('.movie-id-inModal').textContent;
+
+  addToLocal('queue');
+      //Зміна тексту кнопки після додавання
+    const modalBtnqueue = document.querySelector('.queue-btn');
+    modalBtnqueue.textContent = 'Added to queue';
+
+};
+
+function addToLocal(localStorrageKey) {
+  const filmInfo = document.querySelector('.filmCardModal-container');
+      const id = filmInfo.querySelector('.movie-id-inModal').textContent;
     
-    if (checkIfFilmIsSaved(id, 'queue')) {
+    if (checkIfFilmIsSaved(id, localStorrageKey)) {
         return;
     }
-
-        console.log('Adding');
+          console.log('Adding');
          //Формуєм новий об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
-  console.log(filmObject);
+  // console.log(filmObject);
   
 //зразок записаного в локал файлу(його структура)
-  let queue = {
+  let data = {
     results: [],
   }
   //Дістаєм збережений об'єкт з масивом резудьтатів
-  const queueJSONLocal = localStorage.getItem('queue');
+  const dataJSONLocal = localStorage.getItem(localStorrageKey);
 
   //Якщо є - перезаписуєм
-  if (queueJSONLocal) {
+  if (dataJSONLocal) {
     console.log('Local storage available');
-    queue = JSON.parse(queueJSONLocal);
+    data = JSON.parse(dataJSONLocal);
   } 
   
 //Записуємо в його масив новий об'єкт з фільмом
-  queue.results.push(filmObject);
+  data.results.push(filmObject);
 
   //Записуєм файл зі всім масивом queue фільмів в Local
-  const queueJSON = JSON.stringify(queue)
-  localStorage.setItem('queue', queueJSON);
-
-    //Зміна тексту кнопки після додавання
-    const modalBtnqueue = document.querySelector('.queue-btn');
-    modalBtnqueue.textContent = 'Added to queue';
-};
+  const dataJSON = JSON.stringify(data)
+  localStorage.setItem(localStorrageKey, dataJSON);
+}
 
 
  
