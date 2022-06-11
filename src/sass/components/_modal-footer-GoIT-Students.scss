@@ -1,6 +1,5 @@
 .anime-wrap {
   position: absolute;
-  
   transform: scale(0.1) translate(565px, 0);
   z-index: 1;
   width: 120px;
@@ -18,12 +17,13 @@
     margin-top: auto;
     margin-bottom: auto;
     mix-blend-mode: lighten;
-    
+        
     transition: width 250ms $timing-function, height 250ms $timing-function;
     
   }
 
-  .anime:hover {
+  .anime:hover, .anime:focus {
+    
     width: 38px;
     height: 38px;
   }
@@ -38,4 +38,15 @@
 
 .anime-red {
   background-color: red;
+}
+
+
+.anime-pointer-off {
+  outline: none;
+  pointer-events: none; 
+  
+}
+.anime-pointer-on {
+  outline: auto;
+  pointer-events: auto; 
 }
