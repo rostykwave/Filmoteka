@@ -40,18 +40,47 @@ export function modalWatchedStorage(e) {
 };
 
 
+export function modalQueueStorage(e) {
+    const filmInfo = document.querySelector('.filmCardModal-container');
+    const id = filmInfo.querySelector('.movie-id-inModal').textContent;
+    
+    if (checkIfFilmIsSaved(id, 'queue')) {
+        return;
+    }
+
+        console.log('Adding');
+         //Формуєм новий об'єкт з інфо фільму
+  const filmObject = getAllInfoFromCard();
+  console.log(filmObject);
+  
+//зразок записаного в локал файлу(його структура)
+  let queue = {
+    results: [],
+  }
+  //Дістаєм збережений об'єкт з масивом резудьтатів
+  const queueJSONLocal = localStorage.getItem('queue');
+
+  //Якщо є - перезаписуєм
+  if (queueJSONLocal) {
+    console.log('Local storage available');
+    queue = JSON.parse(queueJSONLocal);
+  } 
+  
+//Записуємо в його масив новий об'єкт з фільмом
+  queue.results.push(filmObject);
+
+  //Записуєм файл зі всім масивом queue фільмів в Local
+  const queueJSON = JSON.stringify(queue)
+  localStorage.setItem('queue', queueJSON);
+
+    //Зміна тексту кнопки після додавання
+    const modalBtnqueue = document.querySelector('.queue-btn');
+    modalBtnqueue.textContent = 'Added to queue';
+};
+
+
  
 
-// function setWWatchedStorage(id) {
-//   localStorage.setItem(`Watched-${id}`, JSON.stringify(filmAdded));
-// }
-// function removeWWatchedStorage(id) {
-//   localStorage.removeItem(`Watched-${id}`, JSON.stringify(filmAdded));
-// }
-
-// export function modalQueueStorage(e) {
- 
-// }
 
 
 //Повертає об'єкт з данними одного фільму без fetch, на основі видимих і прихованих даних модалки
