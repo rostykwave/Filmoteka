@@ -1,6 +1,7 @@
 import { refs } from "./getRefs";
 import modalFilmTpl from '../templates/modal-film-description.hbs';
-import { modalWatchedStorage, modalQueueStorage } from "./components/setLocalStorage";
+import { modalQueueStorage, modalWatchedStorage } from "./components/LibraryStorage";
+
 
 
 export function renderFilmCardModal(data) {

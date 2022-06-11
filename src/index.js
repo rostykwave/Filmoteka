@@ -11,6 +11,7 @@ import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Stude
 import { getWatchedFilms } from './js/getWatchedFilms';
 import { Pagination } from './js/components/pagination-api';
 import { renderFilmGallery } from './js/renderFilmGallery';
+import { onWatchedBtnClick } from './js/onWatchedBtnClick';
 
 
 
@@ -40,7 +41,8 @@ function myLibraryPageLoader() {
  
   onLibraryPage();
  
-  getWatchedFilms(); //from local storage
+  // getWatchedFilms(); //from local storage
+  onWatchedBtnClick();
 }
 
 function onLogoResetPageNumber() {

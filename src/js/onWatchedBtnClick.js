@@ -1,5 +1,11 @@
-export function onWatchedBtnClick(); {
+import { renderFilmGallery } from "./renderFilmGallery";
+
+export function onWatchedBtnClick(){
     //
-    console.log(onWatchedBtnClick);
-    //  paginationGetFunction = getWatched();//для pagination посилання на функцію, котра бере запит в конкретний час
+    console.log('onWatchedBtnClick');
+    const watchedJSON = localStorage.getItem('watched');
+    const watched = JSON.parse(watchedJSON);
+
+    console.log(watched);
+    renderFilmGallery(watched);
 }

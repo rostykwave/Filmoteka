@@ -15,7 +15,7 @@
                         <li class="values-list__item"><span class="values-list__item-vote">{{vote_average}}</span><span class="vote-separator"> /  </span>{{vote_count}}</li>
                         <li class="values-list__item">{{popularity}}</li>
                         <li class="values-list__item">{{original_title}}</li>
-                        <li class="values-list__item">{{genres}}</li>
+                        <li class="values-list__item" id="genres">{{genres}}</li>
                     </ul > </div>
                     <h3 class="about-title">ABOUT</h3>
                         <p class="film-description">{{overview}}</p>
@@ -33,5 +33,5 @@
                 <iframe class="iframe" src="https://www.youtube.com/embed/{{youtube_video_id}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
-
-        {{!-- <img src="../images/poster-plug.jpg" alt=""> --}}
+        <span class="visually-hidden movie-release-date-inModal">{{release_date}}</span>
+        <span class="visually-hidden movie-id-inModal">{{id}}</span>
