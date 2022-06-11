@@ -154,6 +154,7 @@ body.dark-theme {
 .watched-btn {
     display: block;
     width: 112px;
+    min-height: 44px;
     padding: 3px 8px 4px 8px;
     border-radius: 5px;
     color: $secondary-title-color;
@@ -175,6 +176,7 @@ body.dark-theme {
 .queue-btn {
     display: block;
     width: 112px;
+    min-height: 44px;
     padding: 12px 8px 12px 8px;
     border-radius: 5px;
     color: $secondary-title-color;
