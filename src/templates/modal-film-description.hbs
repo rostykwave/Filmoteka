@@ -2,7 +2,7 @@
     <img class="player-logo" src="{{player_logo}}" alt="player-logo">
     <img class="modal-poster-img" src="{{new_poster_path}}" alt="{{original_title}}">
 </div>
-            <div class="info-modal-card" id="{{id}}">
+            <div class="info-modal-card">
                 <h2 class="film-title">{{original_title}}</h2>
                 <div class="lists-wrapper">
                     <ul class="properties-list">
@@ -15,7 +15,7 @@
                         <li class="values-list__item"><span class="values-list__item-vote">{{vote_average}}</span><span class="vote-separator"> /  </span>{{vote_count}}</li>
                         <li class="values-list__item">{{popularity}}</li>
                         <li class="values-list__item">{{original_title}}</li>
-                        <li class="values-list__item">{{genres}}</li>
+                        <li class="values-list__item" id="genres">{{genres}}</li>
                     </ul > </div>
                     <h3 class="about-title">ABOUT</h3>
                         <p class="film-description">{{overview}}</p>

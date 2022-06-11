@@ -4,6 +4,33 @@ const filmAdded = {};
 export const textBtn = {};
 
 export function modalWatchedStorage(e) {
+  // console.log(e.currentTarget);
+  const filmInfo = document.querySelector('.filmCardModal-container');
+  // console.log(filmInfo);
+  const title = filmInfo.querySelector('.film-title').textContent;
+  const img = filmInfo.querySelector('.modal-poster-img').src.replace('https://image.tmdb.org/t/p/w500', '');
+  const genres = filmInfo.querySelector('#genres').textContent;
+  console.log(genres);
+
+  const watched = {
+    results: [],
+  }
+
+  const filmObject = {
+    title: title,
+    genres: genres,
+    poster_path:img,
+  }
+
+  watched.results.push(filmObject);
+
+  const watchedJSON = JSON.stringify(watched)
+
+  localStorage.setItem('watched', watchedJSON);
+  
+
+
+
   filmApiService.fetchCards('filmInfo').then(data => {
     filmAdded[data.id] = data;
     const idFilm = data.id;
