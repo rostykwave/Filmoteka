@@ -5,6 +5,7 @@ import { onFilmCardClick } from './onFilmCardClick';
 
 export function renderFilmGallery(data) {
 
+    console.log(data);
     const dataHits = data.results;
     function getGalleryCardsData() {
 

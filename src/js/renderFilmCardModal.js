@@ -4,6 +4,7 @@ import { modalWatchedStorage, modalQueueStorage } from "./components/setLocalSto
 
 
 export function renderFilmCardModal(data) {
+    console.log(data);
     refs.filmCardModalWrap.innerHTML = "";
     refs.filmCardModalWrap.insertAdjacentHTML('beforeend', modalFilmTpl(data));
     const modalBtnWatched = document.querySelector('.watched-btn');

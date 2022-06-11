@@ -1,4 +1,5 @@
 import { filmApiService } from '../ApiService';
+import genres from '../../json/genres.json';
 
 const filmAdded = {};
 export const textBtn = {};
@@ -10,25 +11,39 @@ export function modalWatchedStorage(e) {
   // console.log(filmInfo);
   const title = filmInfo.querySelector('.film-title').textContent;
   const img = filmInfo.querySelector('.modal-poster-img').src.replace('https://image.tmdb.org/t/p/w500', '');//підганяємо посилання на зображення до такого яку дає API
-  const genres = filmInfo.querySelector('#genres').textContent;
-  console.log(genres);
+  const genresName = filmInfo.querySelector('#genres').textContent.split(', ');
+  // console.log(genresName);
+  //Перетворення назв жанрів в ID
+  let genresIDS = [];
+
+  genresName.map(genreName => {
+     const genreID = genres.find(option => option.name === genreName).id;
+    genresIDS.push(genreID);
+  })
+
+  console.log(genresName);
+  console.log(genresIDS);
 
 //зразок записаного в локал файлу(його структура)
-  // const watched = {
-  //   results: [],
-  // }
+  let watched = {
+    results: [],
+  }
 
 //Записуємо всі дані фільму в один об'єкт
   const filmObject = {
     title: title,
-    genres: genres,
+    genre_ids: genresIDS,
     poster_path: img,
     release_date:2020,
   }
 
   //Дістаєм збережений об'єкт з масивом резудьтатів
-   const watchedJSONLocal = localStorage.getItem('watched');
-  const watched = JSON.parse(watchedJSONLocal);
+  const watchedJSONLocal = localStorage.getItem('watched');
+  if (watchedJSONLocal) {
+    console.log('Local storage available');
+    watched = JSON.parse(watchedJSONLocal);
+  } 
+  
 
 //Записуємо в його масив новий об'єкт з фільмом
   watched.results.push(filmObject);
