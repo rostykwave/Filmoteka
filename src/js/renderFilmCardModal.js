@@ -16,7 +16,15 @@ export function renderFilmCardModal(data) {
     const filmInfo = document.querySelector('.filmCardModal-container');
     const id = filmInfo.querySelector('.movie-id-inModal').textContent;
  
+     if (checkIfFilmIsSaved(id, 'watched') && checkIfFilmIsSaved(id, 'queue')) {
+         modalBtnWatched.textContent = 'Added to watched';
+         modalBtnQueue.textContent = 'Added to queue';
+         return;
+    }
      if (checkIfFilmIsSaved(id, 'watched')) {
         return modalBtnWatched.textContent = 'Added to watched';
+    }
+     if (checkIfFilmIsSaved(id, 'queue')) {
+        return modalBtnQueue.textContent = 'Added to queue';
     }
 }
