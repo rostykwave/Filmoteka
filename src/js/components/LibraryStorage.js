@@ -3,7 +3,8 @@ import genres from '../../json/genres.json';
 
 export function modalWatchedStorage(e) {
 
-  //Формуєм новий об'єкт з інфо фільму
+        console.log('Adding');
+         //Формуєм новий об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
   console.log(filmObject);
   
@@ -26,8 +27,14 @@ export function modalWatchedStorage(e) {
   //Записуєм файл зі всім масивом watched фільмів в Local
   const watchedJSON = JSON.stringify(watched)
   localStorage.setItem('watched', watchedJSON);
-  
-}
+
+    //Зміна тексту кнопки після додавання
+    const modalBtnWatched = document.querySelector('.watched-btn');
+    modalBtnWatched.textContent = 'Added to watched';
+};
+
+
+ 
 
 function setWWatchedStorage(id) {
   localStorage.setItem(`Watched-${id}`, JSON.stringify(filmAdded));
@@ -77,18 +84,25 @@ function getAllInfoFromCard() {
 
 //Перевірка чи фільм є в LocalStorrage
 //filmID - це string
-function checkIfFilmIsSaved(filmID, localStorrageKey) {
-  const savedData = JSON.parse(localStorage.getItem(localStorrageKey)).results;
-const isFilmInLocal = savedData.find(option=>option.id === filmID)
-    ;
+export function checkIfFilmIsSaved(filmID, localStorrageKey) {
+
+    const rawsavedData = localStorage.getItem(localStorrageKey);
+    if (!rawsavedData) {
+        return false;
+    }
+  const savedData = JSON.parse(rawsavedData).results;
+  
+const isFilmInLocal = savedData.find(option=>option.id === filmID);
   if (isFilmInLocal) {
-    console.log('Film is here');
+      console.log('Film is here');
+      return true;
   } else {
-    console.log('There is no film here');
+      console.log('There is no film here');
+      return false;
   }
 }
 
-checkIfFilmIsSaved('705861', 'watched');
+// checkIfFilmIsSaved('705861', 'watched');
 
 // різний атрибут для кнопки в стані add to watched і watched
 
