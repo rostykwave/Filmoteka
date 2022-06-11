@@ -54,6 +54,9 @@ class FilmApiService{
             console.log('fetchType: ', 'filmInfo');
                url = `${BASE_URL}/movie/${this.props}?api_key=${KEY}&language=en-US`;
         }
+        // https://api.themoviedb.org/3/movie/?api_key=8f517ea939a3e5bbc59bc55f9e33cbf1&language=en-US  <-- Твой запрос приходит без movie_id.
+
+        // https://api.themoviedb.org/3/movie/{movie_id}?api_key=<<api_key>>&language=en-US <-- Такой должен быть запрос.
 
         // console.log('url:', url);
 

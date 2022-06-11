@@ -14,7 +14,7 @@ export function getFilmInfo(id) {
     // filmApiService.fetchCards('filmInfo')
         fetchFilmInfo(id)
         .then(data => {
-            
+            console.log('data :>> ', data);
             data.genres = data.genres.map((g) => g["name"]).join(", ");
             data.trailer = movieTrailer(data.original_title, { id: true })
                 .then(result => {
@@ -25,6 +25,7 @@ export function getFilmInfo(id) {
                     } else {
                         data.new_poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`
                     }
+                    
                         renderFilmCardModal(data);
                         refs.backdrop.classList.toggle('is-hidden');
                         refs.body.classList.toggle('overflow-hidden');
