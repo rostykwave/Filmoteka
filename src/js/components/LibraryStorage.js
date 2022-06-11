@@ -2,6 +2,13 @@ import genres from '../../json/genres.json';
 
 
 export function modalWatchedStorage(e) {
+     const filmInfo = document.querySelector('.filmCardModal-container');
+
+    const id = filmInfo.querySelector('.movie-id-inModal').textContent;
+    
+    if (checkIfFilmIsSaved(id, 'watched')) {
+        return;
+    }
 
         console.log('Adding');
          //Формуєм новий об'єкт з інфо фільму
