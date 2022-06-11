@@ -2,8 +2,7 @@ import genres from '../../json/genres.json';
 
 
 export function modalWatchedStorage(e) {
-     const filmInfo = document.querySelector('.filmCardModal-container');
-
+    const filmInfo = document.querySelector('.filmCardModal-container');
     const id = filmInfo.querySelector('.movie-id-inModal').textContent;
     
     if (checkIfFilmIsSaved(id, 'watched')) {
@@ -43,16 +42,16 @@ export function modalWatchedStorage(e) {
 
  
 
-function setWWatchedStorage(id) {
-  localStorage.setItem(`Watched-${id}`, JSON.stringify(filmAdded));
-}
-function removeWWatchedStorage(id) {
-  localStorage.removeItem(`Watched-${id}`, JSON.stringify(filmAdded));
-}
+// function setWWatchedStorage(id) {
+//   localStorage.setItem(`Watched-${id}`, JSON.stringify(filmAdded));
+// }
+// function removeWWatchedStorage(id) {
+//   localStorage.removeItem(`Watched-${id}`, JSON.stringify(filmAdded));
+// }
 
-export function modalQueueStorage(e) {
+// export function modalQueueStorage(e) {
  
-}
+// }
 
 
 //Повертає об'єкт з данними одного фільму без fetch, на основі видимих і прихованих даних модалки
