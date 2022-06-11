@@ -1,16 +1,11 @@
-import { fetchFilmsOnSearch } from "./ApiService";
 import { refs } from "./getRefs";
-import { startLoader, stopLoader } from "./loaderSpinner";
-import { onFetchError } from "./onFetchError";
-import { renderFilmGallery } from "./renderFilmGallery";
-import { Pagination } from './components/pagination-api';
+import {getSearchFilms, searchPagination} from "./getFilmsOnSearchQuery";
 
 refs.searchForm.addEventListener('submit', onSearch);
 
-const searchPaginationEl = document.querySelector('.pagination-wrap');
-const searchPagination = new Pagination('search'); 
-let queryCurr = '';
-export function onSearch(e) {
+export let queryCurr = '';
+
+function onSearch(e) {
   e.preventDefault();
 
   searchPagination.resetPage();
@@ -30,7 +25,7 @@ export function onSearch(e) {
   getSearchFilms(queryCurr)
 }
  
-function errNotificationShow (message, showTime){
+export function errNotificationShow (message, showTime){
   refs.searchForm.insertAdjacentHTML('beforeend', '<p class="form-alert is-hidden"></p>');
   const formAlert = document.querySelector('.form-alert');
   formAlert.textContent = `${message}`;
@@ -39,32 +34,3 @@ function errNotificationShow (message, showTime){
     formAlert.classList.toggle('is-hidden');
     }, showTime);
 }
-
-function getSearchFilms(queryCurr) {
-    startLoader();
-
-    fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
-        .then(films => {
-          if (films.total_results === 0){
-            errNotificationShow('Search result not successful. Enter the correct movie name and try again.', 5000)
-            return;
-            }
-          renderFilmGallery(films);
-          searchPagination.create({ 
-            prelink: searchPaginationEl,   
-            totalPages: films.total_pages,
-            currentEvent: getSearchMovies,
-          });
-    })
-        .catch(onFetchError)
-        .finally(stopLoader)
-  }
-function getSearchMovies() {
-    startLoader();
-    fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
-      .then(films => {
-        renderFilmGallery(films);
-      })
-      .catch(onFetchError)
-      .finally(stopLoader)
-  }
