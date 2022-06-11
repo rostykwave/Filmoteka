@@ -38,7 +38,7 @@ export const Pagination = class {
     step = 5,
     arrows = true,
     dots = true,
-    scrollPage = false,
+    scrollPage = true,
   }) {
     const oldPaginationList = document.querySelector('.pagination-list');
     if (oldPaginationList) {

@@ -29,4 +29,3 @@ const sttElem = document.querySelector('.stt'),
     sttScroll(), sttClick();
   };
 document.addEventListener('DOMContentLoaded', sttFunc);
-export { onPageUp };
