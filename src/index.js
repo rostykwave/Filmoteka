@@ -44,7 +44,8 @@ function myLibraryPageLoader() {
  
   onLibraryPage();
  
-  getWatchedFilms(); //from local storage
+  // getWatchedFilms(); //from local storage
+  onWatchedBtnClick();
 }
 
 function onLogoResetPageNumber() {
