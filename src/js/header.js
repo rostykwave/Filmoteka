@@ -1,5 +1,7 @@
 import { refs } from './getRefs';
 import {hideAnimationStudents} from './components/modal-footer-GoIT-Students';
+import { onWatchedBtnClick } from './onWatchedBtnClick';
+import { onQueueBtnClick } from './onQueueBtnClick';
 
 
 // refs.homeButton.addEventListener('click', onHomePage);
@@ -28,6 +30,9 @@ function onLibraryPage() {
   refs.libraryCurrentPage.classList.add('current-page');
 
   hideAnimationStudents();
+
+  refs.libraryWatchedButton.addEventListener('click', onWatchedBtnClick);
+  refs.libraryQueueButton.addEventListener('click', onQueueBtnClick);
 }
 
 
