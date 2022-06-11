@@ -9,7 +9,7 @@ refs.searchForm.addEventListener('submit', onSearch);
 
 const searchPaginationEl = document.querySelector('.pagination-wrap');
 const searchPagination = new Pagination('search'); 
-
+let queryCurr = '';
 export function onSearch(e) {
   e.preventDefault();
 
@@ -26,7 +26,8 @@ export function onSearch(e) {
     errNotificationShow('Please, enter the correct movie name and try again.', 3000)
     return; 
   } 
-  getSearchMovies(query)
+  queryCurr = query;
+  getSearchFilms(queryCurr)
 }
  
 function errNotificationShow (message, showTime){
@@ -39,10 +40,10 @@ function errNotificationShow (message, showTime){
     }, showTime);
 }
 
-function getSearchMovies(query) {
+function getSearchFilms(queryCurr) {
     startLoader();
-  
-    fetchFilmsOnSearch({page:searchPagination.page, query})
+
+    fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
         .then(films => {
           if (films.total_results === 0){
             errNotificationShow('Search result not successful. Enter the correct movie name and try again.', 5000)
@@ -57,4 +58,13 @@ function getSearchMovies(query) {
     })
         .catch(onFetchError)
         .finally(stopLoader)
+  }
+function getSearchMovies() {
+    startLoader();
+    fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
+      .then(films => {
+        renderFilmGallery(films);
+      })
+      .catch(onFetchError)
+      .finally(stopLoader)
   }
