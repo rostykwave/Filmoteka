@@ -39,7 +39,7 @@ export function renderFilmGallery(data) {
     // refs.filmGallery.addEventListener('click', onFilmCardClick);
     const refsfilmGallery = refs.filmGallery.querySelectorAll('li');
 
-    console.log(refsfilmGallery);
+    // console.log(refsfilmGallery);
 
     refsfilmGallery.forEach(item => {
         // console.log(item.firstElementChild);

@@ -3,7 +3,7 @@ import { refs } from '../getRefs';
 document.querySelector('.footer-team-popup').onclick = function(e) {
   
   if(e.target.classList.contains('.cls-anime')){
-    console.log("start animationR");
+    // console.log("start animationR");
     animationR.restart();
   }
   else {
@@ -54,7 +54,7 @@ const animationR = anime({
     duration: 500,
     easing: 'spring',
     translateY: [function(el, i) {
-      console.log("object123");
+      // console.log("object123");
       return el.getAttribute('data-y') + 'px';
     }, 0],
     scale: [12, 0],
