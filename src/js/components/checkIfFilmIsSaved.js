@@ -10,10 +10,10 @@ export function checkIfFilmIsSaved(filmID, localStorrageKey) {
   
 const isFilmInLocal = savedData.find(option=>option.id === filmID);
   if (isFilmInLocal) {
-      console.log('Film is here');
+      // console.log('Film is here');
       return true;
   } else {
-      console.log('There is no film here');
+      // console.log('There is no film here');
       return false;
   }
 }

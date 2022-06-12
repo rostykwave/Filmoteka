@@ -6,37 +6,25 @@ export function modalWatchedStorage(e) {
   const id = document.querySelector('.movie-id-inModal').textContent;
    const modalBtnWatched = document.querySelector('.watched-btn');
     
-  operateWithLocalStorage('watched', id, modalBtnWatched)
-  //   if (checkIfFilmIsSaved(id, 'watched')) {
-  //     removeFromLocal('watched', id);
-  //     modalBtnWatched.textContent = 'Removed from watched';
-      
-  //   } else {
-  //     addToLocal('watched');
-  //   modalBtnWatched.textContent = 'Added to watched';
-  // }
-  // addToLocal('watched');
-    //Зміна тексту кнопки після додавання
-    // const modalBtnWatched = document.querySelector('.watched-btn');
-    // modalBtnWatched.textContent = 'Added to watched';
+  operateWithLocalStorage('watched', id, modalBtnWatched);
 };
 
 export function modalQueueStorage(e) {
-  addToLocal('queue');
-      //Зміна тексту кнопки після додавання
-    const modalBtnqueue = document.querySelector('.queue-btn');
-    modalBtnqueue.textContent = 'Added to queue';
+   const id = document.querySelector('.movie-id-inModal').textContent;
+  const modalBtnQueue = document.querySelector('.queue-btn');
+  
+  operateWithLocalStorage('queue', id, modalBtnQueue);
 
 };
 
-//Функція, яка додає в локал за ключем
+//Функції, які працюють з локал за ключем
 function addToLocal(localStorrageKey) {
     //   const id = document.querySelector('.movie-id-inModal').textContent;
     
     // if (checkIfFilmIsSaved(id, localStorrageKey)) {
     //     return;
     // }
-          console.log('Adding');
+          // console.log('Adding');
          //Формуєм новий об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
   // console.log(filmObject);
@@ -50,7 +38,7 @@ function addToLocal(localStorrageKey) {
 
   //Якщо є - перезаписуєм
   if (dataJSONLocal) {
-    console.log('Local storage available');
+    // console.log('Local storage available');
     data = JSON.parse(dataJSONLocal);
   } 
   
@@ -63,8 +51,8 @@ function addToLocal(localStorrageKey) {
 }
 
 function removeFromLocal(localStorrageKey, id){
-  console.log('remove');
-  console.log(id);
+  // console.log('removing');
+  // console.log(id);
   const dataJSONLocal = localStorage.getItem(localStorrageKey);
   const data = JSON.parse(dataJSONLocal);
   
@@ -87,7 +75,6 @@ function operateWithLocalStorage(localStorrageKey, id, button) {
 
 
  
-
 
 
 //Повертає об'єкт з данними одного фільму без fetch, на основі видимих і прихованих даних модалки

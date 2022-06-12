@@ -1,5 +1,5 @@
 export function checkDarkMode() {
-  console.log('checkDarkMode');
+  // console.log('checking DarkMode');
   const Theme = {
     LIGHT: 'light-theme',
     DARK: 'dark-theme',
