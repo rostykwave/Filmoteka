@@ -1,16 +1,11 @@
 export const refs = {
-  //   homeButton: document.querySelector('#homeButton'),
   body: document.querySelector('body'),
-
   homeButton: document.querySelector('#home_btn'),
   logo: document.querySelector('#header-logo'),
-  //   myLibraryButton: document.querySelector('#myLibraryButton'),
   libraryButton: document.querySelector('#library_btn'),
-  //   searchInput: document.querySelector('#search-form'),
   searchForm: document.querySelector('#search-form'),
   filmGallery: document.querySelector('.gallery__list'),
   filmCardModalWrap: document.querySelector('#filmCardModalWrap'),
-  //     themeToggle: document.querySelector('#themeToggle'),
   pagination: document.querySelector('#pagination'),
   watched: document.querySelector('#watched'),
   queue: document.querySelector('#queue'),

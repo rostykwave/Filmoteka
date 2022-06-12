@@ -1,6 +1,7 @@
 import { refs } from "./getRefs";
 import modalFilmTpl from '../templates/modal-film-description.hbs';
-import { checkIfFilmIsSaved, modalQueueStorage, modalWatchedStorage } from "./components/LibraryStorage";
+import {modalQueueStorage, modalWatchedStorage } from "./components/LibraryStorage";
+import { checkIfFilmIsSaved } from "./components/checkIfFilmIsSaved";
 
 
 
@@ -12,9 +13,14 @@ export function renderFilmCardModal(data) {
     modalBtnWatched.addEventListener('click', modalWatchedStorage);
     modalBtnQueue.addEventListener('click', modalQueueStorage);
 
-    ///Check чи є фільм в local Watched
-    const filmInfo = document.querySelector('.filmCardModal-container');
-    const id = filmInfo.querySelector('.movie-id-inModal').textContent;
+    modalButtonsTextRender(modalBtnWatched,modalBtnQueue);
+}
+
+
+
+
+function modalButtonsTextRender(modalBtnWatched,modalBtnQueue) {
+    const id = document.querySelector('.movie-id-inModal').textContent;
  
      if (checkIfFilmIsSaved(id, 'watched') && checkIfFilmIsSaved(id, 'queue')) {
          modalBtnWatched.textContent = 'Added to watched';
