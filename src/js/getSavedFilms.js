@@ -1,38 +1,51 @@
-import { refs } from "./getRefs";
-import { renderFilmGallery } from "./renderFilmGallery";
+import { refs } from './getRefs';
+import { renderFilmGallery } from './renderFilmGallery';
+import { Pagination } from './components/pagination-api';
 
-function getSavedFilms(localStorrageKey) {
-          const dataJSON = localStorage.getItem(localStorrageKey);
-    const data = JSON.parse(dataJSON);
+const searchPaginationEl = document.querySelector('.pagination-wrap');
+let filmsLIstOnCurrentPage = null;
+let filmsPerPage = 20;
+let currentPage = 1;
+let startRenderFilm = null;
+let endRenderFilm = null;
 
-        if (data) {
-        renderFilmGallery(data);
-    } else {
-        refs.filmGallery.innerHTML = `Відсутні збережені фільми в ${localStorrageKey}`;
-    }
+function getSavedFilms(storageKey) {
+  const dataJSON = localStorage.getItem(storageKey);
+  const data = JSON.parse(dataJSON);
+
+  if (!data || data.results.length === 0) {
+    return (refs.filmGallery.innerHTML = `No saved movies in ${storageKey}.`);
+  }
+
+  const filmsPagination = new Pagination(storageKey);
+
+  filmsPagination.create({
+    prelink: searchPaginationEl,
+    totalPages: Math.ceil(data.results.length / filmsPerPage),
+    currentEvent: onPaginationEvent,
+  });
+
+  function onPaginationEvent() {
+    currentPage = filmsPagination.page;
+    getFilmsOnCurrentPage(data);
+    renderFilmGallery(filmsLIstOnCurrentPage);
+  }
+
+  onPaginationEvent();
 }
 
-function onQueueBtnClick(){
-    //
-    console.log('onQueueBtnClick');
-
-    getSavedFilms('queue');
+function getFilmsOnCurrentPage({ results }) {
+  startRenderFilm = currentPage * filmsPerPage - filmsPerPage;
+  endRenderFilm = currentPage * filmsPerPage;
+  filmsLIstOnCurrentPage = { results: results.slice(startRenderFilm, endRenderFilm) };
 }
 
-function onWatchedBtnClick(){
-    //
-    console.log('onWatchedBtnClick');
+function onQueueBtnClick() {
+  getSavedFilms('queue');
+}
 
-    getSavedFilms('watched');
-    // const watchedJSON = localStorage.getItem('watched');
-    // const watched = JSON.parse(watchedJSON);
-
-    // if (watched) {
-    //     renderFilmGallery(watched);
-    // } else {
-    //     refs.filmGallery.innerHTML = "Відсутні збережені фільми";
-    // }
-    
+function onWatchedBtnClick() {
+  getSavedFilms('watched');
 }
 
 export { onQueueBtnClick, onWatchedBtnClick };
