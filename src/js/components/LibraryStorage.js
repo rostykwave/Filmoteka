@@ -3,10 +3,22 @@ import { checkIfFilmIsSaved } from './checkIfFilmIsSaved';
 
 //Функція, яка виклмкається при кліку на кнопку в модалці
 export function modalWatchedStorage(e) {
-  addToLocal('watched');
+  const id = document.querySelector('.movie-id-inModal').textContent;
+   const modalBtnWatched = document.querySelector('.watched-btn');
+    
+  operateWithLocalStorage('watched', id, modalBtnWatched)
+  //   if (checkIfFilmIsSaved(id, 'watched')) {
+  //     removeFromLocal('watched', id);
+  //     modalBtnWatched.textContent = 'Removed from watched';
+      
+  //   } else {
+  //     addToLocal('watched');
+  //   modalBtnWatched.textContent = 'Added to watched';
+  // }
+  // addToLocal('watched');
     //Зміна тексту кнопки після додавання
-    const modalBtnWatched = document.querySelector('.watched-btn');
-    modalBtnWatched.textContent = 'Added to watched';
+    // const modalBtnWatched = document.querySelector('.watched-btn');
+    // modalBtnWatched.textContent = 'Added to watched';
 };
 
 export function modalQueueStorage(e) {
@@ -19,11 +31,11 @@ export function modalQueueStorage(e) {
 
 //Функція, яка додає в локал за ключем
 function addToLocal(localStorrageKey) {
-      const id = document.querySelector('.movie-id-inModal').textContent;
+    //   const id = document.querySelector('.movie-id-inModal').textContent;
     
-    if (checkIfFilmIsSaved(id, localStorrageKey)) {
-        return;
-    }
+    // if (checkIfFilmIsSaved(id, localStorrageKey)) {
+    //     return;
+    // }
           console.log('Adding');
          //Формуєм новий об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
@@ -48,6 +60,29 @@ function addToLocal(localStorrageKey) {
   //Записуєм файл зі всім масивом queue фільмів в Local
   const dataJSON = JSON.stringify(data)
   localStorage.setItem(localStorrageKey, dataJSON);
+}
+
+function removeFromLocal(localStorrageKey, id){
+  console.log('remove');
+  console.log(id);
+  const dataJSONLocal = localStorage.getItem(localStorrageKey);
+  const data = JSON.parse(dataJSONLocal);
+  
+  data.results = data.results.filter(film => film.id !== id);
+
+  const dataJSON = JSON.stringify(data);
+  localStorage.setItem(localStorrageKey, dataJSON);
+}
+
+function operateWithLocalStorage(localStorrageKey, id, button) {
+      if (checkIfFilmIsSaved(id, localStorrageKey)) {
+      removeFromLocal(localStorrageKey, id);
+      button.textContent = `Removed from ${localStorrageKey}`;
+      
+    } else {
+      addToLocal(localStorrageKey);
+    button.textContent = `Added to ${localStorrageKey}`;
+  }
 }
 
 
