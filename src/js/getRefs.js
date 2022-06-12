@@ -11,21 +11,10 @@ export const refs = {
   queue: document.querySelector('#queue'),
   spanToggle: document.querySelector('.footer-team-popup'),
   animeEl: document.querySelectorAll('.anime'),
-  //     addToWatched: document.querySelector('#addToWatched'),
-  //     addToQueue: document.querySelector('#addToQueue'),
-  //     openFilmCardModalBtn: document.querySelector("[data-filmCardModal-open]"),
-  //     closeFilmCardModalBtn: document.querySelector("[data-filmCardModal-close]"),
-  //     filmCardModal: document.querySelector("[data-filmCardModal]"),
-  //     openFooterModalBtn: document.querySelector("[data-footerModal-open]"),
-  //     closeFooterModalBtn: document.querySelector("[data-footerModal-close]"),
-  //     footerModal: document.querySelector("[data-footerModal]"),
-
   header: document.querySelector('#header'),
   homeCurrentPage: document.querySelector('#home-current-page'),
-
   libraryCurrentPage: document.querySelector('#library-current-page'),
   hederLibraryPage: document.querySelector('#header-library'),
-
   modalCloseButton: document.querySelector('.modal-close_button'),
   modalCardDetail: document.querySelector('.film-detail-modal'),
   backdrop: document.querySelector('.backdrop'),
