@@ -1,9 +1,7 @@
 import { refs } from './getRefs';
 import {hideAnimationStudents} from './components/modal-footer-GoIT-Students';
+import { onQueueBtnClick, onWatchedBtnClick } from './getSavedFilms';
 
-
-// refs.homeButton.addEventListener('click', onHomePage);
-// refs.libraryButton.addEventListener('click', onLibraryPage);
 
 function onHomePage() {
   console.log('клик по кнопке HOME');
@@ -28,6 +26,9 @@ function onLibraryPage() {
   refs.libraryCurrentPage.classList.add('current-page');
 
   hideAnimationStudents();
+
+  refs.libraryWatchedButton.addEventListener('click', onWatchedBtnClick);
+  refs.libraryQueueButton.addEventListener('click', onQueueBtnClick);
 }
 
 
