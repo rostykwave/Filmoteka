@@ -1,17 +1,17 @@
-import { refs } from "./getRefs";
-import {startLoader, stopLoader} from './loaderSpinner'
+// import { refs } from "./getRefs";
+// import {startLoader, stopLoader} from './loaderSpinner'
 
-export function getWatchedFilms() {
-    console.log(getWatchedFilms);
-    refs.filmGallery.innerHTML = '';
+// export function getWatchedFilms() {
+//     console.log(getWatchedFilms);
+//     refs.filmGallery.innerHTML = '';
 
-        //Loader start
-        startLoader();
+//         //Loader start
+//         startLoader();
 
 
-        //Loader stop
-        stopLoader();
+//         //Loader stop
+//         stopLoader();
 
-    //local storage
-    // renderFilmGallery(data)
-}
+//     //local storage
+//     // renderFilmGallery(data)
+// }
