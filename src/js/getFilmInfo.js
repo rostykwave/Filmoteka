@@ -7,10 +7,11 @@ import playerLogo from '../images/youtube-img.png';
 import movieTrailer  from 'movie-trailer';
 import { fetchFilmInfo } from "./ApiService";
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { startLoader, stopLoader } from './loaderSpinner';
 
 export function getFilmInfo(id) {
 
-
+    startLoader();
         fetchFilmInfo(id)
         .then(data => {
             data.genres = data.genres.map((g) => g["name"]).join(", ");
@@ -23,6 +24,7 @@ export function getFilmInfo(id) {
                     } else {
                         data.new_poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`
                     }
+                        stopLoader();
                         renderFilmCardModal(data);
                         refs.backdrop.classList.toggle('is-modal-hidden');
                         refs.body.classList.toggle('overflow-hidden');

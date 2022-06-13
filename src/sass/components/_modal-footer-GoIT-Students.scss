@@ -10,21 +10,28 @@
 
 .anime {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   opacity: 0;
   margin-top: auto;
   margin-bottom: auto;
   mix-blend-mode: lighten;
       
-  transition: width 250ms $timing-function, height 250ms $timing-function;
+  // transition: width 250ms $timing-function, height 250ms $timing-function;
   
 }
 
+.student {
+  transform: scale(1);
+  transition: transform 250ms $timing-function;
+}
+
 .anime:hover, .anime:focus {
-  
-  width: 45px;
-  height: 45px;
+  .student:hover, .student:focus {
+    transform: scale(1.3);
+  }
+  // width: 42px;
+  // height: 42px;
 }
 
 
@@ -36,3 +43,4 @@
 .anime-pointer-on {
   pointer-events: auto; 
 }
+
