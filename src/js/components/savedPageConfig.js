@@ -1,17 +1,11 @@
-import { myLibraryPageLoader } from "../..";
+import { homePageLoader, myLibraryPageLoader } from "../..";
 import { getPopularFilms } from "../getPopularFilms";
 
 function setConfigState(reloadActionName) {
-    //
-    console.log('setConfigState');
-    console.log(reloadActionName);
-   
     localStorage.setItem('reloadAction', reloadActionName);
 }
 
 function getConfigState() {
-    //
-    console.log('getConfigState');
     let reloadAction = 'getPopularFilms';
     const data = localStorage.getItem('reloadAction');
 
@@ -19,10 +13,19 @@ function getConfigState() {
         reloadAction = data;
     }
     
-    if (reloadAction === 'getPopularFilms') {
-        getPopularFilms();
-    } else if (reloadAction === 'myLibraryPageLoader'){
-        myLibraryPageLoader()
+
+    switch (reloadAction) {
+ 
+        case 'myLibraryPageLoader':
+            myLibraryPageLoader();
+            break;
+        case 'homePageLoader':
+            homePageLoader();
+            break;
+    
+        default:
+            getPopularFilms();
+            break;
     }
 
 }

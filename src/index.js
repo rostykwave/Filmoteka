@@ -21,8 +21,9 @@ refs.libraryButton.addEventListener('click', myLibraryPageLoader);
 
 
 ///Main functions//
-function homePageLoader() {
+export function homePageLoader() {
   console.log('homePageLoader');
+   setConfigState('homePageLoader');
   onHomePage();
   getPopularFilms();
 }
