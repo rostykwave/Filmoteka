@@ -23,14 +23,14 @@ refs.libraryButton.addEventListener('click', myLibraryPageLoader);
 ///Main functions//
 export function homePageLoader() {
   console.log('homePageLoader');
-   setConfigState('homePageLoader');
+   setConfigState({funcName:'homePageLoader'});
   onHomePage();
   getPopularFilms();
 }
 
 export function myLibraryPageLoader() {
   console.log('myLibrary');
-  setConfigState('myLibraryPageLoader');
+  setConfigState({funcName:'myLibraryPageLoader'});
   onLibraryPage();
   onWatchedBtnClick();
 }
@@ -38,4 +38,6 @@ export function myLibraryPageLoader() {
 function onLogoResetPageNumber() {
   popularFilmPagination.resetPage();
   homePageLoader();
+  const searchInput = document.querySelector('.header-input');
+   searchInput.value = '';
 }

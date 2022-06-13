@@ -42,12 +42,12 @@ function getFilmsOnCurrentPage({ results }) {
 }
 
 function onQueueBtnClick() {
-  setConfigState('onQueueBtnClick');
+  setConfigState({funcName:'onQueueBtnClick'});
   getSavedFilms('queue');
 }
 
 function onWatchedBtnClick() {
-    setConfigState('onWatchedBtnClick');
+    setConfigState({funcName:'onWatchedBtnClick'});
   getSavedFilms('watched');
 }
 

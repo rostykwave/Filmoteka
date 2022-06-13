@@ -4,12 +4,14 @@ import { onFetchError } from "./onFetchError";
 import { fetchFilmsOnSearch } from "./ApiService";
 import { Pagination } from './components/pagination-api';
 import {queryCurr, errNotificationShow} from './onSearch';
+import { setConfigState } from "./components/savedPageConfig";
 
 const searchPaginationEl = document.querySelector('.pagination-wrap');
 export const searchPagination = new Pagination('search'); 
 
 export function getSearchFilms(queryCurr) {
-    startLoader();
+  startLoader();
+  setConfigState({ funcName: 'getSearchFilms', q: queryCurr });
 
     fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
         .then(films => {

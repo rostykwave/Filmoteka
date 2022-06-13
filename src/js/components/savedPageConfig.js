@@ -1,22 +1,30 @@
 import { homePageLoader, myLibraryPageLoader } from "../..";
+import { getSearchFilms } from "../getFilmsOnSearchQuery";
 import { getPopularFilms } from "../getPopularFilms";
 import { onQueueBtnClick, onWatchedBtnClick } from "../getSavedFilms";
 import { onLibraryPage } from "../header";
 
 function setConfigState(reloadActionName) {
-    localStorage.setItem('reloadAction', reloadActionName);
+    const data = reloadActionName;
+    const dataJSON = JSON.stringify(data);
+    localStorage.setItem('reloadAction', dataJSON);
 }
 
 function getConfigState() {
     let reloadAction = 'getPopularFilms';
-    const data = localStorage.getItem('reloadAction');
+    const dataJSON = localStorage.getItem('reloadAction');
+    let searchQuery = '';
+    const searchInput = document.querySelector('.header-input');
 
-    if (data) {
+
+    if (dataJSON) {
+        const data = JSON.parse(dataJSON);
         reloadAction = data;
+        searchQuery = data.q;
     }
     
 
-    switch (reloadAction) {
+    switch (reloadAction.funcName) {
  
         case 'myLibraryPageLoader':
             myLibraryPageLoader();
@@ -31,6 +39,10 @@ function getConfigState() {
         case 'onWatchedBtnClick':
             onLibraryPage();
             onWatchedBtnClick();
+            break;
+        case 'getSearchFilms':
+            getSearchFilms(searchQuery);
+            searchInput.value = searchQuery;
             break;
     
         default:
