@@ -3,7 +3,7 @@ import { onQueueBtnClick, onWatchedBtnClick } from './getSavedFilms';
 
 
 function onHomePage() {
-  console.log('клик по кнопке HOME');
+  // console.log('клик по кнопке HOME');
   refs.searchForm.classList.remove('is-hidden');
   refs.hederLibraryPage.classList.add('is-hidden');
   refs.header.classList.remove('library');
@@ -14,7 +14,7 @@ function onHomePage() {
 }
 
 function onLibraryPage() {
-  console.log('клик по кнопке Library');
+  // console.log('клик по кнопке Library');
   refs.header.classList.remove('home');
   refs.header.classList.add('library');
   refs.hederLibraryPage.classList.remove('is-hidden');
