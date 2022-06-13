@@ -8,10 +8,12 @@ import { checkDarkMode } from './js/checkDarkMode';
 import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Students';
 import { Pagination } from './js/components/pagination-api';
 import { onWatchedBtnClick } from './js/getSavedFilms';
+import { getConfigState, setConfigState } from './js/components/savedPageConfig';
 
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
-getPopularFilms();
+// getPopularFilms();
+getConfigState();
 
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', onLogoResetPageNumber);
@@ -25,8 +27,9 @@ function homePageLoader() {
   getPopularFilms();
 }
 
-function myLibraryPageLoader() {
+export function myLibraryPageLoader() {
   console.log('myLibrary');
+  setConfigState('myLibraryPageLoader');
   onLibraryPage();
   onWatchedBtnClick();
 }
