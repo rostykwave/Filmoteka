@@ -26,7 +26,9 @@
     display: block;
     left: 50%;
     top: 75%;
-    transform: scale(1) translate(-50%, -50%);
+ // changed scale from 1 to 0.75 and translate from 50% to 65%
+transform: scale(0.75) translate(-65%, -65%);
+    // transform: scale(1) translate(-50%, -50%);
     margin-right: auto;
     margin-left: auto;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
