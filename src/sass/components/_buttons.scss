@@ -61,3 +61,10 @@
     border: 1px solid $main-accent-color;
   }
 }
+
+.btn--active{
+  background-color: $main-accent-color;
+  color: $main-title-color;
+  border: 1px solid $main-accent-color;
+ 
+}

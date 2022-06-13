@@ -22,15 +22,21 @@ export function renderFilmCardModal(data) {
 function modalButtonsTextRender(modalBtnWatched,modalBtnQueue) {
     const id = document.querySelector('.movie-id-inModal').textContent;
  
-     if (checkIfFilmIsSaved(id, 'watched') && checkIfFilmIsSaved(id, 'queue')) {
-         modalBtnWatched.textContent = 'Added to watched';
-         modalBtnQueue.textContent = 'Added to queue';
-         return;
-    }
+    //  if (checkIfFilmIsSaved(id, 'watched') && checkIfFilmIsSaved(id, 'queue')) {
+    //      modalBtnWatched.textContent = 'Added to watched';
+    //      modalBtnQueue.textContent = 'Added to queue';
+    //     //  modalBtnWatched.classList.add('btn--active');
+    //     //  modalBtnQueue.classList.add('btn--active');
+    //      return;
+    // }
      if (checkIfFilmIsSaved(id, 'watched')) {
-        return modalBtnWatched.textContent = 'Added to watched';
+        modalBtnWatched.classList.add('btn--active');
+        modalBtnWatched.textContent = 'Added to watched';
+        // return
     }
      if (checkIfFilmIsSaved(id, 'queue')) {
-        return modalBtnQueue.textContent = 'Added to queue';
+        modalBtnQueue.classList.add('btn--active');
+         modalBtnQueue.textContent = 'Added to queue';
+        //  return
     }
 }
