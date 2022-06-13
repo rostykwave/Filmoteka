@@ -24,7 +24,7 @@ export function getFilmInfo(id) {
                         data.new_poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`
                     }
                         renderFilmCardModal(data);
-                        refs.backdrop.classList.toggle('is-hidden');
+                        refs.backdrop.classList.toggle('is-modal-hidden');
                         refs.body.classList.toggle('overflow-hidden');
                         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
                         refs.backdrop.addEventListener('click', onEmptySpaceClick);
@@ -35,7 +35,6 @@ export function getFilmInfo(id) {
                     const iframeWrapper = document.querySelector('.modal-movie-trailer-is-hidden');
                     const movieTrailerBackdrop = document.querySelector('.movie-trailer-backdrop');
                     const playerL = document.querySelector('.player-logo');
-                    console.log(result);
                         if (result === null || result === NaN) {
                             playerL.remove();
                         }
@@ -43,7 +42,7 @@ export function getFilmInfo(id) {
                     function onIframeWrapperClick() {
                         
                         if (result !== null) {
-                            movieTrailerBackdrop.classList.toggle('is-hidden');
+                            movieTrailerBackdrop.classList.toggle('is-modal-hidden');
                             iframeWrapper.classList.remove('modal-movie-trailer-is-hidden');
                             iframeWrapper.classList.add('modal-movie-trailer-is-active');
                         } else {
@@ -63,7 +62,7 @@ export function getFilmInfo(id) {
                             function iframeWrapperClose() {
                                 iframeWrapper.classList.remove('modal-movie-trailer-is-active');
                                 iframeWrapper.classList.add('modal-movie-trailer-is-hidden');
-                                movieTrailerBackdrop.classList.toggle('is-hidden');
+                                movieTrailerBackdrop.classList.toggle('is-modal-hidden');
                             }
                             addEventListener('keydown', onEscTrailerClose);
                             function onEscTrailerClose(event) {
@@ -90,7 +89,7 @@ export function getFilmInfo(id) {
     
     function onModalClose() {
         refs.body.classList.remove('overflow-hidden');
-        refs.backdrop.classList.toggle('is-hidden');
+        refs.backdrop.classList.toggle('is-modal-hidden');
         refs.modalCloseButton.removeEventListener('click', onCloseButtonClick);
         refs.backdrop.removeEventListener('click', onEmptySpaceClick);
         removeEventListener('keydown', onEscClose);
