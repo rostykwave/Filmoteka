@@ -5,20 +5,24 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
-    pointer-events: visible;
     overflow-y: auto;
     z-index: 3;
-
+    pointer-events: visible;
+    transition: opacity 250ms, visibility 250ms;
 }
 
 .overflow-hidden {
     overflow: hidden;
 }
 
-.is-hidden {
+.is-modal-hidden {
     visibility: hidden;
     opacity: 1;
     pointer-events: none;
+}
+
+.backdrop.is-modal-hidden .filmCardModal-container {
+    transform: scale(0.01) translate(100%, 20%);
 }
 
 .filmCardModal-container {
@@ -26,13 +30,13 @@
     display: block;
     left: 50%;
     top: 75%;
-    transform: scale(1) translate(-50%, -50%);
-    margin-right: auto;
-    margin-left: auto;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
     background-color: $body-background-color;
     padding: 48px 20px 40px;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transform: scale(1) translate(-50%, -50%);
 }
 
 // dark theme 
