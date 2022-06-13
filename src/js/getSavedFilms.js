@@ -1,6 +1,7 @@
 import { refs } from './getRefs';
 import { renderFilmGallery } from './renderFilmGallery';
 import { Pagination } from './components/pagination-api';
+import { setConfigState } from './components/savedPageConfig';
 
 const searchPaginationEl = document.querySelector('.pagination-wrap');
 let filmsLIstOnCurrentPage = null;
@@ -41,10 +42,12 @@ function getFilmsOnCurrentPage({ results }) {
 }
 
 function onQueueBtnClick() {
+  setConfigState('onQueueBtnClick');
   getSavedFilms('queue');
 }
 
 function onWatchedBtnClick() {
+    setConfigState('onWatchedBtnClick');
   getSavedFilms('watched');
 }
 
