@@ -25,15 +25,14 @@
     position: absolute;
     display: block;
     left: 50%;
-    top: 65%;
+    top: 75%;
     transform: scale(1) translate(-50%, -50%);
     margin-right: auto;
     margin-left: auto;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-    display: block;
     background-color: $body-background-color;
-    padding: 48px 20px 40px 20px;
+    padding: 48px 20px 40px;
 }
 
 // dark theme 
@@ -42,6 +41,15 @@ body.dark-theme {
         background-color: $header-background-color;
         color:$main-title-color
     }
+
+    .modal__icon-close {
+    color: $main-title-color;
+    &:hover,
+    :focus,
+    :active {
+        color:  $main-accent-color;
+    }
+}
 }
 // 
 
@@ -55,13 +63,18 @@ body.dark-theme {
         transition-duration: 300ms; 
         transition-timing-function: $timing-function;
         border: 1px solid $main-accent-color;
+        color:  $main-accent-color;
     }
 }
 
+.modal__icon-close {
+    color: $secondary-title-color;
+}
+
 .modal-poster-img {
+    width: 100%;
     border-radius: 5px;
     display: block;
-    max-width: 100%;
     margin: 0;
 }
 
@@ -258,7 +271,6 @@ height: 150px;
 @media screen and (min-width: 320px) and (max-width: 767px) {
 .filmCardModal-container {
     width: 280px;
-    height: auto;
 }
 }
 
@@ -268,8 +280,12 @@ height: 150px;
 .filmCardModal-container {
     display: flex;
     top: 50%;
-    width: 704px;
-    padding: 40px 72px 40px 36px;
+    width: 618px;
+    padding: 42px 30px 40px;
+}
+
+.picture-wrapper {
+    width: 264px;
 }
 
 .player-logo {
@@ -299,10 +315,10 @@ height: 300px;
 .picture-wrapper {
     flex: 1;
 }
+
 .info-modal-card {
     flex: 1;
-    margin-left: 68px;
-    // margin-left: 32px;
+    margin-left: 32px;
 }
 .modal-buttons__list {
     margin-top: 40px;
@@ -318,8 +334,13 @@ height: 300px;
 .filmCardModal-container {
     display: flex;
     top: 50%;
-    padding: 40px 16px;
-    width: 885px;
+    padding: 50px 30px 40px;
+    width: 882px;
+}
+
+.modal-poster-img {
+height: auto;
+width: 396px;
 }
 
 .player-logo {
@@ -328,17 +349,20 @@ width: 64px;
 height: 64px;
 }
 
+
 .iframe {
 width: 700px;
 height: 400px;
 }
+
 .picture-wrapper {
     flex: 1;
+    width: 396px;
 }
+
 .info-modal-card {
     flex: 1;
-    margin-left: 16px;
-    // margin-left: 30px;
+    margin-left: 30px;
 }
 .film-title {
     font-size: 30px;

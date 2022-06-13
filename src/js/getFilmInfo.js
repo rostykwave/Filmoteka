@@ -6,15 +6,13 @@ import defaultPoster from '../images/poster-plug.jpg';
 import playerLogo from '../images/youtube-img.png';
 import movieTrailer  from 'movie-trailer';
 import { fetchFilmInfo } from "./ApiService";
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export function getFilmInfo(id) {
 
-    // filmApiService.setProps(id);
 
-    // filmApiService.fetchCards('filmInfo')
         fetchFilmInfo(id)
         .then(data => {
-            
             data.genres = data.genres.map((g) => g["name"]).join(", ");
             data.trailer = movieTrailer(data.original_title, { id: true })
                 .then(result => {
@@ -36,25 +34,42 @@ export function getFilmInfo(id) {
                     const pictureWrapper = document.querySelector('.picture-wrapper');
                     const iframeWrapper = document.querySelector('.modal-movie-trailer-is-hidden');
                     const movieTrailerBackdrop = document.querySelector('.movie-trailer-backdrop');
-
-                        pictureWrapper.addEventListener('click', onIframeWrapperClick);
-                        function onIframeWrapperClick() {
+                    const playerL = document.querySelector('.player-logo');
+                    console.log(result);
+                        if (result === null || result === NaN) {
+                            playerL.remove();
+                        }
+                    pictureWrapper.addEventListener('click', onIframeWrapperClick);
+                    function onIframeWrapperClick() {
+                        
+                        if (result !== null) {
                             movieTrailerBackdrop.classList.toggle('is-hidden');
                             iframeWrapper.classList.remove('modal-movie-trailer-is-hidden');
                             iframeWrapper.classList.add('modal-movie-trailer-is-active');
-                        }
-                    
-                        movieTrailerBackdrop.addEventListener('click', iframeWrapperClose);
+                        } else {
+                            Notify.failure('Sorry, trailer not found :(', {
+                                timeout: 1500,
+                                position: "right-top",
+                                opacity: 0.95,
+                                background: "#ff6b08",
+                                cssAnimationStyle: "zoom",
+                                cssAnimationDuration: 600,
+                                borderRadius: "25px",
+                                fontSize: "16px",
+                            });
+                            }
+                    }
+                                movieTrailerBackdrop.addEventListener('click', iframeWrapperClose);
                             function iframeWrapperClose() {
                                 iframeWrapper.classList.remove('modal-movie-trailer-is-active');
                                 iframeWrapper.classList.add('modal-movie-trailer-is-hidden');
                                 movieTrailerBackdrop.classList.toggle('is-hidden');
                             }
-                    addEventListener('keydown', onEscTrailerClose);
-                    function onEscTrailerClose(event) {
-                        if (event.key === "Escape" & !iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
-                            iframeWrapperClose();
-                        }
+                            addEventListener('keydown', onEscTrailerClose);
+                            function onEscTrailerClose(event) {
+                                if (event.key === "Escape" & !iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
+                                    iframeWrapperClose();
+                                }
                     }
                     
     function onCloseButtonClick() {
