@@ -1,4 +1,5 @@
 import { getFilmInfo } from "./getFilmInfo";
+import { cardLocalStorage } from "./localStorage";
 
 
 export function onFilmCardClick(e) {
@@ -7,5 +8,6 @@ export function onFilmCardClick(e) {
     if (e.currentTarget.id) {
         const filmId = e.currentTarget.id;
         getFilmInfo(filmId);
+        cardLocalStorage(filmId)
     }
 }

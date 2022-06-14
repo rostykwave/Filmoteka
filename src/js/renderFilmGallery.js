@@ -4,8 +4,12 @@ import filmCardTpl from '../templates/film-card.hbs';
 import { onFilmCardClick } from './onFilmCardClick';
 
 export function renderFilmGallery(data) {
+<<<<<<< Updated upstream
 //     //
+=======
+>>>>>>> Stashed changes
     const dataHits = data.results;
+    console.log(dataHits);
     function getGalleryCardsData() {
         const movieGenresIds = genres.map(genre => {
             return genre.id
@@ -25,7 +29,7 @@ export function renderFilmGallery(data) {
         refs.filmGallery.insertAdjacentHTML('beforeend', filmCardTpl(film));
     }
     getGalleryCardsData(dataHits)
-
+    console.log(data);
     // refs.filmGallery.addEventListener('click', onFilmCardClick);
     const refsfilmGallery = refs.filmGallery.querySelectorAll('li');
 

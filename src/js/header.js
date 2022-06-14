@@ -1,4 +1,10 @@
 import { refs } from './getRefs';
+<<<<<<< Updated upstream
+=======
+import { hideAnimationStudents } from './components/modal-footer-GoIT-Students';
+import { getlibraryStorage } from "./library";
+
+>>>>>>> Stashed changes
 
 // refs.homeButton.addEventListener('click', onHomePage);
 // refs.libraryButton.addEventListener('click', onLibraryPage);
@@ -22,6 +28,12 @@ function onLibraryPage() {
   refs.hederLibraryPage.classList.add('hero-library-container');
   refs.homeCurrentPage.classList.remove('current-page');
   refs.libraryCurrentPage.classList.add('current-page');
+<<<<<<< Updated upstream
+=======
+
+  hideAnimationStudents();
+  getlibraryStorage()
+>>>>>>> Stashed changes
 }
 
 export { onLibraryPage, onHomePage };

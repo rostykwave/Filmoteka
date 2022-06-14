@@ -2,11 +2,20 @@ import { filmApiService } from "./ApiService";
 import { refs } from "./getRefs";
 import { onFetchError } from "./onFetchError";
 import { renderFilmCardModal } from "./renderFilmCardModal";
+<<<<<<< Updated upstream
 import movieTrailer from 'movie-trailer';
 import { watchedStorage, queueStorage } from "./components/setLocalStorage";
 
 
 // import modalQueueStorage from "./components/setStorageQueue";
+=======
+import defaultPoster from '../images/poster-plug.jpg';
+import playerLogo from '../images/youtube-img.png';
+import movieTrailer  from 'movie-trailer';
+import { fetchFilmInfo } from "./ApiService";
+import { setStorage } from "./localStorage";
+
+>>>>>>> Stashed changes
 
 export function getFilmInfo(id) {
 
@@ -18,17 +27,39 @@ export function getFilmInfo(id) {
             data.trailer = movieTrailer(data.original_title, { id: true })
                 .then(result => {
                     data.youtube_video_id = result;
+<<<<<<< Updated upstream
                         console.log(result);
                     renderFilmCardModal(data);
                     const modalBtnWatched = document.querySelector('[name="watched"]');
                     const modalBtnQueue = document.querySelector('[name="queue"]')
                     watchedStorage(data, modalBtnWatched);
                     queueStorage(data, modalBtnQueue);
+=======
+                    data.player_logo = playerLogo;
+                    if (data.poster_path === null) {
+                        data.new_poster_path = defaultPoster;
+                    } else {
+                        data.new_poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`
+                    }
+                    // const currentFilm = data;
+                    //         // {
+                    //         // filmData: data,
+                    //         // //     filmId: data.id,
+                    //         // }
+                    // localStorage.setItem("currentFilm", JSON.stringify(currentFilm))
+                    renderFilmCardModal(data);
+                    
+>>>>>>> Stashed changes
                         refs.backdrop.classList.toggle('is-hidden');
                         refs.body.classList.toggle('overflow-hidden');
                         refs.modalCloseButton.addEventListener('click', onCloseButtonClick);
                         refs.backdrop.addEventListener('click', onEmptySpaceClick);
                     addEventListener('keydown', onEscClose);
+<<<<<<< Updated upstream
+=======
+                    
+                    
+>>>>>>> Stashed changes
                         
                     
                     // YOUTUBE TRAILER
