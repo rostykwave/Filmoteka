@@ -36,23 +36,11 @@ export function renderFilmGallery(data) {
     }
     getGalleryCardsData(dataHits)
 
-    // refs.filmGallery.addEventListener('click', onFilmCardClick);
     const refsfilmGallery = refs.filmGallery.querySelectorAll('li');
 
-    // console.log(refsfilmGallery);
 
     refsfilmGallery.forEach(item => {
-        // console.log(item.firstElementChild);
         item.firstElementChild.addEventListener('click', onFilmCardClick)
     })
-
-//     const gal = refs.filmGallery;
-
-//     for (let i = 0; i < gal.children.length; i++) {
-//   console.log(gal.children[i].id);
-// }
-
-  
-//     console.log(refs.filmGallery.children);
 
 }

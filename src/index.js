@@ -12,7 +12,7 @@ import { getConfigState, setConfigState } from './js/components/savedPageConfig'
 
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
-// getPopularFilms();
+// перевіряє поточну сторінку, яку зберегли в local
 getConfigState();
 
 refs.homeButton.addEventListener('click', homePageLoader);

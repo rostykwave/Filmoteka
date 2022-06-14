@@ -52,4 +52,9 @@ function getConfigState() {
 
 }
 
-export{ setConfigState, getConfigState };
+function getNameOfCurrentPageFunction() {
+    const currenPageJSON = localStorage.getItem('reloadAction');
+    return JSON.parse(currenPageJSON).funcName;
+}
+
+export{ setConfigState, getConfigState,getNameOfCurrentPageFunction };

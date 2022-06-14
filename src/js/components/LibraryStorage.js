@@ -1,5 +1,7 @@
 import genres from '../../json/genres.json';
+import { renderFilmGallery } from '../renderFilmGallery';
 import { checkIfFilmIsSaved } from './checkIfFilmIsSaved';
+import { getConfigState, getNameOfCurrentPageFunction } from './savedPageConfig';
 
 //Функція, яка виклмкається при кліку на кнопку в модалці
 export function modalWatchedStorage(e) {
@@ -17,18 +19,14 @@ export function modalQueueStorage(e) {
 
 };
 
+
+
+
 //Функції, які працюють з локал за ключем
 function addToLocal(localStorrageKey) {
-    //   const id = document.querySelector('.movie-id-inModal').textContent;
-    
-    // if (checkIfFilmIsSaved(id, localStorrageKey)) {
-    //     return;
-    // }
-          // console.log('Adding');
-         //Формуєм новий об'єкт з інфо фільму
+   //об'єкт з інфо фільму
   const filmObject = getAllInfoFromCard();
-  // console.log(filmObject);
-  
+
 //зразок записаного в локал файлу(його структура)
   let data = {
     results: [],
@@ -51,8 +49,6 @@ function addToLocal(localStorrageKey) {
 }
 
 function removeFromLocal(localStorrageKey, id){
-  // console.log('removing');
-  // console.log(id);
   const dataJSONLocal = localStorage.getItem(localStorrageKey);
   const data = JSON.parse(dataJSONLocal);
   
@@ -71,10 +67,31 @@ function operateWithLocalStorage(localStorrageKey, id, button) {
       addToLocal(localStorrageKey);
     button.textContent = `Added to ${localStorrageKey}`;
   }
+
+  reRenderGalleryInLibrary(localStorrageKey);
+ 
 }
 
-
+//Відбувається рендер галереї якщо фільм зберігається або видаляється з watched/queue, але тільки тоді, коли знаходитмось в Library
+function reRenderGalleryInLibrary(clickedOnWatchedOrQueue) {
  
+  const currentPageFunction = getNameOfCurrentPageFunction();
+
+  if (currentPageFunction === 'onWatchedBtnClick' || currentPageFunction === 'onQueueBtnClick') {
+
+    let localStorrageKey = 'watched';
+    if (currentPageFunction === 'onQueueBtnClick') {
+      localStorrageKey = 'queue';
+    }
+
+    if (clickedOnWatchedOrQueue === localStorrageKey) { 
+      const dataJSONLocal = localStorage.getItem(localStorrageKey);
+      const data = JSON.parse(dataJSONLocal);
+      renderFilmGallery(data);
+    }
+  }
+}
+
 
 
 //Повертає об'єкт з данними одного фільму без fetch, на основі видимих і прихованих даних модалки
