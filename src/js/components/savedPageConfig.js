@@ -48,10 +48,6 @@ function getConfigState() {
             refs.searchForm.requestSubmit();
            
             break;
-        // case 'getSearchFilms':
-        //     getSearchFilms(searchQuery);
-        //     searchInput.value = searchQuery;
-        //     break;
     
         default:
             getPopularFilms();
