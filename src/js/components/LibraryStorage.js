@@ -99,17 +99,30 @@ function getAllInfoFromCard() {
   //Дані фільму беремо з розмітки Модалки без Fetch запросів
   const id = document.querySelector('.movie-id-inModal').textContent;
   const title = document.querySelector('.film-title').textContent;
-  const img = document.querySelector('.modal-poster-img').src.replace('https://image.tmdb.org/t/p/w500', '');//підганяємо посилання на зображення до такого яку дає API
+  //підганяємо посилання на зображення до такого яку дає API
+  let img = document.querySelector('.modal-poster-img').src;
+  // if (img.includes('/poster-plug')) {
+  //   img = null; 
+  // } else {
+  //   img = img.replace('https://image.tmdb.org/t/p/w500', '');
+  // }
+  img = img.includes('/poster-plug') ? null : img.replace('https://image.tmdb.org/t/p/w500', '');
+  
   const releaseDate = document.querySelector('.movie-release-date-inModal').textContent;
   const voteAverage = document.querySelector('.values-list__item-vote').textContent;
-  const genresName = document.querySelector('#genres').textContent.split(', ');
+  const genresName = document.querySelector('#genres').textContent;
 
   //Перетворення назв жанрів в їх ID
   let genresIDS = [];
-  genresName.map(genreName => {
+
+   if (genresName) {
+     const genresNameArray = genresName.split(', ');
+
+  genresNameArray.map(genreName => {
      const genreID = genres.find(option => option.name === genreName).id;
     genresIDS.push(genreID);
   })
+  }
   //Записуємо всі дані фільму в один об'єкт
   const filmObject = {
     id:id,
@@ -119,6 +132,7 @@ function getAllInfoFromCard() {
     release_date: releaseDate,
     vote_average:voteAverage,
   }
+  console.log(filmObject);
   return filmObject;
 }
 

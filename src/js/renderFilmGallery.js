@@ -5,7 +5,7 @@ import { onFilmCardClick } from './onFilmCardClick';
 import posterPlug from '../images/poster-plug.jpg';
 
 export function renderFilmGallery(data) {
-
+console.log(data);
     const dataHits = data.results;
     function getGalleryCardsData() {
 
