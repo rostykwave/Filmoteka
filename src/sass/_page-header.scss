@@ -2,12 +2,12 @@
   display: flex;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 30px;
-  margin-bottom: 44px;
+  // padding-top: 30px; //
+  // margin-bottom: 44px; //
   align-items: center;
   @media screen and (min-width: 768px) {
-    padding-top: 35px;
-    margin-bottom: 30px;
+    // padding-top: 35px; //
+    // margin-bottom: 30px; //
     padding-left: 32px;
     padding-right: 32px;
   }
@@ -17,6 +17,8 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  padding-bottom: 37px; //
+  padding-top: 41px; //
 }
 
 .header-logo__text {
@@ -51,9 +53,9 @@
 
 .header-list__btn {
   /* // position: relative; */
-  padding: 0;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  // padding: 0;
+  padding-bottom: 41px;
+  padding-top: 58px;
   /* // padding-bottom: 5px; */
   /* // padding-top: 5px; */
   font-style: normal;
@@ -110,8 +112,8 @@
   }
 }
 
-.form-alert{
-  color: #FF001B;
+.form-alert {
+  color: #ff001b;
   position: absolute;
   top: 42px;
   background: transparent;
@@ -154,7 +156,7 @@
 // .library-btn-wrap,
 .library-list {
   padding: 0px;
-  padding-top: 6px;
+  padding-top: 8px;
   padding-bottom: 62px;
   display: flex;
   justify-content: center;
@@ -192,8 +194,20 @@
 
 // ============ Стили background ========================
 
+.home-bg {
+  // background-color: #000000;
+  // background-color: #130002;
+  // background-color: #090001;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/hero-img/hero-home-desc-2x-min.jpg);
+}
+.library-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../images/hero-img/hero-library-desk-2x-min.jpg);
+}
+
 .home {
-  background-color: antiquewhite;
+  background-color: rgb(12, 12, 11);
   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/hero-img/hero-home-mob-1x-min.jpg);
   background-repeat: no-repeat;
@@ -251,7 +265,7 @@
       url(../images/hero-img/hero-library-desk-1x-min.jpg);
     @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
       background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url(../images/hero-img/hero-library-desk-1x-min.jpg);
+        url(../images/hero-img/hero-library-desk-2x-min.jpg);
     }
   }
 }

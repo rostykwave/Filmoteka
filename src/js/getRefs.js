@@ -11,7 +11,7 @@ export const refs = {
   queue: document.querySelector('#queue'),
   spanToggle: document.querySelector('.footer-team-popup'),
   animeEl: document.querySelectorAll('.anime'),
-  header: document.querySelector('#header'),
+  headerContainer: document.querySelector('#header'),
   homeCurrentPage: document.querySelector('#home-current-page'),
   libraryCurrentPage: document.querySelector('#library-current-page'),
   hederLibraryPage: document.querySelector('#header-library'),
@@ -20,4 +20,5 @@ export const refs = {
   backdrop: document.querySelector('.backdrop'),
   libraryWatchedButton: document.querySelector('#library-watched__button'),
   libraryQueueButton: document.querySelector('#library-queue__button'),
+  header: document.querySelector('.page-header'),
 };
