@@ -22,14 +22,14 @@ refs.libraryButton.addEventListener('click', myLibraryPageLoader);
 
 ///Main functions//
 export function homePageLoader() {
-  console.log('homePageLoader');
+  // console.log('homePageLoader');
    setConfigState({funcName:'homePageLoader'});
   onHomePage();
   getPopularFilms();
 }
 
 export function myLibraryPageLoader() {
-  console.log('myLibrary');
+  // console.log('myLibrary');
   setConfigState({funcName:'myLibraryPageLoader'});
   onLibraryPage();
   onWatchedBtnClick();

@@ -11,10 +11,10 @@ export function getPopularFilms() {
   startLoader();
 
   fetchPopularFilms({ page: popularFilmPagination.page }).then(data => {
-    console.log(data);
+    // console.log(data);
     stopLoader();
 
-    console.log('fetchPopularFilms');
+    // console.log('fetchPopularFilms');
     // console.log(data.total_pages);
     renderFilmGallery(data);
     popularFilmPagination.create({
@@ -30,7 +30,7 @@ function getPopularMovie() {
   fetchPopularFilms({ page: popularFilmPagination.page }).then(data => {
     console.log(data);
     stopLoader();
-    console.log('getPopularMovie');
+    // console.log('getPopularMovie');
     renderFilmGallery(data);
   });
 }
