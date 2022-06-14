@@ -10,10 +10,9 @@
   font-size: 12px;
   line-height: 1.33;
 
-  height: 42px; //??44
-  width: 147px; // ??
-  // padding-left: 41.07px; //??
-  // padding-right: 41.07px;
+  height: 42px; 
+  width: 147px;
+  
 
   border-radius: 5px;
 
@@ -62,9 +61,9 @@
   }
 }
 
-.btn--active{
+.btn--active.btn--active{
   background-color: $main-accent-color;
   color: $main-title-color;
   border: 1px solid $main-accent-color;
- 
 }
+
