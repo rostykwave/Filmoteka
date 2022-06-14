@@ -11,7 +11,7 @@ export const searchPagination = new Pagination('search');
 
 export function getSearchFilms(queryCurr) {
   startLoader();
-  setConfigState({ funcName: 'getSearchFilms', q: queryCurr });
+  // setConfigState({ funcName: 'getSearchFilms', q: queryCurr });
 
     fetchFilmsOnSearch({page:searchPagination.page, query:queryCurr})
         .then(films => {

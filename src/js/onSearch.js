@@ -1,11 +1,12 @@
 import { refs } from "./getRefs";
 import {getSearchFilms, searchPagination} from "./getFilmsOnSearchQuery";
+import { setConfigState } from "./components/savedPageConfig";
 
 refs.searchForm.addEventListener('submit', onSearch);
 
 export let queryCurr = '';
 
-function onSearch(e) {
+export function onSearch(e) {
   e.preventDefault();
 
   searchPagination.resetPage();
@@ -22,6 +23,9 @@ function onSearch(e) {
     return; 
   } 
   queryCurr = query;
+
+  setConfigState({ funcName: 'onSearch', q: queryCurr });
+  
   getSearchFilms(queryCurr)
 }
  

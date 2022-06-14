@@ -1,8 +1,10 @@
 import { homePageLoader, myLibraryPageLoader } from "../..";
 import { getSearchFilms } from "../getFilmsOnSearchQuery";
 import { getPopularFilms } from "../getPopularFilms";
+import { refs } from "../getRefs";
 import { onQueueBtnClick, onWatchedBtnClick } from "../getSavedFilms";
 import { onLibraryPage } from "../header";
+import { onSearch } from "../onSearch";
 
 function setConfigState(reloadActionName) {
     const data = reloadActionName;
@@ -40,10 +42,16 @@ function getConfigState() {
             onLibraryPage();
             onWatchedBtnClick();
             break;
-        case 'getSearchFilms':
-            getSearchFilms(searchQuery);
+        case 'onSearch':
             searchInput.value = searchQuery;
+            refs.searchForm.addEventListener('submit', onSearch);
+            refs.searchForm.requestSubmit();
+           
             break;
+        // case 'getSearchFilms':
+        //     getSearchFilms(searchQuery);
+        //     searchInput.value = searchQuery;
+        //     break;
     
         default:
             getPopularFilms();
