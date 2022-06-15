@@ -9,6 +9,7 @@ import { modalFooterGoITStudents } from './js/components/modal-footer-GoIT-Stude
 import { Pagination } from './js/components/pagination-api';
 import { onWatchedBtnClick } from './js/getSavedFilms';
 import { getConfigState, setConfigState } from './js/components/savedPageConfig';
+import { hidelbrBtn, onClearLbr } from './js/clear-library';
 
 
 checkDarkMode(); //якщо є об'єкт в local storeage то застосовує клас темної теми
@@ -18,7 +19,10 @@ getConfigState();
 refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', onLogoResetPageNumber);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
-
+// ===
+const clearLibraryBtn=document.querySelector('.clear-lbr');
+clearLibraryBtn.addEventListener('click', onClearLbr);
+// ===
 
 ///Main functions//
 export function homePageLoader() {

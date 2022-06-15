@@ -67,3 +67,40 @@
   border: 1px solid $main-accent-color;
 }
 
+// ======== clear btn =================
+.toolbar__btn{
+  margin-right: 30px;
+}
+
+.clear-lbr{
+  font-weight: 400;
+  line-height: 1.45;
+  height: 18px; 
+  width: 147px;
+  border-radius: 50px;
+  background-color: $toggle-mode-color;
+  border: 1px solid transparent;
+
+  &:active,
+  &:hover,
+  &:focus {
+    background-color: $main-accent-color;
+    color: $main-title-color;
+    border: 1px solid $main-accent-color;
+
+}}
+
+.dark-theme{
+  .clear-lbr{
+    font-weight: 400;
+    background-color: #d3d3d4;
+    color: $secondary-title-color;
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: $main-accent-color;
+      color: $main-title-color;
+      border: 1px solid $main-accent-color;
+  }
+}
+}

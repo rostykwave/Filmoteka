@@ -1,3 +1,4 @@
+import { hidelbrBtn, showLbrBtn } from './clear-library';
 import { refs } from './getRefs';
 import { onQueueBtnClick, onWatchedBtnClick } from './getSavedFilms';
 
@@ -11,6 +12,8 @@ function onHomePage() {
   refs.libraryCurrentPage.classList.remove('current-page');
   refs.header.classList.add('home-bg');
   refs.header.classList.remove('library-bg');
+  // 
+  hidelbrBtn();
 }
 
 function onLibraryPage() {
@@ -26,6 +29,8 @@ function onLibraryPage() {
   refs.libraryQueueButton.addEventListener('click', onQueueBtnClick);
   refs.header.classList.add('library-bg');
   refs.header.classList.remove('home-bg');
+  // ==
+  showLbrBtn();
 }
 
 export { onLibraryPage, onHomePage };
