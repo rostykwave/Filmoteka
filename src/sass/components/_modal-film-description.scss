@@ -6,6 +6,7 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.6);
     overflow-y: auto;
+    overflow-x: hidden;
     z-index: 3;
     pointer-events: visible;
     transition: opacity 250ms, visibility 250ms;
@@ -28,6 +29,8 @@
 .filmCardModal-container {
     position: absolute;
     display: block;
+    width: 95%;
+    height: auto;
     left: 50%;
     top: 75%;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -108,7 +111,7 @@ body.dark-theme {
 }
 
 .properties-list__item {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-style: normal;
     font-size: 12px;
     line-height: 1.33;
@@ -129,7 +132,7 @@ body.dark-theme {
 }
 
 .values-list__item {
-    padding-bottom: 10px;
+    margin-bottom: 10px;
     font-size: 12px;
     line-height: 1.33;
 }
@@ -149,14 +152,34 @@ body.dark-theme {
 }
 .about-title {
     margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 12px;
     line-height: 1.33;
     text-align: start;
 }
 
+.text-thumb {
+    display: block;
+    width: 240px;
+    height: 100px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+    width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+    background-color: $main-accent-color;
+    border-radius: 50px;
+    }
+    &::-webkit-scrollbar-thumb {
+    border-radius: 50px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+    background-color: $main-title-color;
+    }
+}
+
 .film-description {
-    margin-top: 10px;
-    margin-top: 20px;
+    padding-right: 5px;
     font-size: 12px;
     line-height: 1.66;
     text-align: start;
@@ -265,7 +288,6 @@ width: 280px;
 height: 150px;
 }
 
-            /* ----------- MOBILE ----------- */
 
 @media screen and (max-width: 319px) {
 .filmCardModal-container {
@@ -281,11 +303,19 @@ height: 150px;
             /* ----------- TABLET ----------- */
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .backdrop {
+    overflow: hidden;
+}
+
 .filmCardModal-container {
     display: flex;
-    top: 50%;
+    top: 65%;
     width: 618px;
     padding: 42px 30px 40px;
+}
+
+.text-thumb {
+    width: 264px;
 }
 
 .picture-wrapper {
@@ -335,11 +365,21 @@ height: 300px;
             /* ----------- DESKTOP ----------- */
 
 @media screen and (min-width: 1024px) {
+
+.backdrop {
+    overflow-y: hidden;
+}
+
 .filmCardModal-container {
     display: flex;
     top: 50%;
     padding: 50px 30px 40px;
     width: 882px;
+}
+
+.text-thumb {
+    width: 396px;
+    height: auto;
 }
 
 .modal-poster-img {
