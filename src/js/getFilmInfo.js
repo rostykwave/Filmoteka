@@ -60,7 +60,7 @@ export function getFilmInfo(id) {
                             });
                             }
                     }
-                                movieTrailerBackdrop.addEventListener('click', iframeWrapperClose);
+                    movieTrailerBackdrop.addEventListener('click', iframeWrapperClose);
                             function iframeWrapperClose() {
                                 iframeWrapper.classList.remove('modal-movie-trailer-is-active');
                                 iframeWrapper.classList.add('modal-movie-trailer-is-hidden');
@@ -68,8 +68,8 @@ export function getFilmInfo(id) {
                             }
                             addEventListener('keydown', onEscTrailerClose);
                             function onEscTrailerClose(event) {
-                                if (event.key === "Escape" & !iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
-                                    iframeWrapperClose();
+                                if (event.key === "Escape" && !iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
+                                    iframeWrapperClose(); 
                                 }
                     }
                     
@@ -77,14 +77,19 @@ export function getFilmInfo(id) {
         onModalClose();
     }
 
-    function onEmptySpaceClick(e) {
-        if (e.target === e.currentTarget & iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) {
-                onModalClose();
+        function onEmptySpaceClick(e) {
+        
+        if (e.target === e.currentTarget && iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) {
+            onModalClose();
+        } else if (e.target === e.currentTarget && iframeWrapper.classList.contains('modal-movie-trailer-is-active')) {
+                iframeWrapper.classList.remove('modal-movie-trailer-is-active');
+                iframeWrapper.classList.add('modal-movie-trailer-is-hidden');
+                movieTrailerBackdrop.classList.toggle('is-modal-hidden');
             }
         }
 
     function onEscClose(event) {
-        if (event.key === "Escape" & !refs.backdrop.classList.contains('is-hidden') & iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
+        if (event.key === "Escape" && !refs.backdrop.classList.contains('is-hidden') && iframeWrapper.classList.contains('modal-movie-trailer-is-hidden')) { 
             onModalClose();
             }      
         }
