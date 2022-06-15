@@ -98,6 +98,5 @@ export function getFilmInfo(id) {
     }
             })
         })
-        .catch(onFetchError)
-        .finally(console.log('fetch getFilmInfo done'));
+        .catch(onFetchError);
 };
