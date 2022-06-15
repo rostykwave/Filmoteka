@@ -63,7 +63,7 @@
 
 body.dark-theme {
   & .pagination-btn {
-    background-color: #f7f7f734;
+    background-color: $pagination-bg-dark-color;
     color: $main-title-color;
 
     &:hover,

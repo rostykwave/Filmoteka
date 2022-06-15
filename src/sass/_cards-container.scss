@@ -53,7 +53,7 @@
 
 .gallery__item-name {
   text-transform: uppercase;
-  color: #000;
+  color: $secondary-title-color;
 }
 // dark theme styles 
 body.dark-theme {
@@ -93,7 +93,7 @@ body.dark-theme {
 .gallery__item-year {
   font-weight: 500;
   font-size: 12px;
-  color: #ff6b01;
+  color: $main-accent-color;
 }
 
 .gallery__item-year {
@@ -106,8 +106,8 @@ body.dark-theme {
   border-radius: 5px;
   font-size: 12px;
   line-height: (16 / 12);
-  color: #ffffff;
-  background-color: #ff6b01;
+  color: $main-title-color;
+  background-color: $main-accent-color;
   margin-left: 5px;
   text-align: center;
 }

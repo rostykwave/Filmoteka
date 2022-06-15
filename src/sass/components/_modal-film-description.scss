@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: $backdrop-color;
     overflow-y: auto;
     overflow-x: hidden;
     z-index: 3;
@@ -253,7 +253,7 @@ body.dark-theme {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: $backdrop-color;
     pointer-events: visible;
     overflow-y: auto;
 }

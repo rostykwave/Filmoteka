@@ -97,7 +97,7 @@ body.dark-theme {
   z-index: 3;
   transform: translateX(-2px);
   // transition: transform 250ms $timing-function, fill 250ms $timing-function;
-  fill: white;
+  fill: $main-title-color;
     pointer-events: none;
 }
 
@@ -134,12 +134,12 @@ body.dark-theme {
 body.dark-theme {
 
   .theme-switch__track {
-    background-color: #d3d3d4;
+    background-color:$theme-switch-dark-color;
   }
 
   .theme-switch__icon1 {
     transform: translateX(14px);
-    fill: black;
+    fill: $secondary-title-color;
   }
 }
 
