@@ -13,13 +13,14 @@ export function onClearLbr (){
         localStorageKey='watched';
     }
    
-    // refs.filmGallery.innerHTML = `No saved movies in ${localStorageKey}.`;
+   
 
     // clear local storage 
     const data={
         results: [],
       }
     localStorage.setItem(localStorageKey, JSON.stringify(data));
+    // refs.filmGallery.innerHTML = `No saved movies in ${localStorageKey}.`;
     getSavedFilms(localStorageKey); 
    
 }
