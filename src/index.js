@@ -20,8 +20,7 @@ refs.homeButton.addEventListener('click', homePageLoader);
 refs.logo.addEventListener('click', onLogoResetPageNumber);
 refs.libraryButton.addEventListener('click', myLibraryPageLoader);
 // ===
-const clearLibraryBtn=document.querySelector('.clear-lbr');
-clearLibraryBtn.addEventListener('click', onClearLbr);
+refs.clearLibraryBtn.addEventListener('click', onClearLbr);
 // ===
 
 ///Main functions//

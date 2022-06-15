@@ -21,4 +21,5 @@ export const refs = {
   libraryWatchedButton: document.querySelector('#library-watched__button'),
   libraryQueueButton: document.querySelector('#library-queue__button'),
   header: document.querySelector('.page-header'),
+  clearLibraryBtn: document.querySelector('.clear-lbr'),
 };

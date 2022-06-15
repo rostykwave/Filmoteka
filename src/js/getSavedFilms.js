@@ -16,7 +16,7 @@ function getSavedFilms(storageKey) {
   const data = JSON.parse(dataJSON);
 
   if (!data || data.results.length === 0) {
-    // === 
+  
   refs.filmGallery.innerHTML = `No saved movies in ${storageKey}.`;
     hidelbrBtn();
     return

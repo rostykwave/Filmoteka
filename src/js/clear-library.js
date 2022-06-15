@@ -1,7 +1,5 @@
 import { refs } from "./getRefs";
 
-const clearLibraryBtn=document.querySelector('.clear-lbr');
-
 
 export function onClearLbr (){
    
@@ -27,9 +25,9 @@ export function onClearLbr (){
 
 
 export function showLbrBtn(){
-clearLibraryBtn.classList.remove('invisible');
+refs.clearLibraryBtn.classList.remove('invisible');
 }
 
 export function hidelbrBtn(){
-clearLibraryBtn.classList.add('invisible');
+refs.clearLibraryBtn.classList.add('invisible');
 }
