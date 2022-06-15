@@ -132,7 +132,7 @@ function getAllInfoFromCard() {
     release_date: releaseDate,
     vote_average:voteAverage,
   }
-  console.log(filmObject);
+  // console.log(filmObject);
   return filmObject;
 }
 
