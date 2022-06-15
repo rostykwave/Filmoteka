@@ -74,6 +74,7 @@ body.dark-theme {
 
 .gallery__img {
   width: 280px;
+  border-radius: 5px;
   // height: 420px;
 
   @media screen and(min-width: 768px) {
