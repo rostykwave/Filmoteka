@@ -32,7 +32,7 @@
     font-weight: 500;
     font-size: 30px;
     line-height: calc(35 / 30);
-    color: #ffffff;
+    color: $main-title-color;
   }
 }
 
@@ -65,7 +65,7 @@
   display: flex;
   text-align: center;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $main-title-color;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -81,8 +81,8 @@
   bottom: -8px;
   left: 0;
   width: 100%;
-  background-color: #ff6b08;
-  border: 2px solid #ff6b08;
+  background-color: $main-accent-color;
+  border: 2px solid $main-accent-color;
   border-radius: 2px;
 }
 
@@ -103,7 +103,7 @@
 
 .header-input__wrap {
   position: relative;
-  border-bottom: 0.5px solid #ffffff;
+  border-bottom: 0.5px solid $main-title-color;
   align-items: center;
   height: 22px;
   width: 280px;
@@ -113,7 +113,7 @@
 }
 
 .form-alert {
-  color: #ff001b;
+  color: $warning-color;
   position: absolute;
   top: 42px;
   background: transparent;
@@ -124,11 +124,11 @@
   outline: none;
   background-color: transparent;
   width: 100%;
-  color: #ffffff;
+  color: $main-title-color;
 }
 
 .header-input::placeholder {
-  color: #ffffff;
+  color: $main-title-color;
 }
 
 .header-form__button {
@@ -144,7 +144,7 @@
   right: 2px;
   width: 15px;
   height: 15px;
-  fill: #ffffff;
+  fill: $main-title-color;
 }
 
 .is-hidden {
@@ -179,10 +179,10 @@
 .library-btn {
   width: 130px;
   height: 44px;
-  border: 1px solid #ffffff;
+  border: 1px solid $main-title-color;
   border-radius: 5px;
   background-color: transparent;
-  color: #fff;
+  color: $main-title-color;
   @media screen and (min-width: 768px) {
     width: 152px;
   }
