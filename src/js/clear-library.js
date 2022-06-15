@@ -1,4 +1,5 @@
 import { refs } from "./getRefs";
+import { getSavedFilms, onQueueBtnClick } from "./getSavedFilms";
 
 
 export function onClearLbr (){
@@ -12,15 +13,15 @@ export function onClearLbr (){
         localStorageKey='watched';
     }
    
-    refs.filmGallery.innerHTML = `No saved movies in ${localStorageKey}.`;
-//   hidelbrBtn();
+    // refs.filmGallery.innerHTML = `No saved movies in ${localStorageKey}.`;
 
     // clear local storage 
     const data={
         results: [],
       }
     localStorage.setItem(localStorageKey, JSON.stringify(data));
-    
+    getSavedFilms(localStorageKey); 
+   
 }
 
 

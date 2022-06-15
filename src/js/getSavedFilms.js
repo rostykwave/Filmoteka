@@ -11,14 +11,13 @@ let currentPage = 1;
 let startRenderFilm = null;
 let endRenderFilm = null;
 
-function getSavedFilms(storageKey) {
+export function getSavedFilms(storageKey) {
   const dataJSON = localStorage.getItem(storageKey);
   const data = JSON.parse(dataJSON);
 
   if (!data || data.results.length === 0) {
   
   refs.filmGallery.innerHTML = `No saved movies in ${storageKey}.`;
-    hidelbrBtn();
     return
   }
 
