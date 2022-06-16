@@ -13,6 +13,13 @@ export function renderFilmGallery(data) {
             const newDate = new Date(hit.release_date);
             const filmYear = newDate.getFullYear(); 
             hit.release_date = filmYear;
+            
+            // console.log(Number.isNaN(filmYear));
+            // console.log(hit);
+
+            if (Number.isNaN(filmYear)){
+                hit.release_date='';
+            }
 
             let genresContent = hit.genre_ids.map(genreId => 
             {return genres.find(genre => genre.id === genreId).name;
