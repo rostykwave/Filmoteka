@@ -28,7 +28,7 @@ export function getPopularFilms() {
 function getPopularMovie() {
   startLoader();
   fetchPopularFilms({ page: popularFilmPagination.page }).then(data => {
-    console.log(data);
+    // console.log(data);
     stopLoader();
     // console.log('getPopularMovie');
     renderFilmGallery(data);

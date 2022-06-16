@@ -1,11 +1,9 @@
 .gallery {
   min-height: 70vh;
-  // min-height: 200px;
+ 
 }
 
-.gallery__list {
-  // margin-top: -20px;
-  // margin-left: -20px;
+.gallery__list { 
 
   @media screen and(min-width: 768px) {
     display: flex;
@@ -15,59 +13,38 @@
       margin-top: -30px;
   }
 
-  // @media screen and(min-width: 1024px) {
-  //   margin-left: -16px;
-  //   margin-top: -32px;
-  // }
+  
 }
 
 .gallery__item {
 
-  // margin-top: 20px;
-  // margin-left: 20px;
+  
 
-  &-img {
+  &-thumb {
       max-width: 100%;
-      height: 398px;
+      height: 402px;
+      // height: 398px;
       overflow: hidden;
+      border-radius: 5px;
     }
 
   @media screen and(max-width: 767.98px) {
     margin-bottom: 20px;
-    // &-img {
-    //   // width: 280px;
-    //   width: 100%;
-    //   min-height: 398px;
-    // }
+ 
   }
   @media screen and(min-width: 768px) {
     flex-basis: calc(100% / 2 - 30px);
     margin-left: 30px;
     margin-top: 30px;
-    // &-img {
-    //   // width: 336px;
-    //   width: 100%;
-    //   // height: 455px;
-    // }
+  
   }
 
   @media screen and(min-width: 1024px) {
     flex-basis: calc(100% / 3 - 30px);
-    // flex-basis: calc(100% / 3 - 16px);
-    // margin-left: 16px;
-    // &-img {
-    //   // width: 309px;
-    //   // height: 449px;
-    //   // min-height: 398px;
-    //   width: 100%;
-    // }
   }
   
 }
 
-// .gallery__item:not(:last-child){
-//   margin-bottom: 20px;
-// }
 
 
 .gallery__item-info-wrap {
@@ -97,10 +74,7 @@ body.dark-theme {
 }
 
 .gallery__img {
-  // width: 100%;
-  // height: 100%;
   object-fit: fill;
-  border-radius: 5px;
 }
 
 .gallery__item-genres,

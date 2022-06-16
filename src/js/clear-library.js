@@ -5,7 +5,7 @@ import { getSavedFilms, onQueueBtnClick } from "./getSavedFilms";
 export function onClearLbr (){
    
     const currentFunction=JSON.parse(localStorage.getItem('reloadAction')).funcName;
-    console.log(currentFunction);
+    // console.log(currentFunction);
     let localStorageKey='queue';
 
 
