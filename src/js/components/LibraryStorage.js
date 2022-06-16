@@ -62,10 +62,14 @@ function operateWithLocalStorage(localStorrageKey, id, button) {
       if (checkIfFilmIsSaved(id, localStorrageKey)) {
       removeFromLocal(localStorrageKey, id);
       button.textContent = `Removed from ${localStorrageKey}`;
+      button.classList.remove('btn--active');
+
+
       
     } else {
       addToLocal(localStorrageKey);
-    button.textContent = `Added to ${localStorrageKey}`;
+    button.textContent = `Added to ${localStorrageKey}/remove`;
+    button.classList.add('btn--active');
   }
 
   reRenderGalleryInLibrary(localStorrageKey);
