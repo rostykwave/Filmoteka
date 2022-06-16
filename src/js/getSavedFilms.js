@@ -2,6 +2,7 @@ import { refs } from './getRefs';
 import { renderFilmGallery } from './renderFilmGallery';
 import { Pagination } from './components/pagination-api';
 import { setConfigState } from './components/savedPageConfig';
+import { hidelbrBtn } from './clear-library';
 
 const searchPaginationEl = document.querySelector('.pagination-wrap');
 let filmsLIstOnCurrentPage = null;
@@ -10,13 +11,16 @@ let currentPage = 1;
 let startRenderFilm = null;
 let endRenderFilm = null;
 
-function getSavedFilms(storageKey) {
+export function getSavedFilms(storageKey) {
   const dataJSON = localStorage.getItem(storageKey);
   const data = JSON.parse(dataJSON);
 
   if (!data || data.results.length === 0) {
-    return (refs.filmGallery.innerHTML = `No saved movies in ${storageKey}.`);
+  
+  refs.filmGallery.innerHTML = `No saved movies in ${storageKey}.`;
+    return
   }
+
 
   const filmsPagination = new Pagination(storageKey);
 
