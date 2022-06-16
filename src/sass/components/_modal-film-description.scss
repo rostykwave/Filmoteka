@@ -281,6 +281,39 @@ body.dark-theme {
 position: absolute;
 width: 32px;
 height: 32px;
+border-radius: 50%;
+animation: pulse 1500ms 1000ms 3;
+}
+@media screen and (min-width: 320px){
+@keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 #cd211eef;
+    }
+    75% {
+      box-shadow: 0 0 0 5px #648DE500;
+    }
+  }
+}
+@media screen and (min-width: 768px){
+    @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 #cd211eef;
+        }
+        75% {
+          box-shadow: 0 0 0 10px #648DE500;
+        }
+      }
+    }
+
+@media screen and (min-width: 1024px){
+     @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 #cd211eef;
+        }
+        75% {
+            box-shadow: 0 0 0 20px #648DE500;
+        }
+    }
 }
 
 .iframe {
