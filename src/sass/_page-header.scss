@@ -92,13 +92,10 @@
   position: relative;
   display: flex;
   justify-content: center;
-  padding-bottom: 92px;
+  padding-bottom: 97px;
   padding-left: 20px;
   padding-right: 20px;
   //   width: 280px;
-  @media screen and (min-width: 768px) {
-    padding-bottom: 80px;
-  }
 }
 
 .header-input__wrap {
@@ -157,13 +154,10 @@
 .library-list {
   padding: 0px;
   padding-top: 8px;
-  padding-bottom: 62px;
+  padding-bottom: 65px;
   display: flex;
   justify-content: center;
   list-style: none;
-  @media screen and (min-width: 768px) {
-    padding-bottom: 60px;
-  }
 }
 
 .library-item:not(:last-child) {
