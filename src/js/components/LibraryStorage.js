@@ -63,8 +63,7 @@ function operateWithLocalStorage(localStorrageKey, id, button) {
       removeFromLocal(localStorrageKey, id);
       button.textContent = `Removed from ${localStorrageKey}`;
       button.classList.remove('btn--active');
-      // button.style.backgroundColor = "#f7f7f734";
-      // button.style.color = "white";
+
 
       
     } else {
