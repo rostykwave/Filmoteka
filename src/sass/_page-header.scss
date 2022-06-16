@@ -191,13 +191,14 @@
 .home-bg {
   // background-color: #000000;
   // background-color: #130002;
-  // background-color: #090001;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/hero-img/hero-home-desc-2x-min.jpg);
+  background-color: #090001;
+//   background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+//     url(../images/hero-img/hero-home-desc-2x-min.jpg);
 }
 .library-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-    url(../images/hero-img/hero-library-desk-2x-min.jpg);
+  // background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    // url(../images/hero-img/hero-library-desk-2x-min.jpg);
+    background-color: #090001;
 }
 
 .home {
