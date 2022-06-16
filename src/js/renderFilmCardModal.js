@@ -24,10 +24,10 @@ function modalButtonsTextRender(modalBtnWatched,modalBtnQueue) {
  
      if (checkIfFilmIsSaved(id, 'watched')) {
         modalBtnWatched.classList.add('btn--active');
-        modalBtnWatched.textContent = 'Added to watched';
+        modalBtnWatched.textContent = 'Added to watched/remove';
     }
      if (checkIfFilmIsSaved(id, 'queue')) {
         modalBtnQueue.classList.add('btn--active');
-         modalBtnQueue.textContent = 'Added to queue';
+         modalBtnQueue.textContent = 'Added to queue/remove';
     }
 }
