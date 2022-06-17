@@ -31,6 +31,15 @@
       // height: 398px;
       overflow: hidden;
       border-radius: 5px;
+      
+        @media screen and(min-width: 768px) {
+          height: 455px;
+      
+        }
+      
+        @media screen and(min-width: 1024px) {
+          height: 449px;
+        }
     }
 
   @media screen and(max-width: 767.98px) {
@@ -41,15 +50,12 @@
     flex-basis: calc(100% / 2 - 32px);
     margin-left: 32px;
     margin-top: 32px;
-    height: 455px;
-  
   }
 
   @media screen and(min-width: 1024px) {
     flex-basis: calc(100% / 3 - 16px);
     margin-left: 16px;
     margin-top: 16px;
-    height: 449px;
   }
   
 }
