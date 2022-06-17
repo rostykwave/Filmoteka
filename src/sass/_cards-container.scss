@@ -9,9 +9,14 @@
     display: flex;
     flex-wrap: wrap;
 
-    margin-left: -30px;
-      margin-top: -30px;
+    margin-left: -32px;
+      margin-top: -32px;
   }
+
+     @media screen and(min-width: 1024px) {
+       margin-left: -16px;
+       margin-top: -16px;
+     }
 
   
 }
@@ -33,14 +38,18 @@
  
   }
   @media screen and(min-width: 768px) {
-    flex-basis: calc(100% / 2 - 30px);
-    margin-left: 30px;
-    margin-top: 30px;
+    flex-basis: calc(100% / 2 - 32px);
+    margin-left: 32px;
+    margin-top: 32px;
+    height: 455px;
   
   }
 
   @media screen and(min-width: 1024px) {
-    flex-basis: calc(100% / 3 - 30px);
+    flex-basis: calc(100% / 3 - 16px);
+    margin-left: 16px;
+    margin-top: 16px;
+    height: 449px;
   }
   
 }
